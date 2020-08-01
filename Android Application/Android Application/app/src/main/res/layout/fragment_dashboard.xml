@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    tools:context=".DashboardFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <!-- TODO: Update blank fragment layout -->
+    <androidx.cardview.widget.CardView
+        android:visibility="gone"
+        android:layout_height="190dp"
+        android:layout_width="match_parent"
+        app:cardCornerRadius="15dp"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:layout_margin="5sp"
+        android:clickable="true"
+        android:id="@+id/doctor">
+
+
+        <LinearLayout
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:background="@color/lightgray">
+
+        <ImageView
+            android:layout_height="100sp"
+            android:layout_width="100dp"
+            android:src="@drawable/ic_doctor"
+            android:padding="10dp"/>
+
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:textSize="20sp"
+            android:text="@string/doctor_info"
+            android:textStyle="bold"/>
+
+        <View
+            android:layout_height="1dp"
+            android:layout_width="match_parent"
+            android:layout_margin="2dp"
+            android:background="@color/lightgray"/>
+
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:gravity="center"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:text="@string/see_your_doctor_here"
+            android:textColor="@android:color/darker_gray"/>
+
+    </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+    <androidx.cardview.widget.CardView
+        android:layout_height="190dp"
+        android:layout_width="match_parent"
+        app:cardCornerRadius="15dp"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:layout_margin="5sp"
+        android:clickable="true"
+        android:id="@+id/heartRateMonitor"
+        android:layout_below="@+id/doctor">
+
+
+        <LinearLayout
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:background="@color/lightgray">
+
+            <ImageView
+                android:layout_height="100sp"
+                android:layout_width="100dp"
+                android:src="@drawable/ic_heart"
+                android:padding="10dp"/>
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:textSize="20sp"
+                android:text="@string/heart_rate_monitor"
+                android:textStyle="bold"/>
+
+            <View
+                android:layout_height="1dp"
+                android:layout_width="match_parent"
+                android:layout_margin="2dp"
+                android:background="@color/lightgray"/>
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:gravity="center"
+                android:textSize="25sp"
+                android:text="@string/check_your_bpm"
+                android:textStyle="bold"
+                android:textColor="@android:color/darker_gray"/>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+    <androidx.cardview.widget.CardView
+        android:layout_height="190dp"
+        android:layout_width="match_parent"
+        app:cardCornerRadius="15dp"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:layout_margin="5sp"
+        android:layout_below="@+id/heartRateMonitor"
+        android:clickable="true"
+        android:id="@+id/CurrentDiagnosis">
+
+
+        <LinearLayout
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:background="@color/lightgray">
+
+            <ImageView
+                android:layout_height="100sp"
+                android:layout_width="100dp"
+                android:src="@drawable/ic_examination"
+                android:padding="10dp"/>
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:textSize="20sp"
+                android:text="@string/current_diagnosis"
+                android:textStyle="bold"/>
+
+            <View
+                android:layout_height="1dp"
+                android:layout_width="match_parent"
+                android:layout_margin="2dp"
+                android:background="@color/lightgray"/>
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:gravity="center"
+                android:textSize="25sp"
+                android:text="@string/see_your_medicines_here"
+                android:textStyle="bold"
+                android:textColor="@android:color/darker_gray"/>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+    <androidx.cardview.widget.CardView
+        android:visibility="gone"
+        android:layout_height="190dp"
+        android:layout_width="match_parent"
+        app:cardCornerRadius="15dp"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:layout_margin="5sp"
+        android:clickable="true"
+        android:id="@+id/SharedReports"
+        android:layout_below="@+id/CurrentDiagnosis">
+
+
+        <LinearLayout
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:background="@color/lightgray">
+
+            <ImageView
+                android:layout_height="100sp"
+                android:layout_width="100dp"
+                android:src="@drawable/ic_collaboration"
+                android:padding="10dp"/>
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:textSize="20sp"
+                android:text="@string/shared_reports"
+                android:textStyle="bold"/>
+
+            <View
+                android:layout_height="1dp"
+                android:layout_width="match_parent"
+                android:layout_margin="2dp"
+                android:background="@color/lightgray"/>
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:gravity="center"
+                android:textSize="25sp"
+                android:text="@string/see_the_reports_of_your_loved_one_s"
+                android:textColor="@android:color/darker_gray"
+                android:textStyle="bold"/>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+    <androidx.cardview.widget.CardView
+        android:layout_height="190dp"
+        android:layout_width="match_parent"
+        app:cardCornerRadius="15dp"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:layout_margin="5sp"
+        android:clickable="true"
+        android:id="@+id/CaseHistory"
+        android:layout_below="@+id/SharedReports">
+
+
+        <LinearLayout
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:background="@color/lightgray">
+
+            <ImageView
+                android:layout_height="100sp"
+                android:layout_width="100dp"
+                android:src="@drawable/casehistory"
+                android:padding="10dp"/>
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:textSize="20sp"
+                android:text="@string/case_history"
+                android:textStyle="bold"/>
+
+            <View
+                android:layout_height="1dp"
+                android:layout_width="match_parent"
+                android:layout_margin="2dp"
+                android:background="@color/lightgray"/>
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:gravity="center"
+                android:textSize="25sp"
+                android:text="@string/past_diseases"
+                android:textColor="@android:color/darker_gray"
+                android:textStyle="bold"/>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+    <androidx.cardview.widget.CardView
+        android:layout_height="190dp"
+        android:layout_width="match_parent"
+        app:cardCornerRadius="15dp"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:layout_margin="5sp"
+        android:layout_below="@+id/CaseHistory"
+        android:clickable="true"
+        android:id="@+id/MedicineLog">
+
+
+        <LinearLayout
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:background="@color/lightgray">
+
+            <ImageView
+                android:layout_height="100sp"
+                android:layout_width="100dp"
+                android:src="@drawable/ic_medicine"
+                android:padding="10dp"/>
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:textSize="20sp"
+                android:text="@string/medicine_log"
+                android:textStyle="bold"/>
+
+            <View
+                android:layout_height="1dp"
+                android:layout_width="match_parent"
+                android:layout_margin="2dp"
+                android:background="@color/lightgray"/>
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:gravity="center"
+                android:textSize="25sp"
+                android:text="@string/all_about_medicines"
+                android:textColor="@android:color/darker_gray"
+                android:textStyle="bold"/>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    </RelativeLayout>
+
+    </ScrollView>
+</RelativeLayout>
