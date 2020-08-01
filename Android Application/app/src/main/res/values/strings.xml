@@ -1,0 +1,72 @@
+<resources>
+    <string name="app_name">WikiPill</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+    <string name="default_text">--</string>
+    <string name="channel_name">abcdef</string>
+    <string name="channel_description">description</string>
+    <string name="daily_pills_intake">Daily Pills intake</string>
+    <string name="diseases_ratio">Diseases Ratio:</string>
+    <string name="total_number_of_days">Total number of days:</string>
+    <string name="health_report">Health Report</string>
+    <string name="chicken_pox">CHICKEN POX</string>
+    <string name="zovirax">Zovirax</string>
+    <string name="per_day_limit_4">PER DAY LIMIT: 4</string>
+    <string name="calamine_lotion">Calamine Lotion</string>
+    <string name="cold_and_flu">COLD AND FLU</string>
+    <string name="taken_5_5">TAKEN: 5/5</string>
+    <string name="dextromethorphan">Dextromethorphan</string>
+    <string name="time_before_lunch">TIME: BEFORE LUNCH</string>
+    <string name="diphenhydramine_benadryl">Diphenhydramine (Benadryl®)</string>
+    <string name="time_morning">TIME: MORNING</string>
+    <string name="per_day_limit_1">PER DAY LIMIT: 1</string>
+    <string name="paracetamol">Paracetamol</string>
+    <string name="time_bed_time">TIME: BED TIME</string>
+    <string name="acetaminophen">Acetaminophen</string>
+    <string name="doctor_info">DOCTOR INFO.</string>
+    <string name="see_your_doctor_here">See your doctor here</string>
+    <string name="profile">PROFILE</string>
+    <string name="performance_and_statistics">Performance And Statistics</string>
+    <string name="heart_rate_monitor">HEART RATE MONITOR</string>
+    <string name="check_your_bpm">Check your BPM</string>
+    <string name="current_diagnosis">CURRENT DIAGNOSIS</string>
+    <string name="see_your_medicines_here">See your medicines here</string>
+    <string name="shared_reports">SHARED REPORTS</string>
+    <string name="see_the_reports_of_your_loved_one_s">See the reports of your loved one\'s</string>
+    <string name="case_history">CASE HISTORY</string>
+    <string name="past_diseases">Past diseases</string>
+    <string name="medicine_log">MEDICINE LOG</string>
+    <string name="all_about_medicines">All about medicines</string>
+    <string name="common_cold">COMMON COLD</string>
+    <string name="fexofay_a">FEXOFAY-A</string>
+
+
+    <string name="taken_0">TAKEN: 0</string>
+
+    <string name="saridon">SARIDON</string>
+
+    <string name="time_after_lunch">TIME: AFTER LUNCH</string>
+
+    <string name="per_day_limit_2">PER DAY LIMIT: 2</string>
+    <string name="paracip_500">PARACIP-500</string>
+    <string name="mark_as_taken">Mark As Taken</string>
+    <string name="time_4_times_a_day">TIME: 4 TIMES A DAY</string>
+
+    <string name="per_day_limit_6">PER DAY LIMIT: 6</string>
+    <string name="wikki">Wikki</string>
+    <string name="pills">Pills</string>
+    <string name="login">Login</string>
+    <string name="signup">Signup</string>
+    <string name="otp">OTP</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+
+    <string name="interface_for_dyslexic_users">Interface for Dyslexic Users</string>
+    <string name="english">ENGLISH</string>
+    <string name="hindi">HINDI</string>
+    <string name="kannada">KANNADA</string>
+
+</resources>

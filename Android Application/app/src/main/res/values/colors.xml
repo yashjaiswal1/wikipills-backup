@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#141932</color>
+    <color name="colorPrimaryDark">#172b4d</color>
+    <color name="colorAccent">#fb6340</color>
+    <color name="wiki1">#7267e4</color>
+    <color name="wiki2">#fb6340</color>
+
+    <color name="letters">#b20a2c</color>
+    <color name="yello">#ffb300</color>
+    <color name="green">#00bfa5</color>
+    <color name="pink">#fe104d</color>
+    <color name="lightgray">#ededed</color>
+    <color name="Toolbar_background">#8a56ab</color>
+
+    <color name="colorLayerBlack">#8a56ab</color>
+    <color name="colorBlack">#241333</color>
+    <color name="colorTitle">#362742</color>
+    <color name="colorSubTitle">#c5c9cf</color>
+    <color name="colorWhiteTitle">#ffffff</color>
+    <color name="colorSubTitleWhite">#172d4d</color>
+
+    <color name="colorHintTextLight">#80FFFFFF</color>
+    <color name="colorPrimaryTextLight">#FFFFFF</color>
+
+    <color name="colorLine">#00bfa5</color>
+
+</resources>
