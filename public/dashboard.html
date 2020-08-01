@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <meta name="description"
     content="An integrated software platform for smarter collaboration between sales agents and bank authorities" />
-  <title>Doctor Dashboard</title>
+  <title>User Dashboard</title>
   <!-- Favicon -->
   <link href="img/brand/favicon.png" rel="icon" type="image/png" />
   <!-- Fonts -->
@@ -152,7 +152,7 @@
               <i class="ni ni-single-02 text-green"></i> Doctors
             </a>
           </li> -->
-          <li class="nav-item">
+          <!--<li class="nav-item">
             <a class="nav-link" href="./patients.html">
               <i class="ni ni-single-02 text-pink"></i> Patients
             </a>
@@ -162,7 +162,7 @@
               <i class="ni ni-pin-3 text-orange"></i> Heatmap
             </a>
           </li>
-        </ul>
+        </ul>-->
         <!-- Divider 
         <hr class="my-3" />
 
@@ -219,7 +219,7 @@
                   <img alt="Image placeholder" src="img/theme/team-4-800x800.jpg" />
                 </span>
                 <div class="media-body ml-2 d-none d-lg-block">
-                  <span class="mb-0 text-l font-weight-bold">Doctor</span>
+                  <span class="mb-0 text-l font-weight-bold">User</span>
                 </div>
               </div>
             </a>
@@ -266,7 +266,7 @@
                   <div class="row">
                     <div class="col">
                       <h4 class="card-title text-uppercase text-muted mb-0">
-                        PATIENTS IN-HOUSE
+                        NUMBER OF USERS
                       </h4>
                       <span class="h2 font-weight-bold mb-0">135</span>
                     </div>
@@ -283,13 +283,13 @@
                 </div>
               </div>
             </div>
-            <div class="col-xl col-lg-6">
+            <!--<div class="col-xl col-lg-6">
               <div class="card card-stats mb-4 mb-xl-0">
                 <div class="card-body">
                   <div class="row">
                     <div class="col">
                       <h4 class="card-title text-uppercase text-muted mb-0">
-                        AVAILABLE STAFF
+                        pta nahi
                       </h4>
                       <span class="h2 font-weight-bold mb-0" id="target2">25</span>
                     </div>
@@ -305,14 +305,14 @@
                   </p>
                 </div>
               </div>
-            </div>
+            </div>-->
             <div class="col-xl col-lg-6">
               <div class="card card-stats mb-4 mb-xl-0">
                 <div class="card-body">
                   <div class="row">
                     <div class="col">
                       <h4 class="card-title text-uppercase text-muted mb-0">
-                        Appointments
+                        DOCTORS CONNECTED WITH US
                       </h4>
                       <span class="h2 font-weight-bold mb-0" id="target3">27</span>
                     </div>
@@ -369,7 +369,7 @@
                   <h6 class="text-uppercase text-light ls-1 mb-1">
                     Growth
                   </h6>
-                  <h2 class="text-white mb-0">Patients Treated (yearly)</h2>
+                  <h2 class="text-white mb-0">Cardiovascular Health Metrics</h2>
                 </div>
               </div>
             </div>
@@ -388,40 +388,55 @@
                   // The data for our dataset
                   data: {
                     labels: [
-                      "January",
-                      "February",
-                      "March",
-                      "April",
-                      "May",
-                      "June",
-                      "July",
-                      "August",
-                      "September",
-                      "October",
-                      "November",
-                      "December"
+                      "Monday",
+                      "Tuesday",
+                      "Wednesday",
+                      "Thursday",
+                      "Friday",
+                      "saturday",
+                      "Sunday",
+                      "Monday",
+                      "Tuesday",
+                      "Wednesday",
+                      "Thursday",
+                      "Friday"
                     ],
                     datasets: [{
-                        label: "2018",
-                        borderColor: "#f5365c",
-                        data: [50, 43, 37, 33, 30, 28, 30, 35, 40, 45, 50, 48]
+                        label: "Tachycardia rate",
+                        borderColor: "#f0ff00",
+                        data: [100, 100,100, 100, 100, 100, 100, 100, 100, 100, 100, 100]
                       },
                       {
-                        label: "2019",
+                        label: "User",
                         //backgroundColor: 'rgb(255, 99, 132)',
                         borderColor: "#11cdef",
-                        data: [20, 35, 30, 35, 37, 39, 43, 40, 38, 40, 25, 40]
+                        data: [80, 86, 75, 72, 81, 84, 85, 89, 94, 98, 97, 95]
+                      },
+                      {
+                        label: "Bradycardia rate",
+                        //backgroundColor: 'rgb(255, 99, 132)',
+                        borderColor: " #ff0000",
+                        data: [60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60]
                       }
+                      
                     ]
                   },
 
                   // Configuration options go here
                   options: {
+                    scales: {
+                          yAxes: [{
+                            ticks: {
+                                min: 40,
+                                max: 120 //max value for the chart is 60
+                                }
+                            }]
+                        },
                     legend: {
                       display: true,
                       labels: {
-                        fontColor: "#f4f5f7"
-                      }
+                        fontColor: "#f4f5f7",
+                      },
                     },
                     tooltips: {
                       enabled: false,
@@ -731,13 +746,14 @@
           </div>
         </div>
       </div>
-      <div class="row mt-5">
-        <div class="col-xl-8 mb-5 mb-xl-0">
+      <div class="row mt-3">
+
+        <div class="col-xl-7 mb-5 mb-xl-0">
           <div class="card shadow">
             <div class="card-header border-0">
               <div class="row align-items-center">
                 <div class="col">
-                  <h3 class="mb-0">Prioritized Patients</h3>
+                  <h3 class="mb-0">View Concerned Person profile</h3>
                 </div>
                 <div class="col text-right">
                   
@@ -749,26 +765,22 @@
               <table class="table align-items-center table-flush">
                 <thead class="thead-light">
                   <tr>
-                    <th scope="col">No.</th>
-                    <th scope="col">Patient name</th>
-                    <th scope="col">Disease</th>
-                    <th scope="col">Priority</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Relation</th>
+                    <th scope="col">Caretaker</th>
                     <th scope="col">Health Profile</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
                     <th scope="row">
-                      1
+                       Manish Chawla
                     </th>
                     <td>
-                      Yash Jaiswal
+                      Father
                     </td>
                     <td>
-                      Dengue
-                    </td>
-                    <td>
-                      <i class="fas fa-arrow-up text-default mr-3"></i> High
+                      Sai Krishna
                     </td>
                     <td>
                       <form>
@@ -782,16 +794,13 @@
                   </tr>
                   <tr>
                     <th scope="row">
-                      2
+                    Sneha Chawla
                     </th>
                     <td>
-                      Sneha Gupta
+                      Mother
                     </td>
                     <td>
-                      Typhoid
-                    </td>
-                    <td>
-                      <i class="fas fa-arrow-up text-primary mr-3"></i> Medium
+                      Aditi Gupta
                     </td>
                     <td>
                       <form>
@@ -803,7 +812,7 @@
                       </form>
                     </td>
                   </tr>
-                  <tr>
+                  <!--<tr>
                     <th scope="row">
                       3
                     </th>
@@ -871,20 +880,20 @@
                         </div>
                       </form>
                     </td>
-                  </tr>
+                  </tr>-->
                 </tbody>
               </table>
             </div>
           </div>
         </div>
-        <div class="col-xl-4">
+        <div class="col-xl-5">
           <div class="card shadow">
             <div class="card-header border-0">
               <div class="row align-items-center">
                 <div class="col">
                   <img align="right" src="./img/icons/question-blue.png" data-toggle="tooltip" data-placement="top"
                     title="Age-group of patients affected by the selected epidemic">
-                  <h3 class="mb-0">Patient Age Groups</h3>
+                  <h3 class="mb-0">Targeted Age Groups</h3>
 
                 </div>
 
@@ -966,6 +975,8 @@
             </script>
           </div>
         </div>
+        
+        
       </div>
       <br>
       <div class="card shadow">
