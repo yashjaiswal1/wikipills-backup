@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+<html>
+<!--
+[0] resources
+  - animation: http://velocityjs.org/
+  - css flex
+  - basic flow
+-->
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description"
+        content="An integrated software platform for smarter collaboration between sales agents and bank authorities">
+    <title>Patient Profile</title>
+
+    <!-- Firebase -->
+    <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+    <!-- Icons -->
+    <link href="./vendor/nucleo/css/nucleo.css" rel="stylesheet">
+    <link href="./vendor/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
+    <!-- Argon CSS -->
+    <link type="text/css" href="./css/argon.min.css?v=1.0.0" rel="stylesheet">
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NKDMSK6" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+
+    <link rel="stylesheet" href="./css/app.css?v=<?= time() ?>">
+
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+      <!-- PWA -->
+  <link rel="manifest" href="/manifest.json">
+  <!-- Icons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#2b5797">
+<meta name="theme-color" content="#7C62E4"/>
+<<<<<<< HEAD
+    <script
+      SameSite="None"
+      Secure
+      src="https://sdk.amazonaws.com/js/aws-sdk-2.7.16.min.js"
+    ></script>
+
+    <script>
+      AWS.config.update({
+        region: "us-east-1",
+        // endpoint: "https://test-c2078.web.app/",
+        // accessKeyId default can be used while using the downloadable version of DynamoDB.
+        // For security reasons, do not store AWS Credentials in your files. Use Amazon Cognito instead.
+        accessKeyId: "ASIAVX5X47AECJRYZQ46",
+        // secretAccessKey default can be used while using the downloadable version of DynamoDB.
+        // For security reasons, do not store AWS Credentials in your files. Use Amazon Cognito instead.
+        secretAccessKey: "E5IWdNElbqBy3JK0eto1++uKuECn/rxNwIGwYsc7",
+        sessionToken:
+          "FwoGZXIvYXdzEIX//////////wEaDHRVGiEGLg/KM5ICDSLJAc/XiBTQrf45/VGyqfV14I4qugQTOLJMyxqMqGUjykJpk4JcOSIJgBaqRRFD0Ql/tW8RnVJ74FpLwGqVNMXMzf1NqFlnrf7nJfV110N6a0Zo4BMN6Fmx2NjpCUefw4cQgo/7vIv4dJ704Eu10CGO6kLuuuePFPw9DzU1gL1HVKgL01rRRaUDXwRA5+4Lg9CGMO9Ov0mcnaOO/NP8mifkqIQx1edBxK12kxAEcQLN60bpp/Jc9N3iHNx/5WmGH8/M0GMZoIfxAFQz9yiWlY75BTItitt6LhWsA0p12rnGmbjHaz9QQW1hUG1Lfi7sGZbFKD3usRk6ix6C2dqRV6qR"
+      });
+
+      var docClient = new AWS.DynamoDB.DocumentClient();
+
+      function readItem() {
+          var table = "Medicine";
+          var id = "1";
+
+          var params = {
+              TableName: table,
+              Key:{
+                  "PatientID": id
+              }
+          };
+          docClient.get(params, function(err, data) {
+            if (err) {
+              console.log("Unable to read item: " + "\n" + JSON.stringify(err, undefined, 2));
+            } else {
+              console.log("GetItem succeeded: " + "\n" + JSON.stringify(data["Item"]["candid"], undefined, 2));
+              console.log("\nRAW DATA:\n\n" + data);
+              console.log("\nRAW DATATYPE:\n\n" + typeof(data));
+            }
+          });          
+      }
+      readItem();
+    </script>
+=======
+
+<link rel="icon" href="favicon.ico" type="image/x-icon" />  
+<meta name="apple-mobile-web-app-capable" content="yes">  
+<meta name="apple-mobile-web-app-status-bar-style" content="black"> 
+<meta name="apple-mobile-web-app-title" content="WikiPills">
+>>>>>>> d232e4d26dea80c4b914d77178a4ac23510f2881
+</head>
+
+<body>
+
+    <div class="mdl-layout mdl-js-layout">
+        <header class="mdl-layout__header bg-header">
+
+
+
+            <div class="mdl-layout__header-row">
+                <!-- <span class="mdl-layout__title">Simple Layout</span> -->
+            </div>
+            <div class="mdl-layout-spacer"></div>
+        </header>
+
+        <main class="mdl-layout__content bg-body"></main>
+
+        <main class="mdl-layout__content mdl-shadow--3dp main-body">
+            <div class="mdl-grid">
+                <div class="mdl-cell mdl-cell--4-col side-panel">
+                    <div class="mdl-grid headerr">
+                        <div class="mdl-cell mdl-cell--2-col">
+                            <div class="avatar">
+                                <img src="./img/patients_page/doctor.png" />
+                            </div>
+                        </div>
+                        <!--<div class="mdl-layout-spacer"></div>
+                        <div class="mdl-cell mdl-cell--2-col">
+                            <button class="mdl-button mdl-js-button mdl-button--icon">
+                                <i class="material-icons">chat</i>
+                            </button>
+                        </div>
+                        <div class="mdl-cell mdl-cell--2-col pos-rel">
+                            <button id="demo-menu-lower-right" class="mdl-button mdl-js-button mdl-button--icon">
+                                <i class="material-icons">more_vert</i>
+                            </button>
+                            <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
+                                for="demo-menu-lower-right">
+                                <li class="mdl-menu__item">Profile</li>
+                                <li class="mdl-menu__item">Performance</li>
+                                <li class="mdl-menu__item">Schedule</li>
+                                <li class="mdl-menu__item">Yet Another Action</li>
+                            </ul>
+                        </div>-->
+                    </div>
+                    <!--<div class="search-contact">
+                        <div class="mdl-grid search-contact-inner">
+
+                            <div class="mdl-cell mdl-cell--2-col search-icon-container">
+                                <button class="mdl-button mdl-js-button mdl-button--icon">
+                                    <i class="material-icons">search</i>
+                                </button>
+                                <button class="mdl-button mdl-js-button mdl-button--icon hide">
+                                    <i class="material-icons">arrow_back</i>
+                                </button>
+                            </div>
+                            <div class="mdl-cell mdl-cell--10-col search-text-container">
+                                <input type="text" id="searchfield" placeholder="Search patients" />
+                            </div>
+                        </div>
+
+                    </div>-->
+
+                    <div class="user-list">
+                        <ul class="mdl-list">
+                            <li class="mdl-list__item mdl-list__item--two-line mdl-button">
+                                <span class="mdl-list__item-primary-content">
+                                    <img class="mdl-list__item-avatar" src="./img/patients_page/boy.png" />
+                                    <font>Yash Jaiswal</font>
+                                    <span class="mdl-list__item-sub-title"></span>
+                                </span>
+                                <span class="mdl-list__item-secondary-content">
+                                    <span class="mdl-list__item-secondary-info">5:35</span>
+                                </span>
+                            </li>
+                            <li class="mdl-list__item mdl-list__item--two-line mdl-button">
+                                <span class="mdl-list__item-primary-content">
+                                    <img class="mdl-list__item-avatar" src="./img/patients_page/girl.png" />
+                                    <span>Sneha Gupta</span>
+                                    <span class="mdl-list__item-sub-title"> </span>
+                                </span>
+                                <span class="mdl-list__item-secondary-content">
+                                    <span class="mdl-list__item-secondary-info">4:23</span>
+                                </span>
+                            </li>
+                            <li class="mdl-list__item mdl-list__item--two-line mdl-button">
+                                <span class="mdl-list__item-primary-content">
+                                    <img class="mdl-list__item-avatar" src="./img/patients_page/lady.png" />
+                                    <span>Pooja Rai</span>
+                                    <span class="mdl-list__item-sub-title"> </span>
+                                </span>
+                                <span class="mdl-list__item-secondary-content">
+                                    <span class="mdl-list__item-secondary-info">Yesterday</span>
+                                </span>
+                            </li>
+                            <li class="mdl-list__item mdl-list__item--two-line mdl-button">
+                                <span class="mdl-list__item-primary-content">
+                                    <img class="mdl-list__item-avatar" src="./img/patients_page/man.png" />
+                                    <span>Vivek Kumar</span>
+                                    <span class="mdl-list__item-sub-title"></span>
+                                </span>
+                                <span class="mdl-list__item-secondary-content">
+                                    <span class="mdl-list__item-secondary-info">5:35</span>
+                                </span>
+                            </li>
+                            <li class="mdl-list__item mdl-list__item--two-line mdl-button">
+                                <span class="mdl-list__item-primary-content">
+                                    <img class="mdl-list__item-avatar" src="./img/patients_page/lady.png" />
+                                    <span>Rishina Sharma</span>
+                                    <span class="mdl-list__item-sub-title"></span>
+                                </span>
+                                <span class="mdl-list__item-secondary-content">
+                                    <span class="mdl-list__item-secondary-info">4:23</span>
+                                </span>
+                            </li>
+                            <li class="mdl-list__item mdl-list__item--two-line mdl-button">
+                                <span class="mdl-list__item-primary-content">
+                                    <img class="mdl-list__item-avatar" src="./img/patients_page/girl.png" />
+                                    <span>Srishti Selot</span>
+                                    <span class="mdl-list__item-sub-title"></span>
+                                </span>
+                                <span class="mdl-list__item-secondary-content">
+                                    <span class="mdl-list__item-secondary-info">Yesterday</span>
+                                </span>
+                            </li>
+                            <li class="mdl-list__item mdl-list__item--two-line mdl-button">
+                                <span class="mdl-list__item-primary-content">
+                                    <img class="mdl-list__item-avatar" src="./img/patients_page/boy.png" />
+                                    <span>Alok Kumar Singh</span>
+                                    <span class="mdl-list__item-sub-title"></span>
+                                </span>
+                                <span class="mdl-list__item-secondary-content">
+                                    <span class="mdl-list__item-secondary-info">5:35</span>
+                                </span>
+                            </li>
+                            <li class="mdl-list__item mdl-list__item--two-line mdl-button">
+                                <span class="mdl-list__item-primary-content">
+                                    <img class="mdl-list__item-avatar" src="./img/patients_page/girl.png" />
+                                    <span>Nishta Palani</span>
+                                    <span class="mdl-list__item-sub-title"></span>
+                                </span>
+                                <span class="mdl-list__item-secondary-content">
+                                    <span class="mdl-list__item-secondary-info">Yesterday</span>
+                                </span>
+                            </li>
+                            <li class="mdl-list__item mdl-list__item--two-line mdl-button">
+                                <span class="mdl-list__item-primary-content">
+                                    <img class="mdl-list__item-avatar" src="./img/patients_page/lady.png" />
+                                    <span>Sejal Dixit</span>
+                                    <span class="mdl-list__item-sub-title"></span>
+                                </span>
+                                <span class="mdl-list__item-secondary-content">
+                                    <span class="mdl-list__item-secondary-info">5:35</span>
+                                </span>
+                            </li>
+                            <li class="mdl-list__item mdl-list__item--two-line mdl-button">
+                                <span class="mdl-list__item-primary-content">
+                                    <img class="mdl-list__item-avatar" src="./img/patients_page/man.png" />
+                                    <span>Gaurav Gunjan Mishra</span>
+                                    <span class="mdl-list__item-sub-title"></span>
+                                </span>
+                                <span class="mdl-list__item-secondary-content">
+                                    <span class="mdl-list__item-secondary-info">4:23</span>
+                                </span>
+                            </li>
+                            <li class="mdl-list__item mdl-list__item--two-line mdl-button">
+                                    <span class="mdl-list__item-primary-content">
+                                        <img class="mdl-list__item-avatar" src="./img/patients_page/girl.png" />
+                                        <span>Shreya Luthra</span>
+                                        <span class="mdl-list__item-sub-title"></span>
+                                    </span>
+                                    <span class="mdl-list__item-secondary-content">
+                                        <span class="mdl-list__item-secondary-info">4:23</span>
+                                    </span>
+                                </li>
+                                <!--<li class="mdl-list__item mdl-list__item--two-line mdl-button">
+                                        <span class="mdl-list__item-primary-content">
+                                            <img class="mdl-list__item-avatar" src="./img/patients_page/man.png" />
+                                            <span>Gaurav Gunjan Mishra</span>
+                                            <span class="mdl-list__item-sub-title"></span>
+                                        </span>
+                                        <span class="mdl-list__item-secondary-content">
+                                            <span class="mdl-list__item-secondary-info">4:23</span>
+                                        </span>
+                                    </li>-->
+                        </ul>
+                    </div>
+                </div>
+                <div class="mdl-cell mdl-cell--8-col main-panel">
+                    <div class="mdl-grid headerr">
+                        <div class="mdl-cell mdl-cell--4-col">
+                            <span class="mdl-list__item-primary-content">
+                                <img class="mdl-list__item-avatar" src="./img/patients_page/boy.png" />
+                                <span class="title-name" style="font-size: 20px;">Yash Jaiswal</span>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="user-list">
+                        <br><br><br><br>
+
+                        <div class="container-fluid mt--7">
+                                <h4>&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;<b>Currently Diagnosed with</b>: Common Cold</h4>
+                                <h4>&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;<b>Prescribed Medicines</b>:</h4>
+                                <p>&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;Fexofay-A - [Bedtime]</p>
+                                <p>&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;Saridon - [After Lunch]</p>
+                                <p>&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;Paracip-500 - [4 Times Per Day]</p>
+                                <script>
+                                        var coll = document.getElementsByClassName("collapsible");
+                                        var i;
+                                        
+                                        for (i = 0; i < coll.length; i++) {
+                                          coll[i].addEventListener("click", function() {
+                                            this.classList.toggle("active");
+                                            var content = this.nextElementSibling;
+                                            if (content.style.display === "block") {
+                                              content.style.display = "none";
+                                            } else {
+                                              content.style.display = "block";
+                                            }
+                                          });
+                                        }
+                                </script>
+                                <h3>&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;<u>Analytics</u>
+                                    </h3>
+                            <div class="row">
+                                &NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;
+                                <div class="col-11">
+                                    <div class="card bg-gradient-primary shadow">
+                                        <div class="card-header bg-transparent">
+                                            <div class="row align-items-center">
+                                                <div class="col">
+                                                    <img align="right" src="./img/icons/question-blue.png"
+                                                        data-toggle="tooltip" data-placement="top"
+                                                        title="Graph representing total sales in the Present Year Vs the Previous Year ">
+                                                    <h6 class="text-uppercase text-light ls-1 mb-1">
+                                                        Overview
+                                                    </h6>
+                                                    <h3 class="text-white mb-0">Health Report</h3>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card-body">
+                                            <!-- Chart -->
+                                            <div>
+                                                <canvas id="myChart"></canvas>
+                                            </div>
+                                            <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+                                            <script>
+                                                Chart.defaults.global.defaultFontColor = 'white';
+                                                var ctx = document.getElementById('myChart').getContext('2d');
+
+                                                function rand() {
+                                                    var temp = Math.floor((Math.random() * 10) + 1);
+                                                    //x.innerHTML = temp;
+                                                    while (temp > 3) {
+                                                        temp = Math.floor((Math.random() * 10) + 1);
+                                                    }
+                                                    return temp;
+                                                }
+                                                var chart = new Chart(ctx, {
+                                                    // The type of chart we want to create
+                                                    type: 'line',
+
+                                                    // The data for our dataset
+                                                    data: {
+                                                        labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday',
+                                                            'Friday', 'Saturday', 'Sunday'
+                                                        ],
+                                                        datasets: [{
+                                                                label: 'Health Status',
+                                                                borderColor: '#f5365c',
+                                                                data: [1, 1, 1, 2, 1, 1, 2]
+                                                            }
+                                                            /*{
+                                                                label: 'General Trend',
+                                                                borderColor: '#11cdef',
+                                                                data: [1, 1, 2, 2, 3, 3, 3]
+                                                            }*/
+                                                        ]
+                                                    },
+
+                                                    // Configuration options go here
+                                                    options: {
+                                                        tooltips: {
+                                                            enabled: false,
+                                                            mode: 'index',
+                                                            intersect: false,
+                                                            custom: function (model) {
+
+                                                                // Get tooltip
+                                                                var $tooltip = $('#chart-tooltip');
+
+                                                                // Create tooltip on first render
+                                                                if (!$tooltip.length) {
+                                                                    $tooltip = $(
+                                                                        '<div id="chart-tooltip" class="popover bs-popover-top" role="tooltip"></div>'
+                                                                        );
+
+                                                                    // Append to body
+                                                                    $('body').append($tooltip);
+                                                                }
+
+                                                                // Hide if no tooltip
+                                                                if (model.opacity === 0) {
+                                                                    $tooltip.css('display', 'none');
+                                                                    return;
+                                                                }
+
+                                                                function getBody(bodyItem) {
+                                                                    return bodyItem.lines;
+                                                                }
+
+                                                                // Fill with content
+                                                                if (model.body) {
+                                                                    var titleLines = model.title || [];
+                                                                    var bodyLines = model.body.map(getBody);
+                                                                    var html = '';
+
+                                                                    // Add arrow
+                                                                    html += '<div class="arrow"></div>';
+
+                                                                    // Add header
+                                                                    titleLines.forEach(function (title) {
+                                                                        html +=
+                                                                            '<h3 class="popover-header text-center">' +
+                                                                            title + '</h3>';
+                                                                    });
+
+                                                                    // Add body
+                                                                    bodyLines.forEach(function (body, i) {
+                                                                        var colors = model
+                                                                            .labelColors[i];
+                                                                        var styles =
+                                                                            'background-color: ' +
+                                                                            colors.backgroundColor;
+                                                                        var indicator =
+                                                                            '<span class="badge badge-dot"><i class="bg-primary"></i></span>';
+                                                                        var align = (bodyLines
+                                                                                .length > 1) ?
+                                                                            'justify-content-left' :
+                                                                            'justify-content-center';
+                                                                        html +=
+                                                                            '<div class="popover-body d-flex align-items-center ' +
+                                                                            align + '">' +
+                                                                            indicator + body +
+                                                                            '</div>';
+                                                                    });
+
+                                                                    $tooltip.html(html);
+                                                                }
+
+                                                                // Get tooltip position
+                                                                var $canvas = $(this._chart.canvas);
+
+                                                                var canvasWidth = $canvas.outerWidth();
+                                                                var canvasHeight = $canvas.outerHeight();
+
+                                                                var canvasTop = $canvas.offset().top;
+                                                                var canvasLeft = $canvas.offset().left;
+
+                                                                var tooltipWidth = $tooltip.outerWidth();
+                                                                var tooltipHeight = $tooltip.outerHeight();
+
+                                                                var top = canvasTop + model.caretY -
+                                                                    tooltipHeight - 16;
+                                                                var left = canvasLeft + model.caretX -
+                                                                    tooltipWidth / 2;
+
+                                                                // Display tooltip
+                                                                $tooltip.css({
+                                                                    'top': top + 'px',
+                                                                    'left': left + 'px',
+                                                                    'display': 'block',
+                                                                    'z-index': '100'
+                                                                });
+
+                                                            },
+                                                            callbacks: {
+                                                                label: function (item, data) {
+                                                                    var label = data.datasets[item
+                                                                        .datasetIndex].label || '';
+                                                                    var yLabel = item.yLabel;
+                                                                    var content = '';
+
+                                                                    if (data.datasets.length > 1) {
+                                                                        content +=
+                                                                            '<span class="badge badge-primary mr-auto">' +
+                                                                            label + '</span>';
+                                                                    }
+
+                                                                    content +=
+                                                                        '<span class="popover-body-value">' +
+                                                                        yLabel + '</span>';
+                                                                    return content;
+                                                                }
+                                                            }
+                                                        },
+                                                        responsive: true,
+                                                        legend: {
+                                                            position: 'bottom',
+                                                        },
+                                                        hover: {
+                                                            mode: 'label'
+                                                        },
+                                                        scales: {
+                                                            xAxes: [{
+                                                                display: true,
+                                                                scaleLabel: {
+                                                                    display: true,
+                                                                    labelString: 'Per Day'
+                                                                }
+                                                            }],
+                                                            yAxes: [{
+                                                                display: true,
+                                                                scaleLabel: {
+                                                                    display: true,
+                                                                    labelString: 'Health Status'
+                                                                },
+                                                                ticks: {
+                                                                    min: 0,
+                                                                    max: 3,
+                                                                    stepSize: 1,
+                                                                    suggestedMin: 0.5,
+                                                                    suggestedMax: 5.5,
+                                                                    callback: function (label, index,
+                                                                        labels) {
+                                                                        switch (label) {
+                                                                            case 0:
+                                                                                return '';
+                                                                            case 1:
+                                                                                return 'Worse';
+                                                                            case 2:
+                                                                                return 'Indifferent';
+                                                                            case 3:
+                                                                                return 'Better';
+                                                                        }
+                                                                    }
+                                                                },
+                                                                gridLines: {
+                                                                    display: false
+                                                                }
+                                                            }]
+                                                        }
+                                                    }
+                                                });
+                                            </script>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <br><br>
+                            <style>
+                                    * {
+                                      box-sizing: border-box;
+                                    }
+                                    
+                                    
+                                    
+                                    /* The actual timeline (the vertical ruler) */
+                                    .timeline {
+                                      position: relative;
+                                      max-width: 1200px;
+                                      margin: 0 auto;
+                                    }
+                                    
+                                    /* The actual timeline (the vertical ruler) */
+                                    .timeline::after {
+                                      content: '';
+                                      position: absolute;
+                                      width: 6px;
+                                      background-color: #fb6340;
+                                      top: 20px;
+                                      bottom: 0;
+                                      left: 50%;
+                                      margin-left: -3px;
+                                    }
+                                    
+                                    /* Container around content */
+                                    .containerr {
+                                      padding: 10px 40px;
+                                      position: relative;
+                                      background-color: inherit;
+                                      width: 50%;
+                                    }
+                                    
+                                    /* The circles on the timeline */
+                                    .containerr::after {
+                                      content: '';
+                                      position: absolute;
+                                      width: 25px;
+                                      height: 25px;
+                                      right: -17px;
+                                      background-color: white;
+                                      border: 4px solid #fb6340;
+                                      top: 15px;
+                                      border-radius: 50%;
+                                      z-index: 1;
+                                    }
+                                    
+                                    /* Place the container to the left */
+                                    .left {
+                                      left: 0;
+                                    }
+                                    
+                                    /* Place the container to the right */
+                                    .right {
+                                      left: 50%;
+                                    }
+                                    
+                                    /* Add arrows to the left container (pointing right) */
+                                    .left::before {
+                                      content: " ";
+                                      height: 0;
+                                      position: absolute;
+                                      top: 22px;
+                                      width: 0;
+                                      z-index: 1;
+                                      right: 30px;
+                                      border: medium solid #d8d6d6;
+                                      border-width: 10px 0 10px 10px;
+                                      border-color: transparent transparent transparent #d8d6d6;
+                                    }
+                                    
+                                    /* Add arrows to the right container (pointing left) */
+                                    .right::before {
+                                      content: " ";
+                                      height: 0;
+                                      position: absolute;
+                                      top: 22px;
+                                      width: 0;
+                                      z-index: 1;
+                                      left: 30px;
+                                      border: medium solid #d8d6d6;
+                                      border-width: 10px 10px 10px 0;
+                                      border-color: transparent #d8d6d6 transparent transparent;
+                                    }
+                                    
+                                    /* Fix the circle for containers on the right side */
+                                    .right::after {
+                                      left: -16px;
+                                    }
+                                    
+                                    /* The actual content */
+                                    .content {
+                                      padding: 20px 30px;
+                                      background-color: #d8d6d6;
+                                      position: relative;
+                                      border-radius: 6px;
+                                    }
+                                    
+                                    /* Media queries - Responsive timeline on screens less than 600px wide */
+                                    @media screen and (max-width: 600px) {
+                                      /* Place the timelime to the left */
+                                      .timeline::after {
+                                      left: 31px;
+                                      }
+                                      
+                                      /* Full-width containers */
+                                      .containerr {
+                                      width: 100%;
+                                      padding-left: 70px;
+                                      padding-right: 25px;
+                                      }
+                                      
+                                      /* Make sure that all arrows are pointing leftwards */
+                                      .containerr::before {
+                                      left: 60px;
+                                      border: medium solid white;
+                                      border-width: 10px 10px 10px 0;
+                                      border-color: transparent white transparent transparent;
+                                      }
+                                    
+                                      /* Make sure all circles are at the same spot */
+                                      .left::after, .right::after {
+                                      left: 15px;
+                                      }
+                                      
+                                      /* Make all right containers behave like the left ones */
+                                      .right {
+                                      left: 0%;
+                                      }
+                                    }
+                                    </style>
+                                    <br>
+                                    
+                                        <div class="row">
+                                                &NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;
+                                        <div class="col-11">
+                                          <div class="card bg-gradient-default shadow">
+                                            <div class="card-header bg-transparent">
+                                              <div class="row align-items-center">
+                                                <div class="col">
+                                                  <img align="right" src="./img/icons/question-blue.png" data-toggle="tooltip" data-placement="top"
+                                                    title="Month-wise sales comparision between the selected two products">
+                                                  <h6 class="text-uppercase text-muted ls-1 mb-1">
+                                                    Medication
+                                                  </h6>
+                                
+                                                  <h3 class="mb-0"><font style="color: white;">Daily Intake Report</font></h3><br>
+                                                  <select id="prod1" class="custom-select custom-select-sm" onchange="orders1(this.value)">
+                                                    <option disabled>Select a medicine</option>
+                                                    <option selected value="1">Fexofay-A</option>
+                                                    <option value="2">Saridon</option>
+                                                    <option value="3">Paracip-500</option>
+                                                  </select><br><br>
+                                                </div>
+                                              </div>
+                                              <br>
+                                            </div>
+                                            <div class="card-body">
+                                              <!-- Chart -->
+                                              <div class="chart">
+                                                <canvas id="chart-orderz" class="chart-canvas"></canvas>
+                                                <!-- <input type="button" value="Increment" onclick="Update()"> -->
+                                              </div>
+
+       <!-- Firebase -->
+ <!-- The core Firebase JS SDK is always required and must be listed first -->
+ <script src="/__/firebase/7.9.1/firebase-app.js"></script>
+
+ <!-- TODO: Add SDKs for Firebase products that you want to use
+      https://firebase.google.com/docs/web/setup#available-libraries -->
+ <script src="/__/firebase/7.9.1/firebase-database.js"></script>
+ 
+ <!-- Initialize Firebase -->
+ <script src="/__/firebase/init.js"></script>
+ <script src="./index.js"></script>
+                                              <script>
+                                                var arr1 = [3, 5, 0, 0, 0, 0, 0];
+                                                var arr2 = [2, 1, 0, 0, 0, 0, 0];
+                                                var arr3 = [0, 1, 0, 0, 0, 0, 0];
+                                                var counter = 0;
+                                                var ctrx = document
+                                                  .getElementById("chart-orderz")
+                                                  .getContext("2d");
+                                                var chart = new Chart(ctrx, {
+                                                  // The type of chart we want to create
+                                                  type: "bar",
+                                                  // The data for our dataset
+                                                  data: {
+                                                    labels: [
+                                                      "Monday",
+                                                      "Tuesday",
+                                                      "Wednesday",
+                                                      "Thursday",
+                                                      "Friday",
+                                                      "Saturday",
+                                                      "Sunday"
+                                                    ],
+                                                    datasets: [{
+                                                        label: "Fexofay-A",
+                                                        backgroundColor: "#11cdef",
+                                                        borderColor: "#11cdef",
+                                                        data: arr1
+                                                      },
+                                                      {
+                                                        label: "Prescribed Dosage",
+                                                        backgroundColor: "#f5365c",
+                                                        borderColor: "#f5365c",
+                                                        data: [3, 3, 3, 3, 3, 3, 3]
+                                                      }
+                                                    ]
+                                                  },
+                                                  options: {
+                                                    maintainAspectRatio: false,
+                                                    scales: {
+                                                      xAxes: [{
+                                                        barPercentage: 0.5,
+                                                        barThickness: 8,
+                                                        maxBarThickness: 20,
+                                                        minBarLength: 2000,
+                                                        gridLines: {
+                                                          offsetGridLines: true
+                                                        }
+                                                      }]
+                                                    }
+                                                  }
+                                                });
+                                                var p1, p2;
+
+                                                function orders1(choice) {
+                                                  switch (choice) {
+                                                    case '2':
+                                                      chart.data.datasets[0].label = "Saridon";
+                                                      chart.data.datasets[0].data = arr2;
+                                                      chart.data.datasets[1].data = [2, 2, 2, 2, 2, 2, 2];
+                                                      chart.update()
+                                                      break;
+                                                    case '1':
+                                                      chart.data.datasets[0].label = "Fexofay-A";
+                                                      chart.data.datasets[0].data = arr1;
+                                                      chart.data.datasets[1].data = [3, 3, 3, 3, 3, 3, 3];
+                                                      chart.update()
+                                                      break;
+                                                    case '3':
+                                                      chart.data.datasets[0].label = "Paracip-500";
+                                                      chart.data.datasets[0].data = arr3;
+                                                      chart.data.datasets[1].data = [1, 1, 1, 1, 1, 1, 1];
+                                                      chart.update()
+                                                      break;
+                                                  }
+                                                }
+
+                                                var firebaseRef = firebase.database().ref();
+                                                // firebaseRef.child("Test").set("Working1");
+
+                                                var med1 = firebaseRef.child("Medicine").child("fexofay").child("taken");
+                                                med1.on('value', function(snapshot){
+                                                    counter += 1;
+                                                    if(counter > 3){
+                                                        console.log("WORKING!!!\n");
+                                                        console.log(snapshot.val());
+                                                        arr1[2] += 1;
+                                                        chart.update(); 
+                                                    }
+                                                });
+
+                                                var med2 = firebaseRef.child("Medicine").child("paracip").child("taken");
+                                                med2.on('value', function(snapshot){
+                                                    counter += 1;
+                                                    if(counter > 3){
+                                                        console.log("WORKING!!!\n");
+                                                        console.log(snapshot.val());
+                                                        arr3[2] += 1;
+                                                        chart.update(); 
+                                                    }
+                                                });
+
+                                                var med3 = firebaseRef.child("Medicine").child("saradon").child("taken");
+                                                med3.on('value', function(snapshot){
+                                                    counter += 1;
+                                                    if(counter > 3){ 
+                                                        console.log("WORKING!!!\n");
+                                                        console.log(snapshot.val());
+                                                        arr2[2] += 1;
+                                                        chart.update(); 
+                                                    }
+                                                });
+                                            
+                                
+                                                // function orders2(choice) {
+                                                //   switch (choice) {
+                                                //     case '2':
+                                                //       chart.data.datasets[1].label = "Saridon";
+                                                //       chart.data.datasets[1].data = [35, 30, 20, 25, 20, 25, 45, 65];
+                                                //       chart.update()
+                                                //       break;
+                                                //     case '1':
+                                                //       chart.data.datasets[1].label = "Fexofay-A";
+                                                //       chart.data.datasets[1].data = [65, 30, 20, 35, 10, 45, 45, 50];
+                                                //       chart.update()
+                                                //       break;
+                                                //     case '3':
+                                                //       chart.data.datasets[1].label = "Paracip-500";
+                                                //       chart.data.datasets[1].data = [15, 30, 20, 45, 10, 45, 55, 60];
+                                                //       chart.update()
+                                                //       break;
+                                                    
+                                                //   }
+                                                // }
+                                              </script>
+                                            </div></div></div></div>
+                                    <br>   
+
+                                    <div class="row mt">
+                                        <div class="col-xl-12 mb-12 mb-xl-12">
+                                          <div class="card shadow">
+                                            <div class="card-header border-6">
+                                              <div class="row align-items-center">
+                                                <div class="col">
+                                                  <h3 class="mb-0">Heart Rate Log</h3>
+                                                </div>
+                                                <div class="col text-right">
+                                                  
+                                                </div>
+                                              </div>
+                                            </div>
+                                            <div class="table-responsive">
+                                              <!-- Projects table -->
+                                              <table class="table align-items-center table-flush">
+                                                <thead class="thead-light">
+                                                  <tr>
+                                                    <th scope="col" >Time</th>
+                                                    <th scope="col" >Date</th>
+                                                    <th scope="col" >BPM</th>
+                                                    <th scope="col" >SpO2 level</th>
+                                                  </tr>
+                                                </thead>
+                                                <tbody>
+                                                  <tr>
+                                                    <th scope="row">
+                                                      31-07-2020 
+                                                    </th>
+                                                    <td>
+                                                        10:30 AM
+                                                    </td>
+                                                    <td>
+                                                      85
+                                                    </td>
+                                                    <td>
+                                                      94%
+                                                    </td>
+                                                  </tr>
+                                                  <tr>
+                                                    <th scope="row">
+                                                      30-07-2020 
+                                                    </th>
+                                                    <td>
+                                                    18:20 PM
+                                                    </td>
+                                                    <td>
+                                                      62
+                                                    </td>
+                                                    <td>
+                                                      89%
+                                                    </td>
+                                                  </tr>
+                                                  <tr>
+                                                    <th scope="row">
+                                                      29-07-2020
+                                                    </th>
+                                                    <td>
+                                                    9:47 AM
+                                                    </td>
+                                                    <td>
+                                                      60
+                                                    </td>
+                                                    <td>
+                                                      76%
+                                                    </td>
+                                                  </tr>
+                                                  <tr>
+                                                    <th scope="row">
+                                                      27-07-2020
+                                                    </th>
+                                                    <td>
+                                                    19:50 PM
+                                                    </td>
+                                                    <td>
+                                                      78
+                                                    </td>
+                                                    <td>
+                                                      92%
+                                                    </td>
+                                                  </tr>
+                                                </tbody>
+                                              </table>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+
+                            <h3>&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;<u>Past Medical History</u>
+                            </h3>
+                            <div class="timeline">
+                                    <div class="containerr left">
+                                      <div class="content">
+                                        <h2>Chicken Pox</h2>
+                                        <h5>2 months ago</h5>
+                                        <hr>
+                                        <p><u>Medicinal Course</u>: Zovirax, Calamine Lotion</p>
+
+                                      </div>
+                                    </div>
+                                    <div class="containerr right">
+                                      <div class="content">
+                                        <h2>Cold and Flu</h2>
+                                        <h5>3 months ago</h5>
+                                        <hr>
+                                        <p><u>Medicinal Course</u>: Acetaminophen, Dextromenthorphan, Diphenhydramine (Benadryl®)</p>
+                                      </div>
+                                    </div>
+                                    <div class="containerr left">
+                                      <div class="content">
+                                        <h2>Dengue</h2>
+                                        <h5>6 months ago</h5>
+                                        <hr>
+                                        <p><u>Medicinal Course</u>: Paracetamol, Acetaminophen-based pain reliever</p>
+                                      </div>
+                                    </div>
+                                    
+                                  
+                        </div><br><br><br><br><br><br><br><br><br><br>
+
+                        <!--<div class="mdl-shadow--2dp enter-message">
+                            <div class="mdl-grid">
+                                <div class="mdl-cell mdl-cell--1-col">
+                                    <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+                                        <i class="material-icons">event</i>
+                                    </button>
+                                </div>
+                                <div class="mdl-cell mdl-cell--10-col message-text-container">
+                                    <input type="text" id="messagefield" placeholder="Send message" />
+                                </div>
+                                <div class="mdl-cell mdl-cell--1-col send-button-container">
+                                    <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+                                        <i class="material-icons">send</i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>-->
+                    </div>
+                </div>
+        </main>
+    </div>
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript" src="js/app.js?v=<?=time()?>"></script>
+    <script src="./vendor/jquery/dist/jquery.min.js"></script>
+    <script src="./vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Docs JS -->
+    <script src="./vendor/anchor-js/anchor.min.js"></script>
+    <script src="./vendor/clipboard/dist/clipboard.min.js"></script>
+    <script src="./vendor/holderjs/holder.min.js"></script>
+    <script src="./vendor/prismjs/prism.js"></script>
+    <!-- Optional JS -->
+    <script src="./vendor/chart.js/dist/Chart.min.js"></script>
+    <script src="./vendor/chart.js/dist/Chart.extension.js"></script>
+    <script src="./vendor/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+    <!-- Argon JS -->
+    <script src="./js/argon.min.js?v=1.0.0"></script>
+    <!-- Firebase
+     //The core Firebase JS SDK is always required and must be listed first
+    <script src="/__/firebase/7.9.1/firebase-app.js"></script>
+
+     TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries 
+    <script src="/__/firebase/7.9.1/firebase-database.js"></script>
+
+
+    Initialize Firebase 
+    <script src="/__/firebase/init.js"></script> -->
+
+ 
+
+
+  <!-- The core Firebase JS SDK is always required and must be listed first
+  <script src="/__/firebase/7.6.2/firebase-app.js"></script>
+
+   TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#reserved-urls
+  <script src="/__/firebase/7.6.2/firebase-database.js"></script>
+
+  Initialize Firebase -->
+  <!--<script src="/__/firebase/init.js"></script> -->
+    <!-- <script src="./index.js"></script> -->
+</body>
+
+</html>

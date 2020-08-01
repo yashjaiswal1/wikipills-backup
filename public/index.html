@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="theme-color" content="#7C62E4"/>
+  <title>
+    WikiPills
+  </title>
+  <!-- Favicon-->
+  <link href="img/brand/favicon.png" rel="icon" type="image/png" />
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+  <!-- Icons -->
+  <link href="vendor/nucleo/css/nucleo.css" rel="stylesheet" />
+  <link href="vendor/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet" />
+  <!-- CSS Files -->
+  <link type="text/css" href="css/argon.min.css?v=1.0.0" rel="stylesheet" />
+  <!-- PWA -->
+  <link rel="manifest" href="/manifest.json">
+  <!-- Icons-->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#2b5797">
+
+<link rel="icon" href="favicon.ico" type="image/x-icon" />  
+<meta name="apple-mobile-web-app-capable" content="yes">  
+<meta name="apple-mobile-web-app-status-bar-style" content="black"> 
+<meta name="apple-mobile-web-app-title" content="WikiPills">
+  <!-- Google reCaptcha -->
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  
+  <!-- Google Tag Manager -->
+  <script>
+    (function (w, d, s, l, i) {
+      w[l] = w[l] || [];
+      w[l].push({
+        "gtm.start": new Date().getTime(),
+        event: "gtm.js"
+      });
+      var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s),
+        dl = l != "dataLayer" ? "&l=" + l : "";
+      j.async = true;
+      j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+      f.parentNode.insertBefore(j, f);
+    })(window, document, "script", "dataLayer", "GTM-NKDMSK6");
+  </script>
+  <!-- End Google Tag Manager -->
+</head>
+
+<body class="bg-default" onload="delBanner()">
+  <script>
+        function notifyMe() {
+  // Let's check if the browser supports notifications
+  if (!("Notification" in window)) {
+    alert("This browser does not support desktop notification");
+  }
+
+  // Let's check whether notification permissions have already been granted
+  else if (Notification.permission === "granted") {
+    // If it's okay let's create a notification
+    var notification = new Notification("Hi there!",{body: "this is a body"});
+  }
+
+  // Otherwise, we need to ask the user for permission
+  else if (Notification.permission !== "denied") {
+    Notification.requestPermission().then(function (permission) {
+      // If the user accepts, let's create a notification
+      if (permission === "granted") {
+        var notification = new Notification("Hi there!");
+      }
+    });
+  }
+
+  // At last, if the user has denied notifications, and you 
+  // want to be respectful there is no need to bother them any more.
+}
+    </script>
+  <script>
+    function delBanner(){
+      var item = document.getElementById("ofBar");
+      console.log(item);
+      item.parentNode.removeChild(item);
+    }
+    
+    
+  </script>
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NKDMSK6" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe></noscript>
+  <div class="main-content">
+    <!-- Navbar -->
+    <nav class="navbar navbar-top navbar-horizontal navbar-expand-md navbar-dark">
+      <div class="container px-4">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse-main"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbar-collapse-main">
+          <!-- Collapse header -->
+          <div class="navbar-collapse-header d-md-none">
+            <div class="row">
+              <div class="col-6 collapse-brand">
+                <a href="./index.html">
+                  <img src="./img/brand/logo.png" />
+                </a>
+              </div>
+              <div class="col-6 collapse-close">
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse-main"
+                  aria-controls="sidenav-main" aria-expanded="false" aria-label="Toggle sidenav">
+                  <span></span>
+                  <span></span>
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- Navbar items -->
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link nav-link-icon" href="./index.html">
+                <i class="ni ni-key-25"></i>
+                <span class="nav-link-inner--text">Login</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link nav-link-icon" href="#"> <!-- Make a separate doctors page for Public users without sidenav -->
+                <i class="ni ni-archive-2"></i>
+                <span class="nav-link-inner--text">Doctors</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link nav-link-icon" href="./public.html">
+                <i class="ni ni-world"></i>
+                <span class="nav-link-inner--text">Public Data</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- Header -->
+    <div class="header bg-gradient-primary py-7 py-lg-8">
+      <div class="container">
+        <div class="header-body text-center mb-7">
+          <div class="row justify-content-center">
+            <div class="col-lg-8 col-md-6">
+              <h1 class="text-white" style="font-size: 7vw;">
+                <b>
+                  <font color="#fb6340">Wiki<font color="#f4f5f7">Pills</font></font>
+                  
+                </b>
+              </h1>
+              <p class="text-lead text-light">
+                An integrated software platform for smarter collaboration
+                between doctors and patients
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="separator separator-bottom separator-skew zindex-100">
+        <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" version="1.1"
+          xmlns="http://www.w3.org/2000/svg">
+          <polygon class="fill-default" points="2560 0 2560 100 0 100"></polygon>
+        </svg>
+      </div>
+    </div>
+    <!-- Page content -->
+    <div class="container mt--8 pb-5" id="sign-in-card">
+      <div class="row justify-content-center">
+        <div class="col-lg-5 col-md-7">
+          <div class="card bg-secondary shadow border-0">
+            <div class="card-body px-lg-5 py-lg-5">
+              <div class="text-center text-muted mb-4">
+                <small>Sign-In with Authorised credentials</small>
+              </div>
+              <!--<form role="form">
+                <div class="form-group mb-3">
+                  <div class="input-group input-group-alternative">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="ni ni-email-83"></i></span>
+                    </div>
+                    <form>
+                      <input class="form-control" placeholder="Username" type="text" id="id" pattern="[A-Za-z1-9]{6,}" title="Username should only contain alphabets and numbers and should be 6 characters long" required/>                      
+                    </form>
+                    </div>
+                </div>
+                <div class="form-group">
+                  <div class="input-group input-group-alternative">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
+                    </div>
+                    <form>
+                      <input class="form-control" placeholder="Password" type="password" id="pass" pattern="[A-Za-z1-9]{6,}"/ required>
+                    </form>
+                  </div>
+                </div>
+                <div class="custom-control custom-control-alternative custom-checkbox">
+                  <input class="custom-control-input" id=" customCheckLogin" type="checkbox" />
+                  <label class="custom-control-label" for=" customCheckLogin">
+                    <span class="text-muted">Remember me</span>
+                  </label>
+                </div>
+                
+                <div class="text-center">
+                  <a href="#" id="link"><button type="button" class="btn btn-primary my-4" onclick="login()">
+                      Sign in
+                    </button></a>
+                    <script>
+                      tries = 3;
+                      function login(){  
+                        if(document.getElementById("id").value == 'mainadmin' && document.getElementById("pass").value == 'admin123' && tries > 0){
+                          document.getElementById("link").href = "./dashboard.html";
+                        }
+                        else if(tries <= 0){
+                          alert("You have been locked out of the dashboard. Kindly log back in after 24 hours.")
+                        }
+                        else if(document.getElementById("id").value == 'childadmin' && document.getElementById("pass").value == 'admin456'){
+                          document.getElementById("link").href = "./child/dashboard_child.html";
+                        }
+                        else{
+                          tries = tries - 1;
+                          alert("Enter correct ID or Password.\nTries left = "+ tries + "\n\n(Displaying id and password only for demo purposes)\nMain Admin\nID: admin\nPassword: admin123\n\nRegional Admin\nID: childadmin\nPassword: admin456");
+                        }
+                      }
+                      </script>
+                </div>
+              </form>-->
+              <form>
+                <input class="form-control" placeholder="Username" type="text" id="id" pattern="[A-Za-z1-9]{6,}" title="Username should only contain alphabets and numbers and should be atleast 6 characters long" required/>                      
+                <br><input class="form-control" placeholder="Password" type="password" id="pass" pattern="[A-Za-z1-9]{6,}" required/>      
+                <!-- <br><div class="g-recaptcha" data-sitekey="6LeBubYUAAAAAE4vq1EfGN7tcnJh_AwuYsS-8CvN" data-callback="recaptchaCallback" ></div> -->
+                <!-- <div class="text-center"><button type='submit' class="btn btn-primary my-4" onclick="return login()" id="submitBtn" disabled>Sign in</button></div> -->
+                <div class="text-center"><button type='submit' class="btn btn-primary my-4" onclick="return login()" id="submitBtn">Sign in</button></div>
+              </form>
+              <!-- <script>
+                function recaptchaCallback() {
+                  $('#submitBtn').removeAttr('disabled');
+                };
+              </script> -->
+              <script>
+                  tries = 3;                  
+                  function login(){  
+                    if(document.getElementById("id").value == 'doctor' && document.getElementById("pass").value == 'doctor123' && tries > 0){
+                      //document.getElementById("link").href = "./dashboard.html";
+                      window.location.href = "./dashboard.html";
+                      return false;
+                    }
+                    else if(document.getElementById("id").value == 'relative' && document.getElementById("pass").value == 'relative123' && tries >= 0){
+                      window.location.href = './child/dashboard_child.html';
+                      return false;
+                    }
+                    else if(tries <= 0){
+                      alert("You have been locked out of the dashboard. Kindly log back in after 24 hours.")
+                    }
+                    else{
+                      tries = tries - 1;
+                      alert("Enter correct ID or Password.\nTries left = "+ tries + "\n\n(Displaying id and password only for demo purposes)\nMain Admin\nID: mainadmin\nPassword: admin123\n\nRegional Admin\nID: childadmin\nPassword: admin456");
+                    }
+                  }
+              </script>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="py-5">
+      <div class="container">
+        <div class="row align-items-center justify-content-xl-between">
+          <div class="col-xl-6">
+            <div class="copyright text-center text-xl-left text-muted">
+              An integrated platform for 
+              <a href="https://aws.amazon.com/" class="font-weight-bold ml-1" target="_blank">Amazon Web Services</a>
+            </div>
+          </div>
+          <!--<div class="col-xl-6">
+            <ul class="nav nav-footer justify-content-center justify-content-xl-end">
+              <li class="nav-item">
+                <a href="#" class="nav-link" target="_blank">Office
+                  Locator</a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link" target="_blank">Contact
+                  Us</a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link" target="_blank">Feedback</a>
+                https://forms.gle/KM4rprbUhiwdvmzK8
+              </li>
+            </ul>
+          </div>-->
+        </div>
+      </div>
+    </footer>
+  </div>
+ <!-- Firebase -->
+ <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="/__/firebase/7.9.1/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="/__/firebase/7.9.1/firebase-database.js"></script>
+
+<!-- Initialize Firebase -->
+<script src="/__/firebase/init.js"></script>
+<script src="./index.js"></script>
+
+
+
+
+
+<!-- OLD -->
+  <!-- The core Firebase JS SDK is always required and must be listed first
+  <script src="/__/firebase/7.6.2/firebase-app.js"></script>
+
+  TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#reserved-urls
+  <script src="/__/firebase/7.6.2/firebase-database.js"></script>
+
+  Initialize Firebase 
+  <script src="/__/firebase/init.js"></script>
+  <script src="./index.js"></script>
+  Core   -->
+  <script src="vendor/jquery/dist/jquery.min.js"></script>
+  <script src="vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <!--   Argon JS   -->
+  <script src="js/argon.min.js?v=1.0.0"></script>
+  <script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
+</body>
+
+</html>
