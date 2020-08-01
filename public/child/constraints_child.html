@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description"
+        content="An integrated software platform for smarter collaboration between sales agents and bank authorities">
+    <title>Admin Dashboard</title>
+    <!-- Favicon -->
+    <link href="../img/brand/favicon.png" rel="icon" type="image/png">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+    <!-- Icons -->
+    <link href="../vendor/nucleo/css/nucleo.css" rel="stylesheet">
+    <link href="../vendor/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
+    <!-- Argon CSS -->
+    <link type="text/css" href="../css/argon.min.css?v=1.0.0" rel="stylesheet">
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NKDMSK6" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+</head>
+
+<body>
+    <!-- Sidenav -->
+    <nav class="navbar navbar-vertical fixed-left navbar-expand-md navbar-light bg-white" id="sidenav-main">
+        <div class="container-fluid">
+            <!-- Toggler -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#sidenav-collapse-main"
+                aria-controls="sidenav-main" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- Brand -->
+            <a class="navbar-brand pt-0" href="/">
+                <b>
+                    <font color="#fb6340" style="font-size:23px">Syndicate</font>
+                    <font color="#172b4d">Circles</font>
+                </b>
+            </a>
+            <!-- User -->
+            <ul class="nav align-items-center d-md-none">
+                <li class="nav-item dropdown">
+                    <a class="nav-link nav-link-icon" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">
+                        <i class="ni ni-bell-55"></i>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-arrow dropdown-menu-right"
+                        aria-labelledby="navbar-default_dropdown_1">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">
+                        <div class="media align-items-center">
+                            <span class="avatar avatar-sm rounded-circle">
+                                <img alt="Image placeholder" src="../img/theme/team-1-800x800.jpg">
+                            </span>
+                        </div>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-arrow dropdown-menu-right">
+                        <div class=" dropdown-header noti-title">
+                            <h6 class="text-overflow m-0">Welcome!</h6>
+                        </div>
+                        <a href="./profile_child.html" class="dropdown-item">
+                            <i class="ni ni-single-02"></i>
+                            <span>My profile</span>
+                        </a>
+                        <a href="#" class="dropdown-item">
+                            <i class="ni ni-settings-gear-65"></i>
+                            <span>Settings</span>
+                        </a>
+                        <a href="#" class="dropdown-item">
+                            <i class="ni ni-calendar-grid-58"></i>
+                            <span>Activity</span>
+                        </a>
+                        <a href="#" class="dropdown-item">
+                            <i class="ni ni-support-16"></i>
+                            <span>Support</span>
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a href="../index.html" class="dropdown-item logout">
+                            <i class="ni ni-user-run"></i>
+                            <span class="logout">Logout</span>
+                        </a>
+                    </div>
+
+                </li>
+            </ul>
+            <!-- Collapse -->
+            <div class="collapse navbar-collapse" id="sidenav-collapse-main">
+                <!-- Collapse header -->
+                <div class="navbar-collapse-header d-md-none">
+                    <div class="row">
+                        <div class="col-6 collapse-brand">
+                            <a href="./dashboard_child.html">
+                                <b>
+                                    <font color="#fb6340">Syndicate</font>
+                                    <font color="#172b4d">Circles</font>
+                                </b>
+                            </a>
+                        </div>
+                        <div class="col-6 collapse-close">
+                            <button type="button" class="navbar-toggler" data-toggle="collapse"
+                                data-target="#sidenav-collapse-main" aria-controls="sidenav-main" aria-expanded="false"
+                                aria-label="Toggle sidenav">
+                                <span></span>
+                                <span></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Form -->
+                <form class="mt-4 mb-3 d-md-none">
+                    <div class="input-group input-group-rounded input-group-merge">
+                        <input type="search" class="form-control form-control-rounded form-control-prepended"
+                            placeholder="Search" aria-label="Search">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">
+                                <span class="fa fa-search"></span>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <!-- Navigation -->
+                <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="./dashboard_child.html">
+                                <i class="ni ni-tv-2 text-primary"></i> Dashboard
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./catalogue_child.html">
+                                <i class="ni ni-collection text-yellow"></i> Catalogue
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./challenges_child.html">
+                                <i class="ni ni-trophy text-blue"></i> Challenges
+                            </a>
+                        </li>
+            
+                        <li class="nav-item">
+                             <a class="nav-link" href="./leads_child.html">
+                                 <i class="ni ni-single-02 text-green"></i> Leads
+                             </a>
+                         </li>
+                         <li class="nav-item">
+                                 <a class="nav-link" href="./agents_child.html">
+                                     <i class="ni ni-single-02 text-pink"></i> Agents
+                                 </a>
+                         </li>
+                         <li class="nav-item">
+                                <a class="nav-link" href="./history_child.html">
+                                  <i class="ni ni-calendar-grid-58 text-blue"></i> Historical Data
+                                </a>
+                        </li>
+                        <li class="nav-item">
+                                <a class="nav-link" href="./train_child.html">
+                                    <i class="ni ni-pin-3 text-orange"></i> Training Page
+                                </a>
+                        </li>
+                        <li class="nav-item">
+                                <a class="nav-link" href="./upload_child.html">
+                                    <i class="ni ni-cloud-upload-96 text-info"></i> Upload DB
+                                </a>
+                        </li>             
+                    </ul>
+                <!-- Divider -->
+                <hr class="my-3">
+                <!-- Heading -->
+                <h6 class="navbar-heading text-muted">Options</h6>
+                <!-- Navigation -->
+                <ul class="navbar-nav mb-md-3">
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://old.syndicatebank.in/english/Locators.aspx">
+                            <i class="ni ni-spaceship"></i> Branch Locator
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://www.syndicatebank.in/contactus/tollfree">
+                            <i class="ni ni-palette"></i> Contact Us
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://forms.gle/KM4rprbUhiwdvmzK8">
+                            <i class="ni ni-check-bold"></i> Feedback
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main content -->
+    <div class="main-content">
+        <!-- Top navbar -->
+        <nav class="navbar navbar-top navbar-expand-md navbar-dark" id="navbar-main">
+            <div class="container-fluid">
+                <!-- Brand -->
+                <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block" href="/">Constraints</a>
+
+                <!-- Form -->
+                <form class="navbar-search navbar-search-dark form-inline mr-3 d-none d-md-flex ml-lg-auto">
+                    <div class="form-group mb-0">
+                        <div class="input-group input-group-alternative">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-search"></i></span>
+                            </div>
+                            <input class="form-control" placeholder="Search" type="text">
+                        </div>
+                    </div>
+                </form>
+                <!-- User -->
+                <ul class="navbar-nav align-items-center d-none d-md-flex">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false">
+                            <div class="media align-items-center">
+                                <span class="avatar avatar-sm rounded-circle">
+                                    <img alt="Image placeholder" src="../img/theme/team-4-800x800.jpg">
+                                </span>
+                                <div class="media-body ml-2 d-none d-lg-block">
+                                    <span class="mb-0 text-sm font-weight-bold">Admin</span>
+                                </div>
+                            </div>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-arrow dropdown-menu-right">
+                            <div class=" dropdown-header noti-title">
+                                <h6 class="text-overflow m-0">Welcome!</h6>
+                            </div>
+                            <a href="./profile_child.html" class="dropdown-item">
+                                <i class="ni ni-single-02"></i>
+                                <span>My profile</span>
+                            </a>
+                            <a href="#" class="dropdown-item">
+                                <i class="ni ni-settings-gear-65"></i>
+                                <span>Settings</span>
+                            </a>
+                            <a href="#" class="dropdown-item">
+                                <i class="ni ni-calendar-grid-58"></i>
+                                <span>Activity</span>
+                            </a>
+                            <a href="#" class="dropdown-item">
+                                <i class="ni ni-support-16"></i>
+                                <span>Support</span>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a href="../index.html" class="dropdown-item logout">
+                                <i class="ni ni-user-run"></i>
+                                <span class="logout">Logout</span>
+                            </a>
+                        </div>
+
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Headerstyle="margin: auto; background-color: #F6F9FC;" -->
+        <div class="header bg-gradient-primary pb-8 pt-5 pt-md-8">
+            <div class="container">
+                <div class="row mt-5">
+                    <div class="col-12">
+                        <div class="card shadow">
+                            <div class="card-header border-0">
+                                <div class="row align-items-center">
+                                    <div class="col">
+                                        <h3 class="mb-0">Points Matrix</h3>
+                                    </div>
+                                    <div class="col text-right">
+                                            <img align="right" src="../img/icons/question-blue.png" data-toggle="tooltip" data-placement="top" title="Set points based on the given range of successful conversions per month">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="table-responsive">
+                                <!-- Projects table -->
+                                <table class="table align-items-center table-flush">
+                                    <thead class="thead-light">
+                                        <tr>
+                                            <th scope="col">No. of Successful lead conversions (per month)</th>
+                                            <th scope="col">No. of agents in this range</th>
+                                            <th scope="col">Assign points</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">
+                                                1 to 25
+                                            </th>
+                                            <td>
+                                                278
+                                            </td>
+                                            <td>
+                                                <form>
+                                                    <div class="row">
+                                                        <div class="col-sm-7">
+                                                            <input type="number"
+                                                                class="form-control form-control-alternative"
+                                                                placeholder="Points" min="0" step="5" value="30" />
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">
+                                                26 to 50
+                                            </th>
+                                            <td>
+                                                226
+                                            </td>
+                                            <td>
+                                                <form>
+                                                    <div class="row">
+                                                        <div class="col-sm-7">
+                                                            <input type="number"
+                                                                class="form-control form-control-alternative"
+                                                                placeholder="Points" min="0" step="5" value="60" />
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">
+                                                51 to 75
+                                            </th>
+                                            <td>
+                                                198
+                                            </td>
+                                            <td>
+                                                <form>
+                                                    <div class="row">
+                                                        <div class="col-sm-7">
+                                                            <input type="number"
+                                                                class="form-control form-control-alternative"
+                                                                placeholder="Points" min="0" step="5" value="90" />
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">
+                                                76 to 100
+                                            </th>
+                                            <td>
+                                                145
+                                            </td>
+                                            <td>
+                                                <form>
+                                                    <div class="row">
+                                                        <div class="col-sm-7">
+                                                            <input type="number"
+                                                                class="form-control form-control-alternative"
+                                                                placeholder="Points" min="0" step="5" value="120" />
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">
+                                                101 to 125
+                                            </th>
+                                            <td>
+                                                106
+                                            </td>
+                                            <td>
+                                                <form>
+                                                    <div class="row">
+                                                        <div class="col-sm-7">
+                                                            <input type="number"
+                                                                class="form-control form-control-alternative"
+                                                                placeholder="Points" min="0" step="5" value="150" />
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">
+                                                126 to 150
+                                            </th>
+                                            <td>
+                                                83
+                                            </td>
+                                            <td>
+                                                <form>
+                                                    <div class="row">
+                                                        <div class="col-sm-7">
+                                                            <input type="number"
+                                                                class="form-control form-control-alternative"
+                                                                placeholder="Points" min="0" step="5" value="180" />
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">
+                                                151 to 175
+                                            </th>
+                                            <td>
+                                                42
+                                            </td>
+                                            <td>
+                                                <form>
+                                                    <div class="row">
+                                                        <div class="col-sm-7">
+                                                            <input type="number"
+                                                                class="form-control form-control-alternative"
+                                                                placeholder="Points" min="0" step="5" value="210" />
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">
+                                                176 to 200
+                                            </th>
+                                            <td>
+                                                17
+                                            </td>
+                                            <td>
+                                                <form>
+                                                    <div class="row">
+                                                        <div class="col-sm-7">
+                                                            <input type="number"
+                                                                class="form-control form-control-alternative"
+                                                                placeholder="Points" min="0" step="5" value="240" />
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">
+                                                201 and above
+                                            </th>
+                                            <td>
+                                                3
+                                            </td>
+                                            <td>
+                                                <form>
+                                                    <div class="row">
+                                                        <div class="col-sm-7">
+                                                            <input type="number"
+                                                                class="form-control form-control-alternative"
+                                                                placeholder="Points" min="0" step="5" value="270" />
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Page content -->
+        <div class="container-fluid mt--7">
+            <div class="row mt-5">
+                <div class="col-sm-12 col-md-12 col-lg-6">
+                    <div class="card shadow">
+                        <div class="card-header border-0" >
+                            <div class="row align-items-center">
+                                <div class="col">
+                                    <h3 class="mb-0">Agent Level-Up Constraints</h3>
+                                </div>
+                                <div class="col text-right">
+                                        <img align="right" src="../img/icons/question-blue.png" data-toggle="tooltip" data-placement="top" title="Set no. of successful lead conversions required to attain each level by the agent">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="table-responsive" >
+                            <!-- Projects table -->
+                            <table class="table align-items-center table-flush ">
+                                <thead class="thead-light">
+                                    <tr>
+                                        <th scope="col">Levels</th>
+                                        <th scope="col">No. of Successful Lead Conversions Required</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">
+                                            Level 1 Partner
+                                        </th>
+                                        <td>
+                                            <form>
+                                                <div class="row">
+                                                    <div class="col-sm-7">
+                                                        <input type="number"
+                                                            class="form-control form-control-alternative"
+                                                            placeholder="Enter here" min="0" step="5" value="100"/>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">
+                                            Level 2 Partner
+                                        </th>
+                                        <td>
+                                            <form>
+                                                <div class="row">
+                                                    <div class="col-sm-7">
+                                                        <input type="number"
+                                                            class="form-control form-control-alternative"
+                                                            placeholder="Enter here" min="0" step="5" value="200"/>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">
+                                            Level 3 Partner
+                                        </th>
+                                        <td>
+                                            <form>
+                                                <div class="row">
+                                                    <div class="col-sm-7">
+                                                        <input type="number"
+                                                            class="form-control form-control-alternative"
+                                                            placeholder="Enter here" min="0" step="5" value="300"/>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">
+                                            Top Level Partner
+                                        </th>
+                                        <td>
+                                            <form>
+                                                <div class="row">
+                                                    <div class="col-sm-7">
+                                                        <input type="number"
+                                                            class="form-control form-control-alternative"
+                                                            placeholder="Enter here" min="0" step="5" value="350" />
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            <div class="col-sm-12 col-md-12 col-lg-6">
+                <br>    
+                <div class="card shadow">
+                        <div class="card-header border-0" >
+                            <div class="row align-items-center">
+                                <div class="col">
+                                    <h3 class="mb-0">Agent Milestones Constraints</h3>
+                                </div>
+                                <div class="col text-right">
+                                        <img align="right" src="../img/icons/question-blue.png" data-toggle="tooltip" data-placement="top" title="Set reward points to-be given to an agent upon reaching a milestone">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="table-responsive" >
+                            <!-- Projects table -->
+                            <table class="table align-items-center table-flush ">
+                                <thead class="thead-light">
+                                    <tr>
+                                        <th scope="col">Milestones</th>
+                                        <th scope="col">Assign Reward Points</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">
+                                            Converted 100 leads
+                                        </th>
+                                        <td>
+                                            <form>
+                                                <div class="row">
+                                                    <div class="col-sm-7">
+                                                        <input type="number"
+                                                            class="form-control form-control-alternative"
+                                                            placeholder="Points" min="0" step="5" value="50"/>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </td>
+                       
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">
+                                            Converted 500 leads
+                                        </th>
+                                        <td>
+                                            <form>
+                                                <div class="row">
+                                                    <div class="col-sm-7">
+                                                        <input type="number"
+                                                            class="form-control form-control-alternative"
+                                                            placeholder="Points" min="0" step="5" value="150"/>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </td>
+                                 
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">
+                                            Converted 1000 leads
+                                        </th>
+                                        <td>
+                                            <form>
+                                                <div class="row">
+                                                    <div class="col-sm-7">
+                                                        <input type="number"
+                                                            class="form-control form-control-alternative"
+                                                            placeholder="Points" min="0" step="5" value="250"/>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </td>
+                                        
+                                    </tr>
+                                    <tr>
+                                            <th scope="row">
+                                                10-Day streak
+                                            </th>
+                                            <td>
+                                                <form>
+                                                    <div class="row">
+                                                        <div class="col-sm-7">
+                                                            <input type="number"
+                                                                class="form-control form-control-alternative"
+                                                                placeholder="Points" min="0" step="5" value="50"/>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </td>
+                                            
+                                        </tr>
+                                        <tr>
+                                                <th scope="row">
+                                                    30-Day streak
+                                                </th>
+                                                <td>
+                                                    <form>
+                                                        <div class="row">
+                                                            <div class="col-sm-7">
+                                                                <input type="number"
+                                                                    class="form-control form-control-alternative"
+                                                                    placeholder="Points" min="0" step="5" value="100"/>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                </td>
+                                                
+                                            </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div></div>
+        </div><br>
+        <div class="container-fluid">
+            <div class="row">
+                    <div class="col-sm-12">
+                            <div class="card border-primary mb-3" >
+                                    <div class="card-header"><b>Verification Tick</b>&NonBreakingSpace;&NonBreakingSpace; <img src="../img/icons/tick.png"></div>
+                                    <div class="card-body text-primary">
+                                      <p class="card-text"><b>The Verification Tick is a symbol of legitimacy that is awarded to an agent upon successful conversion of a certain number of customers as specified by the Admin</b></p>
+                                      <h4 class="card-title"><b>Set number of successful conversions required for earning a verification tick</b></h4>
+                                      <form>
+                                            <div class="row">
+                                                <div class="col">
+                                                    <input type="number"
+                                                        class="form-control form-control-alternative"
+                                                        placeholder="Enter here" min="0" step="5" value="100"/>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                  </div>
+                    </div>
+            </div>
+        </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="row align-items-center justify-content-xl-between">
+            <div class="col-xl-6">
+                <div class="copyright text-center text-xl-left text-muted">
+                    An integrated platform for
+                    <a href="https://www.syndicatebank.in/home" class="font-weight-bold ml-1" target="_blank">Syndicate
+                        Bank</a>
+                </div>
+            </div>
+            <div class="col-xl-6">
+                <ul class="nav nav-footer justify-content-center justify-content-xl-end">
+                    <li class="nav-item">
+                        <a href="https://old.syndicatebank.in/english/Locators.aspx" class="nav-link"
+                            target="_blank">Branch
+                            Locator</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="https://www.syndicatebank.in/contactus/tollfree" class="nav-link"
+                            target="_blank">Contact Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="https://forms.gle/KM4rprbUhiwdvmzK8" class="nav-link" target="_blank">Feedback</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function addEvent(event, elem, func) {
+            if (elem.addEventListener) // W3C DOM
+                elem.addEventListener(event, func, false);
+            else if (elem.attachEvent) { // IE DOM
+                elem.attachEvent("on" + event, func);
+            } else { // No much to do
+                elem["on" + event] = func;
+            }
+        }
+
+        function redirectToLogin() {
+            if (this.status === 200) {
+                return window.location = this.responseURL || '/login';
+            }
+        }
+
+        function logout(event) {
+            if (!event.target.className.includes('logout')) {
+                return;
+            }
+
+            var xhr = new XMLHttpRequest();
+
+            xhr.addEventListener("load", redirectToLogin);
+            xhr.open("POST", "/logout");
+            xhr.send();
+        }
+
+        var bodyElement = document.querySelector('body');
+        addEvent('click', bodyElement, logout);
+    </script>
+
+</div>
+
+
+    <!-- Core -->
+    <script src="../vendor/jquery/dist/jquery.min.js"></script>
+    <script src="../vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Docs JS -->
+    <script src="../vendor/anchor-js/anchor.min.js"></script>
+    <script src="../vendor/clipboard/dist/clipboard.min.js"></script>
+    <script src="../vendor/holderjs/holder.min.js"></script>
+    <script src="../vendor/prismjs/prism.js"></script>
+    <!-- Optional JS -->
+    <script src="../vendor/chart.js/dist/Chart.min.js"></script>
+    <script src="../vendor/chart.js/dist/Chart.extension.js"></script>
+    <script src="../vendor/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+    <!-- Argon JS -->
+    <script src="../js/argon.min.js?v=1.0.0"></script>
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="/__/firebase/6.5.0/firebase-app.js"></script>
+
+  <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#reserved-urls -->
+  <script src="/__/firebase/6.5.0/firebase-database.js"></script>
+
+  <!-- Initialize Firebase -->
+  <script src="/__/firebase/init.js"></script>
+  <script src="../index.js"></script>
+
+</body>
+
+
+</html>
