@@ -36,7 +36,7 @@ public class MedicineLogFragment extends Fragment {
         //ActionBar actionBar = ((AppCompatActivity)getActivity()).getSupportActionBar();
         //actionBar.setTitle("Medicine Log.");
 
-        title = new String[]{"Fexofenadine","Saradin","Paracip"};
+        title = new String[]{getString(R.string.fexofanadine),getString(R.string.sara2),getString(R.string.parac4)};
 
         icon = new int[]{R.drawable.ic_pill,R.drawable.ic_pill,R.drawable.ic_pill};
 

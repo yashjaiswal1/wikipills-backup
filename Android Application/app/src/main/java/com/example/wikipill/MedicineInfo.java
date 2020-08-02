@@ -39,21 +39,21 @@ public class MedicineInfo extends AppCompatActivity {
         Log.i("Intent",s);
 
         if (s.equals("1")){
-            MedicineName.setText("Fexofay-A");
-            Dose.setText("1 Per Day");
-            Time.setText("Bed Time");
-            Quantity.setText("Toatl 56 capsules | 42 capsules left");
+            MedicineName.setText(R.string.ff1);
+            Dose.setText(R.string.ff2);
+            Time.setText(R.string.ff3);
+            Quantity.setText(R.string.ff4);
 
         }else if (s.equals("2")){
-            MedicineName.setText("Saridon");
-            Dose.setText("2 Per Day");
-            Time.setText("1 Morning | 1 Evening");
-            Quantity.setText("Toatl 112 capsules | 84 capsules left");
+            MedicineName.setText(R.string.ss1);
+            Dose.setText(R.string.ss2);
+            Time.setText(R.string.ss3);
+            Quantity.setText(R.string.ss4);
         }else if (s.equals("3")){
-            MedicineName.setText("Paracip-500");
-            Dose.setText("Every 6 Hour");
-            Time.setText("6 AM | 12 PM | 6 PM | 12 AM");
-            Quantity.setText("Toatl 224 capsules | 168 capsules left");
+            MedicineName.setText("Evion-600");
+            Dose.setText("2 Times a day");
+            Time.setText("Before Lunch | Before Dinner");
+            Quantity.setText("Toatl 224 capsules | 168 capsules left \n Expiry Date: 5-07-2020");
         }else if (s.equals("4")){
             MedicineName.setText("");
             Dose.setText("");

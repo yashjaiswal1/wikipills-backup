@@ -6,9 +6,47 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="10sp"
+        android:textStyle="bold"
+        android:text="TEST"
+        android:id="@+id/test"/>
+
+    <TextView
+        android:id="@+id/language"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/language"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_toLeftOf="@+id/colon"
+        android:layout_marginTop="5sp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/colon"/>
+    <TextView
+        android:layout_toRightOf="@id/colon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/selectedLanguage"
+        android:layout_marginTop="5sp"
+        android:layout_marginLeft="8dp"
+        android:text="@string/english"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="@color/wiki2"/>
+
     <FrameLayout
+
+        android:layout_below="@+id/test"
         android:layout_width="match_parent"
-        android:layout_height="700dp"
+        android:layout_height="660dp"
         android:id="@+id/fragment_container">
 
     </FrameLayout>

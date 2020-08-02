@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".VitalsResult"
+    android:layout_gravity="center">
+
+    <!-- TODO: Update blank fragment layout -->
+    <RelativeLayout
+        android:layout_gravity="center"
+        android:id="@+id/relativeLAyout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/bpm"
+            android:layout_width="100sp"
+            android:layout_height="wrap_content"
+            android:text="BPM"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textSize="35sp"/>
+        <TextView
+            android:id="@+id/spo2"
+            android:layout_toRightOf="@+id/bpm"
+            android:layout_width="100sp"
+            android:layout_height="wrap_content"
+            android:text="SPo2"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textSize="35sp"/>
+        <TextView
+            android:layout_marginTop="20sp"
+            android:id="@+id/resultBPM"
+            android:layout_below="@+id/bpm"
+            android:layout_width="100sp"
+            android:layout_height="wrap_content"
+            android:text="--"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textSize="35sp"/>
+
+        <TextView
+            android:id="@+id/resultSPo2"
+            android:layout_marginTop="20sp"
+            android:layout_below="@+id/spo2"
+            android:layout_toRightOf="@id/bpm"
+            android:layout_width="100sp"
+            android:layout_height="wrap_content"
+            android:text="--"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textSize="35sp"/>
+
+
+    </RelativeLayout>
+
+</FrameLayout>
