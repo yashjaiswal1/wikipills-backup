@@ -1,0 +1,2 @@
+Flask
+twilio~=6.0.0

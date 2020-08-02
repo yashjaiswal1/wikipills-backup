@@ -1,0 +1,10 @@
+{
+  "actions": [
+    {
+      "say": "Hi! I'm Aditi! Your friend in need. How may I help you?"
+    },
+    {
+      "listen": true
+    }
+  ]
+}
