@@ -24,5 +24,12 @@
         app:cnb_iconColor="#fff"
         app:cnb_backgroundColor="#ff785b"
         app:cnb_textColor="#fff"/>
+    <item
+        android:id="@+id/comunityBonding"
+        android:title="Socialize"
+        android:icon="@drawable/ic_socialize"
+        app:cnb_iconColor="#fff"
+        app:cnb_backgroundColor="#ff785b"
+        app:cnb_textColor="#fff"/>
 
 </menu>

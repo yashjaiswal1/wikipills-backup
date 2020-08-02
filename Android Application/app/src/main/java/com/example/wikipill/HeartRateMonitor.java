@@ -77,6 +77,7 @@ public class HeartRateMonitor extends Fragment {
         View view = inflater.inflate(R.layout.fragment_heart_rate_monitor, container, false);
 
 
+
         SurfaceView preview = (SurfaceView) view.findViewById(R.id.preview);
         previewHolder = preview.getHolder();
         previewHolder.addCallback(surfaceCallback);
@@ -101,7 +102,6 @@ public class HeartRateMonitor extends Fragment {
         super.onConfigurationChanged(newConfig);
     }
 
-
     @Override
     public void onResume() {
         super.onResume();
@@ -112,7 +112,6 @@ public class HeartRateMonitor extends Fragment {
 
         startTime = System.currentTimeMillis();
     }
-
 
     @Override
     public void onPause() {
@@ -212,17 +211,8 @@ public class HeartRateMonitor extends Fragment {
                 }
                 final int beatsAvg = (beatsArrayAvg / beatsArrayCnt);
 
-                if(beatsAvg>110){
+                text.setText(String.valueOf(beatsAvg)+" bpm");
 
-                    Random r =new Random();
-                    int low = 70;
-                    int high = 90;
-                    int result = r.nextInt(high-low)+low;
-                    text.setText(result + "bpm");
-                }
-                else{
-                    text.setText(String.valueOf(beatsAvg)+" bpm");
-                }
 
                 startTime = System.currentTimeMillis();
                 beats = 0;
@@ -249,7 +239,6 @@ public class HeartRateMonitor extends Fragment {
             }
         }
 
-
         @Override
         public void surfaceChanged(SurfaceHolder holder, int format, int width, int height) {
             Camera.Parameters parameters = camera.getParameters();
@@ -262,6 +251,7 @@ public class HeartRateMonitor extends Fragment {
             camera.setParameters(parameters);
             camera.startPreview();
         }
+
 
         @Override
         public void surfaceDestroyed(SurfaceHolder holder) {

@@ -10,7 +10,7 @@
         android:textSize="25sp"
         android:textColor="@color/colorPrimaryDark"
         android:textStyle="bold"
-        android:text="Add New Medicine"
+        android:text="@string/add_new_medicine"
         android:layout_marginLeft="20sp"
         android:layout_marginTop="20sp"
         android:id="@+id/add_new_medicine"/>
@@ -18,7 +18,7 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Name"
+        android:hint="@string/namehint"
         android:layout_below="@+id/add_new_medicine"
         android:layout_marginHorizontal="20sp"
         android:layout_marginTop="20sp"
@@ -28,7 +28,7 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Dose"
+        android:hint="@string/dosehint"
         android:layout_below="@+id/medicine_name"
         android:layout_marginHorizontal="20sp"
         android:layout_marginTop="20sp"
@@ -38,20 +38,30 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Time"
+        android:hint="@string/timehint"
         android:layout_below="@+id/dose"
         android:layout_marginHorizontal="20sp"
         android:layout_marginTop="20sp"
         android:id="@+id/time"
         android:imeOptions="actionNext"
         android:singleLine="true"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Expiry Date"
+        android:layout_below="@+id/time"
+        android:layout_marginHorizontal="20sp"
+        android:layout_marginTop="20sp"
+        android:id="@+id/expirydate"
+        android:imeOptions="actionNext"
+        android:singleLine="true"/>
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/time"
+        android:layout_below="@+id/expirydate"
         android:layout_centerHorizontal="true"
-        android:text="Add Medicine"
+        android:text="@string/add_medicine"
         android:id="@+id/button_add"
         android:textColor="@color/colorWhiteTitle"
         android:background="@drawable/button"

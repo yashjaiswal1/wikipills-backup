@@ -1,9 +1,13 @@
 package com.example.wikipill;
 
+import android.content.res.Configuration;
+import android.content.res.Resources;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -28,6 +32,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -49,49 +54,15 @@ public class DiagnosisFragment extends Fragment {
     MedicineFragment7 medicineFragment7;
     EditText Name,dose,time;
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public DiagnosisFragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment DiagnosisFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static DiagnosisFragment newInstance(String param1, String param2) {
-        DiagnosisFragment fragment = new DiagnosisFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
+    String sSavedLocale = "en";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        final  global abc = (global) getActivity().getApplicationContext();
+
+
         // Inflate the layout for this fragment
          final View view = inflater.inflate(R.layout.fragment_diagnosis, container, false);
 
@@ -120,17 +91,16 @@ public class DiagnosisFragment extends Fragment {
         DiagnosisFragment.ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getFragmentManager(),0);
 
         //Diagnosis.ViewPagerAdapter viewPagerAdapter = new Diagnosis.ViewPagerAdapter(getSupportFragmentManager(), 0);
-        viewPagerAdapter.addFragment(medicineFragment, "MONDAY");
-        viewPagerAdapter.addFragment(medicineFragment2, "TUESDAY");
-        viewPagerAdapter.addFragment(medicineFragment3, "WEDNESDAY");
-        viewPagerAdapter.addFragment(medicineFragment4, "THURSDAY");
-        viewPagerAdapter.addFragment(medicineFragment5,"FRIDAY");
-        viewPagerAdapter.addFragment(medicineFragment6,"SATUARDAY");
-        viewPagerAdapter.addFragment(medicineFragment7,"SUNDAY");
+        viewPagerAdapter.addFragment(medicineFragment, getString(R.string.monday));
+        viewPagerAdapter.addFragment(medicineFragment2, getString(R.string.tuesday));
+        viewPagerAdapter.addFragment(medicineFragment3, getString(R.string.wednesday));
+        viewPagerAdapter.addFragment(medicineFragment4, getString(R.string.thursday));
+        viewPagerAdapter.addFragment(medicineFragment5,getString(R.string.friday));
+        viewPagerAdapter.addFragment(medicineFragment6,getString(R.string.saturday));
+        viewPagerAdapter.addFragment(medicineFragment7,getString(R.string.sunday));
         viewPager.setAdapter(viewPagerAdapter);
 
 
-        final global abc = (global) getActivity().getApplicationContext();
 
 
         add.setOnClickListener(new View.OnClickListener() {
@@ -163,6 +133,9 @@ public class DiagnosisFragment extends Fragment {
                 bottomSheetDialog.show();
             }
         });
+
+
+
 
          return view;
     }
@@ -198,5 +171,21 @@ public class DiagnosisFragment extends Fragment {
             return fragmentTitle.get(position);
         }
     }
+
+    private void setAppLocale (String localeCode){
+        Resources res = getResources();
+        DisplayMetrics dm = res.getDisplayMetrics();
+        Configuration config = res.getConfiguration();
+        if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.JELLY_BEAN_MR1){
+            config.setLocale(new Locale(localeCode.toLowerCase()));
+        }else {
+            config.locale=new Locale(localeCode.toLowerCase());
+        }
+        res.updateConfiguration(config,dm);
+        //setContentView(R.layout.activity_main);
+        getActivity().recreate();
+    }
+
+
 
 }

@@ -29,7 +29,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Candid"
+                android:text="@string/fexofay_a"
                 android:gravity="center_horizontal"
                 android:textColor="@color/colorPrimaryDark"
                 android:textStyle="bold"
@@ -38,19 +38,21 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="1 times Today"
+                android:text="3 times Today"
                 android:gravity="center_horizontal"
                 android:textColor="@color/colorWhiteTitle"
                 android:textStyle="bold"
                 android:textSize="20sp"/>
 
             <Button
+                android:clickable="true"
+                android:id="@+id/fexofayButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/button"
                 android:layout_gravity="center_horizontal"
                 android:textColor="@color/colorPrimaryDark"
-                android:text="0/1"
+                android:text="Taken: 0/1"
                 android:padding="10sp"
                 android:layout_margin="8dp"/>
 
@@ -82,7 +84,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="PAN-40"
+                android:text="@string/saradon"
                 android:gravity="center_horizontal"
                 android:textColor="@color/colorPrimaryDark"
                 android:textStyle="bold"
@@ -91,18 +93,20 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="2 times Today"
+                android:text="@string/_2_times_today"
                 android:gravity="center_horizontal"
                 android:textColor="@color/colorWhiteTitle"
                 android:textStyle="bold"
                 android:textSize="20sp"/>
             <Button
+                android:clickable="true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/button"
                 android:layout_gravity="center_horizontal"
                 android:textColor="@color/colorPrimaryDark"
-                android:text="1/1"
+                android:text="Taken: 1/2"
+                android:id="@+id/saradinButton"
                 android:padding="10sp"
                 android:layout_margin="8dp"/>
 
@@ -115,7 +119,7 @@
         android:layout_width="180dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/card1"
-        app:cardBackgroundColor="#D7D4D8"
+        app:cardBackgroundColor="#F65347"
         app:cardCornerRadius="20sp">
 
         <LinearLayout
@@ -133,7 +137,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="EVION-600"
+                android:text="@string/paracip"
                 android:gravity="center_horizontal"
                 android:textColor="@color/colorPrimaryDark"
                 android:textStyle="bold"
@@ -142,19 +146,21 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="4 times Today"
+                android:text="@string/_2_times_today"
                 android:gravity="center_horizontal"
                 android:textColor="@color/colorWhiteTitle"
                 android:textStyle="bold"
                 android:textSize="20sp"/>
 
             <Button
+                android:id="@+id/paracipButton"
+                android:clickable="true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/button"
                 android:layout_gravity="center_horizontal"
                 android:textColor="@color/colorPrimaryDark"
-                android:text="0/4"
+                android:text="Taken: 1/4"
                 android:padding="10sp"
                 android:layout_margin="8dp"/>
 
@@ -189,7 +195,7 @@
                 android:id="@+id/name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Saradin"
+                android:text="@string/saradin"
                 android:gravity="center_horizontal"
                 android:textColor="@color/colorPrimaryDark"
                 android:textStyle="bold"
@@ -199,7 +205,7 @@
                 android:id="@+id/timesaday"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="2 times Today"
+                android:text="@string/_2_times_today"
                 android:gravity="center_horizontal"
                 android:textColor="@color/colorWhiteTitle"
                 android:textStyle="bold"

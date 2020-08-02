@@ -159,32 +159,32 @@ public class LogFragment extends Fragment {
             case "1":
                 break;
             case "2":
-                MedName.setText("Sandin 100 mg");
-                desc.setText("Sandin 100 mg Tablet is a broad-spectrum antiparasitic medicine used in the prevention and treatment of parasitic infections caused by tapeworms, pinworms, and hookworms. It is particularly effective in treating parasitic infections of the stomach and the intestine.\n");
-                genins.setText("Take this medicine exactly as instructed by the doctor. This medicine can be taken with or without food. Do not take in larger or smaller quantities than recommended. Take the medicine for the entire prescribed duration. Ensure that proper hygiene measures are adopted to prevent the recurrence and spread of the infection.\n");
-                SE1.setText("Diarrhea");
-                SE2.setText("Nausea and Vomiting");
-                SE3.setText("Stomach discomfort and pain (RARE)");
-                SE4.setText("Loss of appetite");
-                SE5.setText("Difficulty in breathing (SEVERE)");
-                SE6.setText("Fever with chills");
-                SE7.setText("Difficulty in swallowing");
-                SE8.setText("Peeling and blistering of skin (RARE|SEVERE)");
-                SE9.setText("Hair loss or thinning of the hair (RARE)");
-                SE10.setText("Joint or muscle pain");
-                SE11.setText("Weight loss");
+                MedName.setText(R.string.s1);
+                desc.setText(R.string.s2);
+                genins.setText(R.string.s3);
+                SE1.setText(R.string.s4);
+                SE2.setText(R.string.s5);
+                SE3.setText(R.string.s6);
+                SE4.setText(R.string.s7);
+                SE5.setText(R.string.s8);
+                SE6.setText(R.string.s9);
+                SE7.setText(R.string.s10);
+                SE8.setText(R.string.s11);
+                SE9.setText(R.string.s12);
+                SE10.setText(R.string.s13);
+                SE11.setText(R.string.s14);
 
                 break;
             case "3":
-                MedName.setText("Paracip 100 MG ");
-                desc.setText("Paracip 100 MG Tablet is used to temporarily relieve fever and mild to moderate pain such as muscle ache, headache, toothache, arthritis, and backache. This medicine should be used with caution in patients with liver diseases due to the increased risk of severe adverse effects.\n");
-                genins.setText("Take this medicine as advised by your doctor. You may take this medicine with or without food. Do not take in larger amounts than advised. Usage should never exceed the recommended daily maximum dosage limit of 4 grams in a 24-hour time period.\n");
-                SE1.setText("Nausea or Vomiting");
-                SE2.setText("Allergic skin reaction");
-                SE3.setText("Gastric / Mouth Ulcer");
-                SE4.setText("Anemia (RARE)");
-                SE5.setText("Fatigue");
-                SE6.setText("Unusual bleeding or bruising");
+                MedName.setText(R.string.p1);
+                desc.setText(R.string.p2);
+                genins.setText(R.string.p3);
+                SE1.setText(R.string.p4);
+                SE2.setText(R.string.p5);
+                SE3.setText(R.string.p6);
+                SE4.setText(R.string.p7);
+                SE5.setText(R.string.p8);
+                SE6.setText(R.string.p9);
                 SE7.setVisibility(View.GONE);
                 SE8.setVisibility(View.GONE);
                 SE9.setVisibility(View.GONE);
@@ -195,4 +195,5 @@ public class LogFragment extends Fragment {
 
         return rootview;
     }
+
 }
