@@ -12,6 +12,15 @@ public class global extends Application {
     int visi ;
     int medlog;
     int language = 1;
+    int notification;
+
+    public int getNotification() {
+        return notification;
+    }
+
+    public void setNotification(int notification) {
+        this.notification = notification;
+    }
 
     public String getPara() {
         return para;

@@ -240,14 +240,16 @@ public class VitalsFragment extends Fragment {
             }
 
             if ((Beats != 0)  && (o2 != 0) ) {
-                VitalsResult ldf = new VitalsResult ();
-                Bundle args = new Bundle();
-                args.putString("BPM", Integer.toString(Beats));
-                args.putString("SPO2", Integer.toString(o2));
-                ldf.setArguments(args);
 
-                getFragmentManager().beginTransaction().add(R.id.container_frag, ldf).commit();
 
+                Bundle bundle = new Bundle();
+                bundle.putString("BPM", Integer.toString(Beats));
+                bundle.putString("SPO2", Integer.toString(o2));
+                Fragment fragment = null;
+                fragment = new VitalsResult();
+                fragment.setArguments(bundle);
+                fragmentManager = getActivity().getSupportFragmentManager();
+                fragmentManager.beginTransaction().replace(R.id.container_frag,fragment).commit();
 
 
             }

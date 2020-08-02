@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:background="@drawable/circular_corner"
+    android:id="@+id/bottomSheetContainer2">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="FALL ALERT!"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="20sp"
+        android:id="@+id/headline"/>
+
+
+
+    <TextView
+        android:layout_toLeftOf="@+id/space1"
+        android:layout_below="@+id/headline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Gunjan Mishra"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_margin="20sp"
+        android:id="@+id/contact1"/>
+
+    <Space
+        android:id="@+id/space1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/headline"/>
+
+        <Button
+            android:id="@+id/call1"
+            android:layout_toRightOf="@+id/space1"
+            android:layout_below="@+id/headline"
+            android:layout_margin="20sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button"
+            android:text="CALL"
+            />
+
+    <TextView
+        android:layout_toLeftOf="@+id/space1"
+        android:layout_below="@+id/contact1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sangram Singh"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_margin="20sp"
+        android:id="@+id/contact2"/>
+
+    <Space
+        android:id="@+id/space2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/space1"/>
+
+    <Button
+        android:id="@+id/call2"
+        android:layout_toRightOf="@+id/space1"
+        android:layout_below="@+id/call1"
+        android:layout_width="wrap_content"
+        android:layout_marginLeft="19sp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button"
+        android:text="CALL"
+        />
+
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10sp"
+        android:id="@+id/dismis"
+        android:layout_below="@+id/call2"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="25sp"
+        android:text="Dismiss"
+        android:textSize="25sp"
+        android:background="@drawable/button"/>
+
+</RelativeLayout>
