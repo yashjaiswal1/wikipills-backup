@@ -41,25 +41,33 @@
       SameSite="None"
       Secure
       src="https://sdk.amazonaws.com/js/aws-sdk-2.7.16.min.js"
+
+      
     ></script>
 
     <script>
+      console.log("Up");
       AWS.config.update({
         region: "us-east-1",
         // endpoint: "https://test-c2078.web.app/",
         // accessKeyId default can be used while using the downloadable version of DynamoDB.
         // For security reasons, do not store AWS Credentials in your files. Use Amazon Cognito instead.
-        accessKeyId: "ASIA6DVYEHHHOUU5HF6R",
+        accessKeyId: "ASIAVX5X47AEL6V53EXM",
         // secretAccessKey default can be used while using the downloadable version of DynamoDB.
         // For security reasons, do not store AWS Credentials in your files. Use Amazon Cognito instead.
-        secretAccessKey: "Y98xxVGk28LmbGLN2c5Oq2uRarIEMroMV8Q5anud",
+        secretAccessKey: "SCyLvCgFCcfnQmHE3el+7YCNjyiEkxUiplpOjGNb",
         sessionToken:
-          "FwoGZXIvYXdzEHEaDMTNV40sAG4VH6IQ8CLHAQK12SNErQuyXAKn+UUuSe85xXNW6nIgxkzsMcsRhvuLBYJsl6i1ecTQBXxupze/RbAPeuSGtTy/h+MmVwMCXLAiIcARdGzOqJ5TAceQJv4jEJ7J57Z0ge7TjGrSZrzx9VF6DuA0DKBq8OXy7r+wVaS/jMeFd4uDhREfE06GVjHEUpz2flZx1oLg1P4VI0Koi5RGaBV2QfwqwX8UOvMsZesw5Wvn43jIPp2PZX+yaGyOm7C/YYzHo+7C62w2hGEbAv1Yzw/zM7kou/uJ+QUyLb8Rsz+4ACrFiixrFExhl0mslOkJktYaMbf/Ldo1g2+cYN7F3u8c4+DmpgVo7Q==",
+          "FwoGZXIvYXdzELD//////////wEaDM8fgCIZEOT2t0jMJyLJAU+kdzGg9ZjhnjYFRfYVtMk6+e35soOkbNAmzvhhlWpPIFwGfsH/1TWH5DiCobg0fNySv6WPr1koBWdh79NCFRFH2MCjVbtClNTYXFb2lzGQHhXM1mXJQHcFnnLKns2o5nsY/9Y1e8bJ1CHWs7gWFJB89y5eW6R/haCBdOPKHbq+bnRwg2Bbh6EqpzLrtWSd1KjBTgxyh5D/xbklSlW3Rr/8iLt0C8ZGJOsPnq952wZVkX88c5OOWutC4EtL8QkBPyguqYWurM+pyijV3Zf5BTItM6zFneYWazVt1afYVpG1I0l1LqTcZQD9aFd98fe7+ApdzeGeOzS9wfjtc3x5"
       });
-
+      console.log("Down");
       var docClient = new AWS.DynamoDB.DocumentClient();
+      var test = 0;
+      function setTest(val){
+        test = val;
+      }
 
-      function readItem() {
+      function getTest() {
+        console.log("getTest called");
           var table = "Medicine";
           var id = "1";
 
@@ -73,12 +81,34 @@
             if (err) {
               console.log("Unable to read item: " + "\n" + JSON.stringify(err, undefined, 2));
             } else {
-              console.log("GetItem succeeded: " + "\n" + JSON.stringify(data, undefined, 2));
-              console.log("\nRAW DATA:\n\n" + data);
-              console.log("\nRAW DATATYPE:\n\n" + typeof(data));
+              response = JSON.stringify(data["Item"]["Test"], undefined, 2);
+              console.log("Test value: " + "\n" + response);
+              setTest(Number(response));
             }
-          });          
+          });
       }
+          getTest();
+      
+      // function readItem() {
+      //     var table = "Medicine";
+      //     var id = "1";
+
+      //     var params = {
+      //         TableName: table,
+      //         Key:{
+      //             "PatientID": id
+      //         }
+      //     };
+      //     docClient.get(params, function(err, data) {
+      //       if (err) {
+      //         console.log("Unable to read item: " + "\n" + JSON.stringify(err, undefined, 2));
+      //       } else {
+      //         console.log("GetItem succeeded: " + "\n" + JSON.stringify(data, undefined, 2));
+      //         console.log("\nRAW DATA:\n\n" + data);
+      //         console.log("\nRAW DATATYPE:\n\n" + typeof(data));
+      //       }
+      //     });          
+      // }
     </script>
 
      <!-- Icons -->
@@ -487,16 +517,224 @@
             flag = 0;
           }
         }
-        //   track.setPath(path);
+
+        //5th button press
+        else if (counter == 3) {
+          var latlng = new google.maps.LatLng(13.117635, 77.634084);
+          marker.setPosition(latlng);
+          // console.log(
+          //   checkIfInside(queue[j], new google.maps.LatLng(13.11778, 77.63311))
+          // );
+          // console.log(queue[j]);
+          if(queue.length > 1){
+          status = checkIfInside(
+            queue[j],
+            new google.maps.LatLng(13.117635, 77.634084)
+          );
+          }
+          if(queue.length == 1){
+          status = checkIfInside(
+            queue[0],
+            new google.maps.LatLng(13.117635, 77.634084)
+          );
+          }
+          var path = track.getPath();
+          path.push(new google.maps.LatLng(13.117635, 77.634084));
+          // console.log(path);
+          counter += 1;
+          if (status == "true") {
+            // functions when point is inside polygon
+            k = j+1;
+            console.log("inside region " + k);
+            M.toast({html: 'Inside Region ' + k, classes: 'rounded green'});
+            temp = document.createElement("TD");
+            temp.innerHTML = "Entered region " + k + " at " + new Date();
+            document.getElementById("tr" + l).appendChild(temp);
+            l += 1;
+            notifRef.set(0);
+            flag = 1;
+          } if(flag && status == "false"){
+            // functions when point is outside polygon
+            k = j+1;
+            console.log("outside region " + k);
+            M.toast({html: 'Outside Region ' + k, classes: 'rounded red'});
+            temp = document.createElement("TD");
+            temp.innerHTML = "Departed from region " + k + " at " + new Date();
+            document.getElementById("tr" + l).appendChild(temp);
+            l += 1;
+            j += 1;
+            poly = queue[j]
+            notifRef.set(1);
+            flag = 0;
+          }
+        }
+
+        //6th button press
+        else if (counter == 4) {
+          var latlng = new google.maps.LatLng(13.118328, 77.633904);
+          marker.setPosition(latlng);
+          // console.log(
+          //   checkIfInside(queue[j], new google.maps.LatLng(13.11778, 77.63311))
+          // );
+          // console.log(queue[j]);
+          //>>>>TEST<<<<<
+          // if(queue.length > 1){
+          // status = checkIfInside(
+          //   queue[j],
+          //   new google.maps.LatLng(13.118328, 77.633904)
+          // );
+          // }
+          // if(queue.length == 1){
+          // status = checkIfInside(
+          //   queue[0],
+          //   new google.maps.LatLng(13.118328, 77.633904)
+          // );
+          // }
+          var path = track.getPath();
+          path.push(new google.maps.LatLng(13.118328, 77.633904));
+          // console.log(path);
+          counter += 1;
+          // if (status == "true") {
+          //   // functions when point is inside polygon
+          //   k = j+1;
+          //   console.log("inside region " + k);
+          //   M.toast({html: 'Inside Region ' + k, classes: 'rounded green'});
+          //   temp = document.createElement("TD");
+          //   temp.innerHTML = "Entered region " + k + " at " + new Date();
+          //   document.getElementById("tr" + l).appendChild(temp);
+          //   l += 1;
+          //   notifRef.set(0);
+          //   flag = 1;
+          // } if(flag && status == "false"){
+          //   // functions when point is outside polygon
+          //   k = j+1;
+          //   console.log("outside region " + k);
+          //   M.toast({html: 'Outside Region ' + k, classes: 'rounded red'});
+          //   temp = document.createElement("TD");
+          //   temp.innerHTML = "Departed from region " + k + " at " + new Date();
+          //   document.getElementById("tr" + l).appendChild(temp);
+          //   l += 1;
+          //   j += 1;
+          //   poly = queue[j]
+          //   notifRef.set(1);
+          //   flag = 0;
+          // }
+          
+          console.log("Done");
+        }
+
+        // 7th button press
+        else if (counter == 5) {
+          var latlng = new google.maps.LatLng(13.119552, 77.632891);
+          marker.setPosition(latlng);
+          // console.log(
+          //   checkIfInside(queue[j], new google.maps.LatLng(13.11778, 77.63311))
+          // );
+          // console.log(queue[j]);
+          //>>>>TEST<<<<<
+          // if(queue.length > 1){
+          // status = checkIfInside(
+          //   queue[j],
+          //   new google.maps.LatLng(13.118328, 77.633904)
+          // );
+          // }
+          // if(queue.length == 1){
+          // status = checkIfInside(
+          //   queue[0],
+          //   new google.maps.LatLng(13.118328, 77.633904)
+          // );
+          // }
+          var path = track.getPath();
+          path.push(new google.maps.LatLng(13.119552, 77.632891));
+          // console.log(path);
+          counter += 1;
+          // if (status == "true") {
+          //   // functions when point is inside polygon
+          //   k = j+1;
+          //   console.log("inside region " + k);
+          //   M.toast({html: 'Inside Region ' + k, classes: 'rounded green'});
+          //   temp = document.createElement("TD");
+          //   temp.innerHTML = "Entered region " + k + " at " + new Date();
+          //   document.getElementById("tr" + l).appendChild(temp);
+          //   l += 1;
+          //   notifRef.set(0);
+          //   flag = 1;
+          // } if(flag && status == "false"){
+          //   // functions when point is outside polygon
+          //   k = j+1;
+          //   console.log("outside region " + k);
+          //   M.toast({html: 'Outside Region ' + k, classes: 'rounded red'});
+            setTimeout(() => {
+              temp = document.createElement("TD");
+              temp.innerHTML = "<b>Schedule Alert:</b> User has not arrived at Region 1";
+              document.getElementById("tr" + l).appendChild(temp);
+              M.toast({html: 'User not on schedule. Kindly check with the user.', classes: 'rounded red'});
+              l += 1;
+            },5000);
+          //   j += 1;
+          //   poly = queue[j]
+          //   notifRef.set(1);
+          //   flag = 0;
+          // }
+          
+          console.log("Done");
+        }
+        // 7th button press
+        else if (counter == 6) {
+          
+          // console.log(
+          //   checkIfInside(queue[j], new google.maps.LatLng(13.11778, 77.63311))
+          // );
+          // console.log(queue[j]);
+          //>>>>TEST<<<<<
+          // if(queue.length > 1){
+          // status = checkIfInside(
+          //   queue[j],
+          //   new google.maps.LatLng(13.118328, 77.633904)
+          // );
+          // }
+          // if(queue.length == 1){
+          // status = checkIfInside(
+          //   queue[0],
+          //   new google.maps.LatLng(13.118328, 77.633904)
+          // );
+          // }
+          // var path = track.getPath();
+          // path.push(new google.maps.LatLng(13.119552, 77.632891));
+          // console.log(path);
+          // counter += 1;
+          // if (status == "true") {
+          //   // functions when point is inside polygon
+          //   k = j+1;
+          //   console.log("inside region " + k);
+          //   M.toast({html: 'Inside Region ' + k, classes: 'rounded green'});
+          //   temp = document.createElement("TD");
+          //   temp.innerHTML = "Entered region " + k + " at " + new Date();
+          //   document.getElementById("tr" + l).appendChild(temp);
+          //   l += 1;
+          //   notifRef.set(0);
+          //   flag = 1;
+          // } if(flag && status == "false"){
+          //   // functions when point is outside polygon
+          //   k = j+1;
+          //   console.log("outside region " + k);
+          //   M.toast({html: 'Outside Region ' + k, classes: 'rounded red'});
+              temp = document.createElement("TD");
+              temp.innerHTML = "<b>Activity Alert:</b> User has not been active since the past 5 hours.";
+              document.getElementById("tr" + l).appendChild(temp);
+              M.toast({html: 'User state is inactive. Kindly check with the user.', classes: 'rounded red'});
+              l += 1;
+          //   j += 1;
+          //   poly = queue[j]
+          //   notifRef.set(1);
+          //   flag = 0;
+          // }
+          
+          console.log("Done2");
+        }
       }
 
-      //   function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-      //     infoWindow.setPosition(pos);
-      //     infoWindow.setContent(browserHasGeolocation ?
-      //                           'Error: The Geolocation service failed.' :
-      //                           'Error: Your browser doesn\'t support geolocation.');
-      //     infoWindow.open(map);
-      //   }
+      
     </script>
     <script
       async
@@ -507,13 +745,13 @@
     ></script>
     
     <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script SameSite="None" Secure src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <!-- Firebase -->
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="/__/firebase/7.9.1/firebase-app.js"></script>
 
-    <!-- TODO: Add SDKs for Firebase products that you want to use
-      https://firebase.google.com/docs/web/setup#available-libraries -->
+    // <!-- TODO: Add SDKs for Firebase products that you want to use
+    //   https://firebase.google.com/docs/web/setup#available-libraries -->
     <script src="/__/firebase/7.9.1/firebase-database.js"></script>
 
     <!-- Initialize Firebase -->

@@ -44,7 +44,6 @@
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 <meta name="msapplication-TileColor" content="#2b5797">
 <meta name="theme-color" content="#7C62E4"/>
-<<<<<<< HEAD
     <script
       SameSite="None"
       Secure
@@ -57,17 +56,49 @@
         // endpoint: "https://test-c2078.web.app/",
         // accessKeyId default can be used while using the downloadable version of DynamoDB.
         // For security reasons, do not store AWS Credentials in your files. Use Amazon Cognito instead.
-        accessKeyId: "ASIAVX5X47AECJRYZQ46",
+        accessKeyId: "ASIAVX5X47AEL6V53EXM",
         // secretAccessKey default can be used while using the downloadable version of DynamoDB.
         // For security reasons, do not store AWS Credentials in your files. Use Amazon Cognito instead.
-        secretAccessKey: "E5IWdNElbqBy3JK0eto1++uKuECn/rxNwIGwYsc7",
+        secretAccessKey: "SCyLvCgFCcfnQmHE3el+7YCNjyiEkxUiplpOjGNb",
         sessionToken:
-          "FwoGZXIvYXdzEIX//////////wEaDHRVGiEGLg/KM5ICDSLJAc/XiBTQrf45/VGyqfV14I4qugQTOLJMyxqMqGUjykJpk4JcOSIJgBaqRRFD0Ql/tW8RnVJ74FpLwGqVNMXMzf1NqFlnrf7nJfV110N6a0Zo4BMN6Fmx2NjpCUefw4cQgo/7vIv4dJ704Eu10CGO6kLuuuePFPw9DzU1gL1HVKgL01rRRaUDXwRA5+4Lg9CGMO9Ov0mcnaOO/NP8mifkqIQx1edBxK12kxAEcQLN60bpp/Jc9N3iHNx/5WmGH8/M0GMZoIfxAFQz9yiWlY75BTItitt6LhWsA0p12rnGmbjHaz9QQW1hUG1Lfi7sGZbFKD3usRk6ix6C2dqRV6qR"
+          "FwoGZXIvYXdzELD//////////wEaDM8fgCIZEOT2t0jMJyLJAU+kdzGg9ZjhnjYFRfYVtMk6+e35soOkbNAmzvhhlWpPIFwGfsH/1TWH5DiCobg0fNySv6WPr1koBWdh79NCFRFH2MCjVbtClNTYXFb2lzGQHhXM1mXJQHcFnnLKns2o5nsY/9Y1e8bJ1CHWs7gWFJB89y5eW6R/haCBdOPKHbq+bnRwg2Bbh6EqpzLrtWSd1KjBTgxyh5D/xbklSlW3Rr/8iLt0C8ZGJOsPnq952wZVkX88c5OOWutC4EtL8QkBPyguqYWurM+pyijV3Zf5BTItM6zFneYWazVt1afYVpG1I0l1LqTcZQD9aFd98fe7+ApdzeGeOzS9wfjtc3x5"
       });
 
       var docClient = new AWS.DynamoDB.DocumentClient();
+      var intake = [0,0,0];
+      var BPM = 0;
+      var SPO2 = 0;
+      function setBPM(val){
+        BPM = val;
+      }
+      function setSPO2(val){
+        SPO2 = val;
+      }
+      function callback(val, i){
+        intake[i] = val;
+      }
+      function getCandid() {
+          var table = "Medicine";
+          var id = "1";
+          var response;
 
-      function readItem() {
+          var params = {
+              TableName: table,
+              Key:{
+                  "PatientID": id
+              }
+          };
+          docClient.get(params, function(err, data) {
+            if (err) {
+              console.log("Unable to read item: " + "\n" + JSON.stringify(err, undefined, 2));
+            } else {
+              response = Number(JSON.stringify(data["Item"]["candid"], undefined, 2));
+              console.log("Candid Intake Value: " + "\n" + response);
+              callback(response, 0);
+            }
+          });
+      }
+      function getEvion_600() {
           var table = "Medicine";
           var id = "1";
 
@@ -81,25 +112,84 @@
             if (err) {
               console.log("Unable to read item: " + "\n" + JSON.stringify(err, undefined, 2));
             } else {
-              console.log("GetItem succeeded: " + "\n" + JSON.stringify(data["Item"]["candid"], undefined, 2));
-              console.log("\nRAW DATA:\n\n" + data);
-              console.log("\nRAW DATATYPE:\n\n" + typeof(data));
+              response = JSON.stringify(data["Item"]["evion_600"], undefined, 2);
+              console.log("Evion-600 Intake Value: " + "\n" + response);
+              callback(response, 1);
             }
           });          
       }
-      readItem();
+      function getPan_40() {
+          var table = "Medicine";
+          var id = "1";
+
+          var params = {
+              TableName: table,
+              Key:{
+                  "PatientID": id
+              }
+          };
+          docClient.get(params, function(err, data) {
+            if (err) {
+              console.log("Unable to read item: " + "\n" + JSON.stringify(err, undefined, 2));
+            } else {
+              response = JSON.stringify(data["Item"]["pan_40"], undefined, 2);
+              console.log("Pan-40 Intake Value: " + "\n" + response);
+              callback(response, 2);
+            }
+          });          
+      }
+      function getBPM() {
+          var table = "Medicine";
+          var id = "1";
+
+          var params = {
+              TableName: table,
+              Key:{
+                  "PatientID": id
+              }
+          };
+          docClient.get(params, function(err, data) {
+            if (err) {
+              console.log("Unable to read item: " + "\n" + JSON.stringify(err, undefined, 2));
+            } else {
+              response = JSON.stringify(data["Item"]["BPM"], undefined, 2);
+              console.log("BPM value: " + "\n" + response);
+              setBPM(Number(response));
+            }
+          });          
+      }
+      function getSPO2() {
+          var table = "Medicine";
+          var id = "1";
+
+          var params = {
+              TableName: table,
+              Key:{
+                  "PatientID": id
+              }
+          };
+          docClient.get(params, function(err, data) {
+            if (err) {
+              console.log("Unable to read item: " + "\n" + JSON.stringify(err, undefined, 2));
+            } else {
+              response = JSON.stringify(data["Item"]["SPo2"], undefined, 2);
+              console.log("SPO2 value: " + "\n" + response);
+              setSPO2(Number(response));
+            }
+          });          
+      }
+      getBPM();
+      getSPO2();
     </script>
-=======
 
 <link rel="icon" href="favicon.ico" type="image/x-icon" />  
 <meta name="apple-mobile-web-app-capable" content="yes">  
 <meta name="apple-mobile-web-app-status-bar-style" content="black"> 
 <meta name="apple-mobile-web-app-title" content="WikiPills">
->>>>>>> d232e4d26dea80c4b914d77178a4ac23510f2881
 </head>
 
 <body>
-
+  
     <div class="mdl-layout mdl-js-layout">
         <header class="mdl-layout__header bg-header">
 
@@ -300,9 +390,9 @@
                         <div class="container-fluid mt--7">
                                 <h4>&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;<b>Currently Diagnosed with</b>: Common Cold</h4>
                                 <h4>&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;<b>Prescribed Medicines</b>:</h4>
-                                <p>&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;Fexofay-A - [Bedtime]</p>
-                                <p>&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;Saridon - [After Lunch]</p>
-                                <p>&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;Paracip-500 - [4 Times Per Day]</p>
+                                <p>&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;Candid = [3 pills / day]</p>
+                                <p>&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;Evion-600 = [2 pills / day]</p>
+                                <p>&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;Pan-40 = [2 pills / day]</p>
                                 <script>
                                         var coll = document.getElementsByClassName("collapsible");
                                         var i;
@@ -698,9 +788,9 @@
                                                   <h3 class="mb-0"><font style="color: white;">Daily Intake Report</font></h3><br>
                                                   <select id="prod1" class="custom-select custom-select-sm" onchange="orders1(this.value)">
                                                     <option disabled>Select a medicine</option>
-                                                    <option selected value="1">Fexofay-A</option>
-                                                    <option value="2">Saridon</option>
-                                                    <option value="3">Paracip-500</option>
+                                                    <option selected value="1">Candid</option>
+                                                    <option value="2">Pan-40</option>
+                                                    <option value="3">Evion-600</option>
                                                   </select><br><br>
                                                 </div>
                                               </div>
@@ -725,9 +815,12 @@
  <script src="/__/firebase/init.js"></script>
  <script src="./index.js"></script>
                                               <script>
-                                                var arr1 = [3, 5, 0, 0, 0, 0, 0];
-                                                var arr2 = [2, 1, 0, 0, 0, 0, 0];
-                                                var arr3 = [0, 1, 0, 0, 0, 0, 0];
+                                                getCandid()
+                                                getEvion_600();
+                                                getPan_40();
+                                                var arr1 = [3, intake[0], 2, 3, 2, 3, 3];
+                                                var arr2 = [2, intake[1], 2, 0, 1, 2, 3];
+                                                var arr3 = [3, intake[2], 2, 0, 2, 2, 2];
                                                 var counter = 0;
                                                 var ctrx = document
                                                   .getElementById("chart-orderz")
@@ -747,7 +840,7 @@
                                                       "Sunday"
                                                     ],
                                                     datasets: [{
-                                                        label: "Fexofay-A",
+                                                        label: "Candid",
                                                         backgroundColor: "#11cdef",
                                                         borderColor: "#11cdef",
                                                         data: arr1
@@ -776,65 +869,88 @@
                                                   }
                                                 });
                                                 var p1, p2;
+                                                setTimeout(() => {
+                                                  arr1[2] = intake[0];
+                                                  arr2[2] = intake[1];
+                                                  arr3[2] = intake[2];
+                                                  // console.log("Current arr1 = " + arr1);
+                                                  // chart.data.datasets[0].data = arr1;
+                                                  chart.update()
+                                                  console.log("\nUPDATING CHART NOW\n")
 
+                                                  // var cardioDate = document.createElement("TD");
+                                                  // var cardioTime = document.createElement("TD");
+                                                  // var cardioBPM = document.createElement("TD");
+                                                  // var cardioSPO2 = document.createElement("TD");
+                                                  
+                                                  document.getElementById("cardioDate").innerHTML = Date().slice(0,15);
+                                                  document.getElementById("cardioTime").innerHTML = Date().slice(16,24);
+                                                  document.getElementById("cardioBPM").innerHTML = BPM;
+                                                  document.getElementById("cardioSPO2").innerHTML = SPO2;
+                                                  // document.getElementById("CardioTable").appendChild(cardioDate);
+                                                  // document.getElementById("CardioTable").appendChild(cardioTime);
+                                                  // document.getElementById("CardioTable").appendChild(cardioBPM);
+                                                  // document.getElementById("CardioTable").appendChild(cardioSPO2);
+                                                  console.log("done");
+                                                }, 4000)
                                                 function orders1(choice) {
                                                   switch (choice) {
                                                     case '2':
-                                                      chart.data.datasets[0].label = "Saridon";
+                                                      chart.data.datasets[0].label = "Pan-40";
                                                       chart.data.datasets[0].data = arr2;
                                                       chart.data.datasets[1].data = [2, 2, 2, 2, 2, 2, 2];
                                                       chart.update()
                                                       break;
                                                     case '1':
-                                                      chart.data.datasets[0].label = "Fexofay-A";
+                                                      chart.data.datasets[0].label = "Candid";
                                                       chart.data.datasets[0].data = arr1;
                                                       chart.data.datasets[1].data = [3, 3, 3, 3, 3, 3, 3];
                                                       chart.update()
                                                       break;
                                                     case '3':
-                                                      chart.data.datasets[0].label = "Paracip-500";
+                                                      chart.data.datasets[0].label = "Evion-600";
                                                       chart.data.datasets[0].data = arr3;
-                                                      chart.data.datasets[1].data = [1, 1, 1, 1, 1, 1, 1];
+                                                      chart.data.datasets[1].data = [2, 2, 2, 2, 2, 2, 2];
                                                       chart.update()
                                                       break;
                                                   }
                                                 }
 
-                                                var firebaseRef = firebase.database().ref();
-                                                // firebaseRef.child("Test").set("Working1");
+                                                // var firebaseRef = firebase.database().ref();
+                                                // // firebaseRef.child("Test").set("Working1");
 
-                                                var med1 = firebaseRef.child("Medicine").child("fexofay").child("taken");
-                                                med1.on('value', function(snapshot){
-                                                    counter += 1;
-                                                    if(counter > 3){
-                                                        console.log("WORKING!!!\n");
-                                                        console.log(snapshot.val());
-                                                        arr1[2] += 1;
-                                                        chart.update(); 
-                                                    }
-                                                });
+                                                // var med1 = firebaseRef.child("Medicine").child("fexofay").child("taken");
+                                                // med1.on('value', function(snapshot){
+                                                //     counter += 1;
+                                                //     if(counter > 3){
+                                                //         console.log("WORKING!!!\n");
+                                                //         console.log(snapshot.val());
+                                                //         arr1[2] += 1;
+                                                //         chart.update(); 
+                                                //     }
+                                                // });
 
-                                                var med2 = firebaseRef.child("Medicine").child("paracip").child("taken");
-                                                med2.on('value', function(snapshot){
-                                                    counter += 1;
-                                                    if(counter > 3){
-                                                        console.log("WORKING!!!\n");
-                                                        console.log(snapshot.val());
-                                                        arr3[2] += 1;
-                                                        chart.update(); 
-                                                    }
-                                                });
+                                                // var med2 = firebaseRef.child("Medicine").child("paracip").child("taken");
+                                                // med2.on('value', function(snapshot){
+                                                //     counter += 1;
+                                                //     if(counter > 3){
+                                                //         console.log("WORKING!!!\n");
+                                                //         console.log(snapshot.val());
+                                                //         arr3[2] += 1;
+                                                //         chart.update(); 
+                                                //     }
+                                                // });
 
-                                                var med3 = firebaseRef.child("Medicine").child("saradon").child("taken");
-                                                med3.on('value', function(snapshot){
-                                                    counter += 1;
-                                                    if(counter > 3){ 
-                                                        console.log("WORKING!!!\n");
-                                                        console.log(snapshot.val());
-                                                        arr2[2] += 1;
-                                                        chart.update(); 
-                                                    }
-                                                });
+                                                // var med3 = firebaseRef.child("Medicine").child("saradon").child("taken");
+                                                // med3.on('value', function(snapshot){
+                                                //     counter += 1;
+                                                //     if(counter > 3){ 
+                                                //         console.log("WORKING!!!\n");
+                                                //         console.log(snapshot.val());
+                                                //         arr2[2] += 1;
+                                                //         chart.update(); 
+                                                //     }
+                                                // });
                                             
                                 
                                                 // function orders2(choice) {
@@ -867,7 +983,7 @@
                                             <div class="card-header border-6">
                                               <div class="row align-items-center">
                                                 <div class="col">
-                                                  <h3 class="mb-0">Heart Rate Log</h3>
+                                                  <h4 class="mb-0"><u>Cardiovascular Health Metrics</u></h4>
                                                 </div>
                                                 <div class="col text-right">
                                                   
@@ -887,67 +1003,43 @@
                                                 </thead>
                                                 <tbody>
                                                   <tr>
-                                                    <th scope="row">
-                                                      31-07-2020 
-                                                    </th>
+                                                    <td scope="row">
+                                                      Fri Jul 31 2020 
+                                                    </td>
                                                     <td>
-                                                        10:30 AM
+                                                        20:30:54
                                                     </td>
                                                     <td>
                                                       85
                                                     </td>
                                                     <td>
-                                                      94%
+                                                      97
                                                     </td>
                                                   </tr>
-                                                  <tr>
-                                                    <th scope="row">
-                                                      30-07-2020 
-                                                    </th>
-                                                    <td>
-                                                    18:20 PM
+                                                  <tr id="CardioTable">
+                                                    <td scope="row" id="cardioDate">
+                                                      
                                                     </td>
-                                                    <td>
-                                                      62
+                                                    <td id="cardioTime">
+                                                      
                                                     </td>
-                                                    <td>
-                                                      89%
+                                                    <td id="cardioBPM">
+                                                      
                                                     </td>
-                                                  </tr>
-                                                  <tr>
-                                                    <th scope="row">
-                                                      29-07-2020
-                                                    </th>
-                                                    <td>
-                                                    9:47 AM
+                                                    <td id="cardioSPO2">
+                                                      
                                                     </td>
-                                                    <td>
-                                                      60
-                                                    </td>
-                                                    <td>
-                                                      76%
-                                                    </td>
-                                                  </tr>
-                                                  <tr>
-                                                    <th scope="row">
-                                                      27-07-2020
-                                                    </th>
-                                                    <td>
-                                                    19:50 PM
-                                                    </td>
-                                                    <td>
-                                                      78
-                                                    </td>
-                                                    <td>
-                                                      92%
-                                                    </td>
-                                                  </tr>
+                                                  </tr >
+                                                  
                                                 </tbody>
                                               </table>
                                             </div>
                                           </div>
                                         </div>
                                       </div>
+                                      <script>
+
+                                      </script>
 
                             <h3>&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;<u>Past Medical History</u>
                             </h3>
