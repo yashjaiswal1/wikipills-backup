@@ -1,6 +1,6 @@
 package com.example.wikipill;
 
-public class ImageProcessing {
+public abstract class ImageProcessing {
 
     private static int decodeYUV420SPtoRedSum(byte[] yuv420sp, int width, int height) {
         if (yuv420sp == null) return 0;
@@ -45,5 +45,4 @@ public class ImageProcessing {
         int sum = decodeYUV420SPtoRedSum(yuv420sp, width, height);
         return (sum / frameSize);
     }
-
 }

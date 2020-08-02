@@ -6,10 +6,54 @@ public class global extends Application {
     String newMedName;
     String newMedDose;
     String newMedTime;
+    String fex;
+    String para;
+    String sari;
     int visi ;
     int medlog;
+    int language = 1;
+
+    public String getPara() {
+        return para;
+    }
+
+    public void setPara(String para) {
+        this.para = para;
+    }
+
+    public String getSari() {
+        return sari;
+    }
+
+    public void setSari(String sari) {
+        this.sari = sari;
+    }
 
     public global() {
+    }
+
+    public String getFex() {
+        return fex;
+    }
+
+    public void setFex(String fex) {
+        this.fex = fex;
+    }
+
+    public int getMedlog() {
+        return medlog;
+    }
+
+    public void setMedlog(int medlog) {
+        this.medlog = medlog;
+    }
+
+    public int getLanguage() {
+        return language;
+    }
+
+    public void setLanguage(int language) {
+        this.language = language;
     }
 
     public int getVisi() {

@@ -8,7 +8,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.FrameLayout;
 
-public class CommonActivity extends AppCompatActivity {
+import com.akexorcist.localizationactivity.ui.LocalizationActivity;
+
+public class CommonActivity extends LocalizationActivity {
 
     FragmentManager fragmentManager;
     FrameLayout frameLayout;
@@ -41,7 +43,7 @@ public class CommonActivity extends AppCompatActivity {
                 fragment = new MedicineLogFragment();
                 break;
             case "4":
-                fragment = new HeartRateMonitor();
+                fragment = new VitalsFragment();
                 break;
 
 
@@ -54,5 +56,27 @@ public class CommonActivity extends AppCompatActivity {
 
         }
 
+        final global abc  = (global) getApplicationContext();
+
+        if(abc.getLanguage()==1){
+            setLanguage("en");
+        } else if(abc.getLanguage()==2){
+
+        }else if(abc.getLanguage()==3){
+            setLanguage("hn");
+        }else if (abc.getLanguage()==4){
+            setLanguage("kn");
+        }
+
+    }
+
+    @Override
+    public void onBackPressed() {
+        if(getFragmentManager().getBackStackEntryCount() == 1) {
+            moveTaskToBack(false);
+        }
+        else {
+            super.onBackPressed();
+        }
     }
 }

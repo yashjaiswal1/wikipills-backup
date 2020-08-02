@@ -10,11 +10,7 @@ import android.util.AttributeSet;
 import android.view.View;
 
 
-/**
- * This class extends the View class and is designed draw the heartbeat image.
- *
- * @author Justin Wetherell <phishman3579@gmail.com>
- */
+
 public class HeartbeatView extends View {
 
     private static final Matrix matrix = new Matrix();
@@ -40,9 +36,6 @@ public class HeartbeatView extends View {
         redBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.red_icon);
     }
 
-    /**
-     * {@inheritDoc}
-     */
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
@@ -52,9 +45,6 @@ public class HeartbeatView extends View {
         setMeasuredDimension(parentWidth, parentHeight);
     }
 
-    /**
-     * {@inheritDoc}
-     */
     @Override
     protected void onDraw(Canvas canvas) {
         if (canvas == null) throw new NullPointerException();
