@@ -1,0 +1,370 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "विकी पिल्स",
+            "intents": [
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.NavigateHomeIntent",
+                    "samples": []
+                },
+                {
+                    "name": "CaseHistory",
+                    "slots": [],
+                    "samples": [
+                        "संस्कार तिवारी को पहले कौनसी बीमारी थी "
+                    ]
+                },
+                {
+                    "name": "CurrentDiagnosis",
+                    "slots": [],
+                    "samples": [
+                        "मेरी वर्तमान बीमारी के बारे में बताओ ",
+                        "मुझे क्या हुआ है  ",
+                        "मैं किस बीमारी से पीड़ित हूँ ",
+                        "मैं किससे पीड़ित हूँ",
+                        "मेरा क्या इलाज चल रहा है ",
+                        "मेरी कौनसी दवाइयाँ अभी चल रही हैं",
+                        "मुझे कौनसी बीमारी हुई है",
+                        "मुझे क्या बीमारी हुई है "
+                    ]
+                },
+                {
+                    "name": "FeelBetter",
+                    "slots": [],
+                    "samples": [
+                        "अच्छा महसूस कर रहे हैं ",
+                        "मैं ठीक हूँ ",
+                        "मुझे बेहतर लग रहा है ",
+                        "मुझे बेहतर महसूस हो रहा है ",
+                        "मुझे अच्छा महसूस हो रहा है ",
+                        "मुझे अच्छा लग रहा है"
+                    ]
+                },
+                {
+                    "name": "FeelWorse",
+                    "slots": [],
+                    "samples": [
+                        "मुझे अच्छा नहीं लग रहा है ",
+                        "मैं ठीक नहीं हूँ "
+                    ]
+                },
+                {
+                    "name": "WorseTimeDuration",
+                    "slots": [],
+                    "samples": [
+                        "अभी ही ",
+                        "अभी बस ",
+                        "थोड़े समय से ",
+                        "थोड़ी देर से ",
+                        "कुछ देर से ",
+                        "कुछ समय से ",
+                        "कुछ दिनों से ",
+                        "कुछ घंटों से",
+                        "पिछले कुछ घंटों से ",
+                        "पिछले कुछ दिनों से "
+                    ]
+                },
+                {
+                    "name": "CurrentSymptoms",
+                    "slots": [],
+                    "samples": [
+                        "मुझे थकान महसूस हो रही है"
+                    ]
+                },
+                {
+                    "name": "PhysicalMental",
+                    "slots": [],
+                    "samples": [
+                        "मैं परेशान हूँ ",
+                        "मानसिक तनाव ",
+                        "मानसिक थकान है शायद",
+                        "मुझे लगता है कि यह एक मानसिक थकावट है"
+                    ]
+                },
+                {
+                    "name": "NoUseForMe",
+                    "slots": [],
+                    "samples": [
+                        "मुझे इस सब से फायदा नहीं होता है ",
+                        "मुझे इन सब से फायदा नहीं होता है ",
+                        "मुझ पर इसका फर्क नहीं पड़ता है ",
+                        "मुझे इससे मदद नहीं मिलती ",
+                        "मुझे इससे फर्क नहीं पड़ता ",
+                        "मुझे इससे फायदा नहीं होता है",
+                        "मुझ पर इसका कोई असर नहीं होता है ",
+                        "इन सब का मुझ पर फर्क नहीं पड़ता ",
+                        "इन सब का मुझ पर असर नहीं होता ",
+                        "इन सब से मुझे फल नहीं मिलता ",
+                        "इस तरह की गतिविधियों से मुझे मदद नहीं मिलती",
+                        "इन सब से मुझे मदद नहीं मिलती ",
+                        "इन सब से मुझे फायदा नहीं होता"
+                    ]
+                },
+                {
+                    "name": "Call",
+                    "slots": [],
+                    "samples": [
+                        "ऐस ओ ऐस",
+                        "अदिति को काल करो ",
+                        "अदिति को फोन करो",
+                        "अदिति को कॉल करो",
+                        "अदिति को कॉल लगाओ ",
+                        "कॉल अदिति "
+                    ]
+                },
+                {
+                    "name": "AddMedicine",
+                    "slots": [],
+                    "samples": [
+                        "नई दवा डालो "
+                    ]
+                },
+                {
+                    "name": "Interests",
+                    "slots": [],
+                    "samples": [
+                        "मुझे व्यायाम करना पसंद है"
+                    ]
+                },
+                {
+                    "name": "ThankYou",
+                    "slots": [],
+                    "samples": [
+                        "धन्यवाद "
+                    ]
+                },
+                {
+                    "name": "DiseaseAroundMe",
+                    "slots": [],
+                    "samples": [
+                        "मेरे आस पास कौनसी बीमारी आम है "
+                    ]
+                }
+            ],
+            "types": []
+        },
+        "dialog": {
+            "intents": [
+                {
+                    "name": "CaseHistory",
+                    "confirmationRequired": true,
+                    "prompts": {
+                        "confirmation": "Confirm.Intent.833646519203"
+                    },
+                    "slots": []
+                },
+                {
+                    "name": "CurrentDiagnosis",
+                    "confirmationRequired": true,
+                    "prompts": {
+                        "confirmation": "Confirm.Intent.1274094104424"
+                    },
+                    "slots": []
+                },
+                {
+                    "name": "FeelBetter",
+                    "confirmationRequired": true,
+                    "prompts": {
+                        "confirmation": "Confirm.Intent.236672141008"
+                    },
+                    "slots": []
+                },
+                {
+                    "name": "FeelWorse",
+                    "confirmationRequired": true,
+                    "prompts": {
+                        "confirmation": "Confirm.Intent.930540949388"
+                    },
+                    "slots": []
+                },
+                {
+                    "name": "WorseTimeDuration",
+                    "confirmationRequired": true,
+                    "prompts": {
+                        "confirmation": "Confirm.Intent.1205053417620"
+                    },
+                    "slots": []
+                },
+                {
+                    "name": "CurrentSymptoms",
+                    "confirmationRequired": true,
+                    "prompts": {
+                        "confirmation": "Confirm.Intent.1590307257932"
+                    },
+                    "slots": []
+                },
+                {
+                    "name": "PhysicalMental",
+                    "confirmationRequired": true,
+                    "prompts": {
+                        "confirmation": "Confirm.Intent.79918861188"
+                    },
+                    "slots": []
+                },
+                {
+                    "name": "NoUseForMe",
+                    "confirmationRequired": true,
+                    "prompts": {
+                        "confirmation": "Confirm.Intent.1199089167715"
+                    },
+                    "slots": []
+                },
+                {
+                    "name": "Call",
+                    "confirmationRequired": true,
+                    "prompts": {
+                        "confirmation": "Confirm.Intent.512931593569"
+                    },
+                    "slots": []
+                },
+                {
+                    "name": "Interests",
+                    "confirmationRequired": true,
+                    "prompts": {
+                        "confirmation": "Confirm.Intent.1227259321578"
+                    },
+                    "slots": []
+                },
+                {
+                    "name": "ThankYou",
+                    "confirmationRequired": true,
+                    "prompts": {
+                        "confirmation": "Confirm.Intent.436744686400"
+                    },
+                    "slots": []
+                },
+                {
+                    "name": "DiseaseAroundMe",
+                    "confirmationRequired": true,
+                    "prompts": {
+                        "confirmation": "Confirm.Intent.215269334583"
+                    },
+                    "slots": []
+                }
+            ],
+            "delegationStrategy": "ALWAYS"
+        },
+        "prompts": [
+            {
+                "id": "Confirm.Intent.833646519203",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "संस्कार तिवारी को दो महीने पहले चिकन पॉक्स हुआ था, तीन महीने पहले सर्दी जुखाम, और छह महीने पहले डेंगू हुआ था।"
+                    }
+                ]
+            },
+            {
+                "id": "Confirm.Intent.236672141008",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "जानकर ख़ुशी हुई। मैं आपके लिए और क्या कर सकती हूँ ?"
+                    }
+                ]
+            },
+            {
+                "id": "Confirm.Intent.930540949388",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "मुझे खेद है की आपको ऐसा लग रहा है। आपको क्या करना पसंद है ?"
+                    }
+                ]
+            },
+            {
+                "id": "Confirm.Intent.1205053417620",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "क्या यह एक शारीरिक बेचैनी है या कुछ भावनात्मक अथवा मानसिक?"
+                    }
+                ]
+            },
+            {
+                "id": "Confirm.Intent.1590307257932",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "क्या आपने अत्यधिक कसरत की या यह एक मानसिक तनाव है?"
+                    }
+                ]
+            },
+            {
+                "id": "Confirm.Intent.79918861188",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "कभी कभी आराम से बैठकर कुछ पढ़ने से , गाने सुनने से या छोटी सी सैर पर जाने से ही मन हल्का हो जाता है। योग भी कई लोगों को आराम देता है। "
+                    }
+                ]
+            },
+            {
+                "id": "Confirm.Intent.512931593569",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "आपके करीबी लोगों को अलर्ट भेजा जा रहा है "
+                    }
+                ]
+            },
+            {
+                "id": "Confirm.Intent.1199089167715",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "क्या आप किसी मित्र या पेशेवर से बात करना चाहेंगे, पेशेवर मदद लेना सामान्य है। अगर आप चाहें तो मैं आपके लिए कॉल कर सकती हूँ?"
+                    }
+                ]
+            },
+            {
+                "id": "Confirm.Intent.1274094104424",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "आपको सर्दी और संक्रामिक जुखाम हुआ है और उसी के लिए इविऑन छह सौ , कैंडिड और पैन चालीस आपके डॉक्टर द्वारा निर्धारित की गई है । आज आप कैसा महसूस कर रहे हैं?"
+                    }
+                ]
+            },
+            {
+                "id": "Confirm.Intent.1227259321578",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "आपके नज़दीक एक योगा क्लब है, जहां आप योग के साथ नए दोस्त भी बना सकते है। यहां हर दिन सुबह सात बजे से योग करवाया जाता है। आशा है की इससे आपको लाभ होगा। "
+                    }
+                ]
+            },
+            {
+                "id": "Confirm.Intent.436744686400",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "आपका दिन शुभ हो।"
+                    }
+                ]
+            },
+            {
+                "id": "Confirm.Intent.215269334583",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "आपके आसपास सामान्य सर्दी आम है "
+                    }
+                ]
+            }
+        ]
+    }
+}
