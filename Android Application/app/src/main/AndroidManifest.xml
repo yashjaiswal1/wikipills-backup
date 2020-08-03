@@ -2,15 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.wikipill">
 
-    <uses-feature android:name="android.hardware.camera.flash" />
-    <uses-feature android:name="android.hardware.camera" />
-    <uses-permission android:name="android.permission.CALL_PHONE" />
-
-    <uses-permission android:name="android.permission.CAMERA" />
-
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
-
     <application
+        android:usesCleartextTraffic="true"
         android:name=".global"
         android:allowBackup="true"
         android:icon="@drawable/logo"
@@ -18,11 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
-
-
+        <activity android:name=".NotificationTest"></activity>
         <activity android:name=".CommonActivity" />
-
         <activity android:name=".MedicineInfo" />
         <activity android:name=".Diagnosis" />
         <activity android:name=".ui.StartActivity" />
@@ -33,10 +23,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-
     </application>
+    <uses-feature android:name="android.hardware.camera" />
 
+    <uses-feature android:name="android.hardware.camera.flash" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
+    <uses-permission android:name="android.permission.CALL_PHONE" />
 
 </manifest>

@@ -15,6 +15,12 @@
         android:text="TEST"
         android:id="@+id/test"/>
 
+    <Button
+        android:id="@+id/NotifTest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Test2"
+        android:layout_marginLeft="5sp"/>
     <TextView
         android:id="@+id/language"
         android:layout_width="wrap_content"

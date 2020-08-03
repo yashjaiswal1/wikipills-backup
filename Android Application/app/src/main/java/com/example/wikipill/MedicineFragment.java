@@ -1,6 +1,10 @@
 package com.example.wikipill;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
+import android.media.Ringtone;
+import android.media.RingtoneManager;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 
@@ -18,6 +22,8 @@ import android.widget.Toast;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.io.IOException;
+
 public class MedicineFragment extends Fragment {
 
     CardView card1,card2,card3,card4;
@@ -26,6 +32,7 @@ public class MedicineFragment extends Fragment {
     FirebaseDatabase database;
     DatabaseReference ref;
     Medicine medicine;
+    private  MediaPlayer mediaPlayer;
     String Fex,Sara,Para;
     int intFex,intSara,intPara;
 
@@ -79,6 +86,30 @@ public class MedicineFragment extends Fragment {
 
                 FexofayButton.setText(Integer.toString(intFex)+"/1");
                 fexofay.execute(intFex);
+                int i = global.getLanguage();
+                int RSID;
+                int d = 3;
+                String pass;
+                if (i==3){
+                    pass = "आशा है आप जल्दी ठीक होंगे";
+                    d = 3;
+                    RSID=R.raw.credits;
+                }else {
+                    pass = "Hope you get well soon.";
+                    d = 4;
+                    RSID=R.raw.credits_eng;
+
+                }
+                if (mediaPlayer!=null){
+                    mediaPlayer.release();
+                    mediaPlayer = null;
+                }
+
+
+
+                ViewDialog viewDialog = new ViewDialog();
+
+                    viewDialog.showDialog(getActivity(),pass,d);
 
                 //Toast.makeText(getActivity().getApplicationContext(),"Tag3",Toast.LENGTH_SHORT).show();
 

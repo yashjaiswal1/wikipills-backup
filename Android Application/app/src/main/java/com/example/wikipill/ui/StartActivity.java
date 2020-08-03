@@ -103,7 +103,13 @@ public class StartActivity extends AppCompatActivity {
 
                     int ResID;
                     ResID = R.raw.alert;
-
+                    if(mp!=null) {
+                        if(mp.isPlaying())
+                            mp.stop();
+                        mp.reset();
+                        mp.release();
+                        mp=null;
+                    }
 
                     mp = MediaPlayer.create(StartActivity.this, ResID);
                     mp.start();
@@ -128,6 +134,7 @@ public class StartActivity extends AppCompatActivity {
                         @Override
                         public void onClick(View v) {
                             mp.release();
+                            mp=null;
                             bottomSheetDialog.dismiss();
                         }
                     });
