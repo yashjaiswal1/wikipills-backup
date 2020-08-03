@@ -16,6 +16,7 @@ import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.graphics.Typeface;
 import android.media.AudioAttributes;
+import android.media.MediaPlayer;
 import android.media.Ringtone;
 import android.media.RingtoneManager;
 import android.net.Uri;
@@ -39,6 +40,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.ismaeldivita.chipnavigation.ChipNavigationBar;
+import com.kwabenaberko.openweathermaplib.implementation.OpenWeatherMapHelper;
+import com.kwabenaberko.openweathermaplib.implementation.callbacks.CurrentWeatherCallback;
+import com.kwabenaberko.openweathermaplib.models.currentweather.CurrentWeather;
 
 import java.util.Locale;
 
@@ -113,7 +117,9 @@ public class MainActivity extends LocalizationActivity {
         this.reference.addValueEventListener(new ValueEventListener() {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if (dataSnapshot.getValue().toString().equals("1")) {
-                    MainActivity.this.addNotification("WARNING!","You have stepped out of safe area.");
+                    MainActivity.this.addNotification("Reminder!","Time to take medicine");
+//                    MediaPlayer mediaPlayer = MediaPlayer.create(getApplicationContext(),R.raw.reminder_eng);
+//                    mediaPlayer.start();
                 }
             }
 
@@ -211,6 +217,38 @@ public class MainActivity extends LocalizationActivity {
             }
         });
 
+        //Weather details
+        OpenWeatherMapHelper helper = new OpenWeatherMapHelper("cc6c8fce59290d4cd4e30fa4ac65da9a");
+        helper.getCurrentWeatherByCityName("Agra", new CurrentWeatherCallback() {
+
+            @Override
+            public void onSuccess(CurrentWeather currentWeather) {
+                Log.i("TAG","ENtered");
+                Log.v("TAG", "Coordinates: " + currentWeather.getCoord().getLat() + ", "+currentWeather.getCoord().getLon() +"\n"
+                        +"Weather Description: " + currentWeather.getWeather().get(0).getDescription() + "\n"
+                        +"Temperature: " + currentWeather.getMain().getTempMax()+"\n"
+                        +"Wind Speed: " + currentWeather.getWind().getSpeed() + "\n"
+                        +"City, Country: " + currentWeather.getName() + ", " + currentWeather.getSys().getCountry()
+                );
+            }
+
+            @Override
+            public void onFailure(Throwable throwable) {
+                Log.v("TAG", throwable.getMessage());
+                Log.i("TAG","Failed");
+
+            }
+        });
+
+        //Test Activity for notifications
+
+        findViewById(R.id.NotifTest).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this,NotificationTest.class));
+            }
+        });
+
 
     }
 
@@ -222,7 +260,7 @@ public class MainActivity extends LocalizationActivity {
         sb.append("android.resource://");
         sb.append(getPackageName());
         sb.append("/");
-        sb.append(R.raw.danger);
+        sb.append(R.raw.reminder_eng);
         builder.setSound(Uri.parse(sb.toString()));
         builder.setContentIntent(PendingIntent.getActivity(this, 0, new Intent(this, MainActivity.class), PendingIntent.FLAG_UPDATE_CURRENT));
         NotificationManager notificationManager=(NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
@@ -248,14 +286,14 @@ public class MainActivity extends LocalizationActivity {
             sb.append(getPackageName());
             String str2 = "/";
             sb.append(str2);
-            sb.append(R.raw.danger);
+            sb.append(R.raw.reminder_eng);
             channel.setSound(Uri.parse(sb.toString()), new AudioAttributes.Builder().setUsage(AudioAttributes.USAGE_NOTIFICATION).setContentType(AudioAttributes.CONTENT_TYPE_SPEECH).build());
             try {
                 StringBuilder sb2 = new StringBuilder();
                 sb2.append(str);
                 sb2.append(getPackageName());
                 sb2.append(str2);
-                sb2.append(R.raw.danger);
+                sb2.append(R.raw.reminder_eng);
                 final Ringtone r = RingtoneManager.getRingtone(getApplicationContext(), Uri.parse(sb2.toString()));
                 r.play();
                 new Thread(new Runnable() {

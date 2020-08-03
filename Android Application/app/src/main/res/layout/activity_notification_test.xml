@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".NotificationTest">
+
+    <TextView
+        android:id="@+id/language"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/language"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_toLeftOf="@+id/colon"
+        android:layout_marginTop="5sp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/colon"/>
+    <TextView
+        android:layout_toRightOf="@id/colon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/selectedLanguage"
+        android:layout_marginTop="5sp"
+        android:layout_marginLeft="8dp"
+        android:text="@string/english"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="@color/wiki2"/>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true">
+
+        <Button
+            android:layout_margin="20sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Weather"
+            android:background="@drawable/button"
+            android:id="@+id/weatherNotif"/>
+        <Button
+            android:layout_toRightOf="@+id/weatherNotif"
+            android:layout_margin="20sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Geofencing"
+            android:background="@drawable/button"
+            android:id="@+id/geofenceAlert"/>
+    </RelativeLayout>
+
+</RelativeLayout>
