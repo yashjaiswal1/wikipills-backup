@@ -52,12 +52,12 @@
         // endpoint: "https://test-c2078.web.app/",
         // accessKeyId default can be used while using the downloadable version of DynamoDB.
         // For security reasons, do not store AWS Credentials in your files. Use Amazon Cognito instead.
-        accessKeyId: "ASIAVX5X47AELVXMTLVZ",
+        accessKeyId: "ASIAVX5X47AEADAPPXP3",
         // secretAccessKey default can be used while using the downloadable version of DynamoDB.
         // For security reasons, do not store AWS Credentials in your files. Use Amazon Cognito instead.
-        secretAccessKey: "OPmYD4G0qBYxAQlrwrICjj/Dc9sJzCELD5bQobdV",
+        secretAccessKey: "ukwKptdwuA9ja2B+AtOKz8hA5iHR/BLWmbrmsWsx",
         sessionToken:
-          "FwoGZXIvYXdzELf//////////wEaDCCl4YybLkKsRn81VSLJAQg4m/d/9OLcr8sgUw4sBQJWA9XMHP0jwRmMOw5oMybfRfS+IGIfxoZOI6w8aNV/RNeY9IYShB7nFFyFkJLhJAGAe7P+ozwWxpRDLJTE4dVSJsEv9xIosYMWeKzrsdabeJu8klQZewfl/4xX6VRte4TFMl0c6mOLYMbtZ70P1ril4IJHO7NDMOHztEsxK4kDb+bha0O+R4IXHoh1H2960xs+CEFCWTf5bAFvjBv1yIqOiMV2/x1Ra4DpiN50KzrDqOZVzVgpTm4KKiiim5n5BTItded6o/wVqiDiSHUFoTpCGZkM4Ocuah2jvSktKAd+avBy1DmE8qOXq+4BLoyk"
+          "FwoGZXIvYXdzENP//////////wEaDJ6jUm7bfab2t/LaaiLJAY/+virZqbeGX3KLuQwzXNFqcSx7EAZoYYAFy1Gl30GgCEpZh1i3QuqCNhWezGGyg3VeuH4tP4P9/6+H3IObwDsstrMpNJMkOGoej5V2OK2Aj/fdvGYpikzjbEstPSG1e67p4LsmcFyTg49K6jz5XHQ8xugElKoGOROL6CIdAvHuh991xd/kJQr2lpcb7XdQcTFr0vBugkPHpxkkTy52mZcrVT40X2wHHuUd4/qv3LV1kZyDXpqIbrVyej6ZTbfSNqjMFw5ugOJq8yikv5/5BTIt1VFpnymD+4P3Vo0I/ggEPYQGlE1ljHZ61XbcViOI71lmFXhnqInbdyWPPWtD"
       });
       console.log("Down");
       var docClient = new AWS.DynamoDB.DocumentClient();
@@ -248,6 +248,8 @@
         track,
         counter = 0;
       var flag = 0;
+      var predefined1;
+      var predefined2;
       var queue = [];
       var temp;
       var i = -1;
@@ -256,11 +258,69 @@
       var notifRef = firebase.database().ref().child("Notifications");
       // status --> false, when outside geofenced area
       // status --> true, when inside geofenced area
+
+      
+      
+
+
       function initMap() {
+
+        var heatmapData = [
+          {location: new google.maps.LatLng(13.116017, 77.634925), weight: 10},
+          {location: new google.maps.LatLng(13.116396, 77.634861), weight: 10},
+          {location: new google.maps.LatLng(13.116031, 77.635213), weight: 10},
+          {location: new google.maps.LatLng(13.115893, 77.635558), weight: 10},
+          {location: new google.maps.LatLng(13.116465, 77.635511), weight: 6},
+          {location: new google.maps.LatLng(13.116799, 77.635470), weight: 7},
+          {location: new google.maps.LatLng(13.116799, 77.635470), weight: 7},
+          {location: new google.maps.LatLng(13.116830, 77.635195), weight: 8},
+          {location: new google.maps.LatLng(13.117243, 77.634857), weight: 10},
+          {location: new google.maps.LatLng(13.116428, 77.635216), weight: 5},
+          {location: new google.maps.LatLng(13.117253, 77.634460), weight: 2},
+          {location: new google.maps.LatLng(13.116365, 77.635517), weight: 10},
+          {location: new google.maps.LatLng(13.116406, 77.635174), weight: 9},
+          {location: new google.maps.LatLng(13.116855, 77.634836), weight: 10},
+          {location: new google.maps.LatLng(13.117264, 77.635474), weight: 5},    //home till here
+          {location: new google.maps.LatLng(13.117489, 77.634101), weight: 3},
+          {location: new google.maps.LatLng(13.117279, 77.634074), weight: 1},
+          {location: new google.maps.LatLng(13.117644, 77.633806), weight: 1},
+          {location: new google.maps.LatLng(13.117728, 77.633484), weight: 1},    //route till here
+          {location: new google.maps.LatLng(13.118088, 77.633280), weight: 10},
+          {location: new google.maps.LatLng(13.117895, 77.633028), weight: 10},
+          {location: new google.maps.LatLng(13.117676, 77.633178), weight: 10},
+          {location: new google.maps.LatLng(13.117451, 77.632991), weight: 10}
+        ];
+
         map = new google.maps.Map(document.getElementById("map"), {
           center: { lat: 13.115893, lng: 77.635558 },
           zoom: 17,
         });
+
+        predefined1 = new google.maps.Polygon({
+              paths: [
+                {lat: 13.117296, lng: 77.634709},
+                {lat: 13.115892, lng: 77.634812},
+                {lat: 13.115892, lng: 77.635609},
+                {lat: 13.117325, lng: 77.635462},
+              ]
+      });
+        predefined1.setMap(map);
+        i++;
+        queue[i] = predefined1;
+
+        predefined2 = new google.maps.Polygon({
+              paths: [
+                {lat: 13.118348, lng: 77.632880},
+                {lat: 13.118193, lng: 77.633482},
+                {lat: 13.117316, lng: 77.633350},
+                {lat: 13.117175, lng: 77.632771},
+              ]
+      });
+        predefined2.setMap(map);
+        i++;
+        queue[i] = predefined2;
+
+
 
         marker = new google.maps.Marker({
           map: map,
@@ -268,6 +328,42 @@
           animation: google.maps.Animation.DROP,
           position: { lat: 13.117233, lng: 77.63485 },
         });
+
+        var heatmap = new google.maps.visualization.HeatmapLayer({
+          data: heatmapData,
+          dissapating: false,
+          radius: 40,
+          maxIntensity: 10
+        });
+        heatmap.setMap(map);
+
+      //   //Heat map module
+      // heatmap = new HeatmapOverlay(map,
+      //   {
+      //     // radius should be small ONLY if scaleRadius is true (or small radius is intended)
+      //     "radius": 2,
+      //     "maxOpacity": 1,
+      //     // scales the radius based on map zoom
+      //     "scaleRadius": true,
+      //     // if set to false the heatmap uses the global maximum for colorization
+      //     // if activated: uses the data maximum within the current map boundaries
+      //     //   (there will always be a red spot with useLocalExtremas true)
+      //     "useLocalExtrema": true,
+      //     // which field name in your data represents the latitude - default "lat"
+      //     latField: 'lat',
+      //     // which field name in your data represents the longitude - default "lng"
+      //     lngField: 'lng',
+      //     // which field name in your data represents the data value - default "value"
+      //     valueField: 'count'
+      //   }
+      // );
+
+      // var testData = {
+      //   max: 8,
+      //   data: [{lat: 13.115893, lng:77.635558, count: 6},{lat: 13.117225, lng:77.633982, count: 3}]
+      // };
+
+      // heatmap.setData(testData);
 
         var markerLat = marker.position.lat();
         var markerLng = marker.position.lng();
@@ -382,6 +478,10 @@
           }
         );
       }
+      
+
+      
+
 
       function checkIfInside(poly, markerLocation) {
         return google.maps.geometry.poly.containsLocation(markerLocation, poly);
@@ -590,6 +690,11 @@
 
         //6th button press
         else if (counter == 4) {
+          M.toast({html: 'Suspicious Activity Detected! Please check with the user.', classes: 'rounded red'});
+          temp = document.createElement("TD");
+          temp.innerHTML = "<b>Suspicious Activity Detected. User is not behaving as per Historically-proven Patterns.</b>";
+          document.getElementById("tr" + l).appendChild(temp);
+          l += 1;
           var latlng = new google.maps.LatLng(13.118328, 77.633904);
           marker.setPosition(latlng);
           // console.log(
@@ -698,70 +803,17 @@
           
           console.log("Done");
         }
-        // 7th button press
-        else if (counter == 6) {
-          
-          // console.log(
-          //   checkIfInside(queue[j], new google.maps.LatLng(13.11778, 77.63311))
-          // );
-          // console.log(queue[j]);
-          //>>>>TEST<<<<<
-          // if(queue.length > 1){
-          // status = checkIfInside(
-          //   queue[j],
-          //   new google.maps.LatLng(13.118328, 77.633904)
-          // );
-          // }
-          // if(queue.length == 1){
-          // status = checkIfInside(
-          //   queue[0],
-          //   new google.maps.LatLng(13.118328, 77.633904)
-          // );
-          // }
-          // var path = track.getPath();
-          // path.push(new google.maps.LatLng(13.119552, 77.632891));
-          // console.log(path);
-          // counter += 1;
-          // if (status == "true") {
-          //   // functions when point is inside polygon
-          //   k = j+1;
-          //   console.log("inside region " + k);
-          //   M.toast({html: 'Inside Region ' + k, classes: 'rounded green'});
-          //   temp = document.createElement("TD");
-          //   temp.innerHTML = "Entered region " + k + " at " + new Date();
-          //   document.getElementById("tr" + l).appendChild(temp);
-          //   l += 1;
-          //   notifRef.set(0);
-          //   flag = 1;
-          // } if(flag && status == "false"){
-          //   // functions when point is outside polygon
-          //   k = j+1;
-          //   console.log("outside region " + k);
-          //   M.toast({html: 'Outside Region ' + k, classes: 'rounded red'});
-              temp = document.createElement("TD");
-              temp.innerHTML = "<b>Activity Alert:</b> User has not been active since the past 5 hours.";
-              document.getElementById("tr" + l).appendChild(temp);
-              M.toast({html: 'User state is inactive. Kindly check with the user.', classes: 'rounded red'});
-              l += 1;
-          //   j += 1;
-          //   poly = queue[j]
-          //   notifRef.set(1);
-          //   flag = 0;
-          // }
-          
-          console.log("Done2");
-        }
       }
 
       
     </script>
     <script
-      async
-      defer
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCUVLVDzVTA5YLe3HjYdnDYzVlMpjwShgc&libraries=geometry,drawing&callback=initMap"
-      async
-      defer
+
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCUVLVDzVTA5YLe3HjYdnDYzVlMpjwShgc&libraries=geometry,drawing,visualization&callback=initMap"
+
     ></script>
+    <script src="../heatmap.js"></script>
+    <script src="./gmaps-heatmap.js"></script>
     
     <!-- Compiled and minified JavaScript -->
     <script SameSite="None" Secure src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
