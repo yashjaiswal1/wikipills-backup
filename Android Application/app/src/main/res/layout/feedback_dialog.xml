@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="RATINGS:"
+        android:layout_centerInParent="true"
+        android:id="@+id/rating"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:textColor="@color/colorPrimaryDark"/>
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/rating"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="5sp"
+        android:hint="Eneter Here"/>
+    <TextView
+        android:layout_below="@+id/rating"
+        android:layout_marginTop="10sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/txtCredits"
+        android:autoLink="web"
+        android:id="@+id/infoTxtCredits"
+        android:layout_centerInParent="true"
+        android:linksClickable="true"></TextView>
+
+</RelativeLayout>

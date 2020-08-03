@@ -14,8 +14,8 @@
 
         <SurfaceView
             android:id="@+id/preview"
-            android:layout_width="201dp"
-            android:layout_height="100dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_alignParentBottom="true"
             android:layout_alignParentStart="true"
             android:layout_marginBottom="25dp"
@@ -27,6 +27,7 @@
 
         <com.example.wikipill.HeartbeatView
             android:id="@+id/image"
+            android:visibility="gone"
             android:layout_width="50dp"
             android:layout_height="27dp"
             android:layout_alignParentEnd="true"
@@ -56,6 +57,7 @@
             android:text="TextView" />
 
         <TextView
+            android:visibility="gone"
             android:id="@+id/text"
             android:layout_width="match_parent"
             android:layout_height="70dp"
@@ -70,6 +72,7 @@
         </TextView>
 
         <ImageView
+            android:visibility="gone"
             android:id="@+id/imageheart"
             android:layout_width="70dp"
             android:layout_height="70dp"
