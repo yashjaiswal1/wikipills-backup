@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
+  <Tracking>
+    <ImageTarget name="syrup" size="100.000000 156.097565" />
+    <ImageTarget name="IMG_20200725_113228" size="100.000000 65.412186" />
+    <ImageTarget name="IMG_20200725_112917" size="100.000000 290.854279" />
+    <ImageTarget name="IMG_20200725_112849" size="100.000000 110.532410" />
+    <ImageTarget name="NewImage" size="100.000000 36.484848" />
+    <ImageTarget name="y93WgBT231T02t06NeLLfAYU" size="100.000000 59.950249" />
+    <ImageTarget name="MfBJCLaX1d08U7SWr20S2Y53" size="100.000000 143.636368" />
+    <ImageTarget name="5CHfAQyg1gYUeU91BKVgW0SX" size="100.000000 211.600006" />
+    <ImageTarget name="Cf1K4JFPRfQ6XM8N8KThJ4Q6" size="100.000000 140.647476" />
+  </Tracking>
+</QCARConfig>

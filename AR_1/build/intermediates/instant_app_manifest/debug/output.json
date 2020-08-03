@@ -1,0 +1,1 @@
+[{"outputType":{"type":"INSTANT_APP_MANIFEST"},"apkData":{"type":"MAIN","splits":[],"versionCode":1,"versionName":"0.1","enabled":true,"outputFile":"AR_1-debug.apk","fullName":"debug","baseName":"debug"},"path":"AndroidManifest.xml","properties":{"packageId":"com.AR_In.AR_Int","split":"","minSdkVersion":"16"}}]
