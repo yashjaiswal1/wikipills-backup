@@ -242,7 +242,7 @@ public class HeartRateMonitor extends Fragment {
         @Override
         public void surfaceChanged(SurfaceHolder holder, int format, int width, int height) {
             Camera.Parameters parameters = camera.getParameters();
-            parameters.setFlashMode(Camera.Parameters.FLASH_MODE_TORCH);
+            parameters.setFlashMode(Camera.Parameters.FLASH_MODE_OFF);
             Camera.Size size = getSmallestPreviewSize(width, height, parameters);
             if (size != null) {
                 parameters.setPreviewSize(size.width, size.height);

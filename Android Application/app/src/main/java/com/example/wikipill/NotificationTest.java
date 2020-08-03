@@ -74,7 +74,7 @@ public class NotificationTest extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         i = 1;
-                        English.setText("English");
+                        SelectedLanguage.setText("English");
                         dialog.cancel();
                     }
                 });
@@ -84,7 +84,7 @@ public class NotificationTest extends AppCompatActivity {
                     public void onClick(View v) {
 
                         i = 2;
-                        hindi.setText("हिंदी ");
+                        SelectedLanguage.setText("हिंदी ");
                         dialog.cancel();
                     }
                 });

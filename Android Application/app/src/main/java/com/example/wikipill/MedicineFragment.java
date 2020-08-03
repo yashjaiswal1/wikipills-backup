@@ -1,6 +1,8 @@
 package com.example.wikipill;
 
 import android.content.Intent;
+import android.media.AudioAttributes;
+import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.media.Ringtone;
 import android.media.RingtoneManager;
@@ -19,22 +21,37 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.amazonaws.auth.CognitoCachingCredentialsProvider;
+import com.amazonaws.regions.Regions;
+import com.amazonaws.services.polly.AmazonPollyPresigningClient;
+import com.amazonaws.services.polly.model.DescribeVoicesRequest;
+import com.amazonaws.services.polly.model.DescribeVoicesResult;
+import com.amazonaws.services.polly.model.OutputFormat;
+import com.amazonaws.services.polly.model.SynthesizeSpeechPresignRequest;
+import com.amazonaws.services.polly.model.Voice;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.List;
 
 public class MedicineFragment extends Fragment {
 
     CardView card1,card2,card3,card4;
     Button but;
+    AmazonPollyPresigningClient client;
+    List<Voice> voices;
     TextView new1,new2;
     FirebaseDatabase database;
     DatabaseReference ref;
     Medicine medicine;
+    String voiceid;
     private  MediaPlayer mediaPlayer;
     String Fex,Sara,Para;
     int intFex,intSara,intPara;
+    private static final String COGNITO_POOL_ID = "us-east-1:634afb0a-1c2c-4875-a73d-3f8a93397a85";
+    private static final Regions MY_REGION = Regions.US_EAST_1;
 
     Button SaradinButton,FexofayButton,ParacipButton;
 
@@ -73,6 +90,42 @@ public class MedicineFragment extends Fragment {
         this.ref = this.database.getReference("Medicine");
         this.medicine = new Medicine();
 
+        //Amazon Polly
+        CognitoCachingCredentialsProvider credentialsProvider = new CognitoCachingCredentialsProvider(
+                getActivity(),
+                COGNITO_POOL_ID,
+                MY_REGION
+        );
+
+// Create a client that supports generation of presigned URLs.
+        client = new AmazonPollyPresigningClient(credentialsProvider);
+
+        // Create describe voices request.
+//        DescribeVoicesRequest describeVoicesRequest = new DescribeVoicesRequest();
+
+
+
+// Synchronously ask Amazon Polly to describe available TTS voices.
+//        DescribeVoicesResult describeVoicesResult = client.describeVoices(describeVoicesRequest);
+//        List<Voice> voices = describeVoicesResult.getVoices();
+
+        VOICES voice = new VOICES();
+        voice.execute();
+
+        SynthesizeSpeechPresignRequest synthesizeSpeechPresignRequest =
+                new SynthesizeSpeechPresignRequest()
+                        // Set the text to synthesize.
+                        .withText("Hello world!")
+                        // Select voice for synthesis.
+                        .withVoiceId(voiceid) // "Joanna"
+                        // Set format to MP3.
+                        .withOutputFormat(OutputFormat.Mp3);
+
+// Get the presigned URL for synthesized speech audio stream.
+
+        final URL  presignedSynthesizeSpeechUrl = client.getPresignedSynthesizeSpeechUrl(synthesizeSpeechPresignRequest);
+
+
 
         FexofayButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -100,16 +153,61 @@ public class MedicineFragment extends Fragment {
                     RSID=R.raw.credits_eng;
 
                 }
-                if (mediaPlayer!=null){
-                    mediaPlayer.release();
-                    mediaPlayer = null;
-                }
-
 
 
                 ViewDialog viewDialog = new ViewDialog();
 
-                    viewDialog.showDialog(getActivity(),pass,d);
+                viewDialog.showDialog(getActivity(),pass,d);
+
+//
+//                MediaPlayer mediaPlayer = new MediaPlayer();
+//
+//
+//
+//
+//                mediaPlayer.setAudioAttributes(
+//                        new AudioAttributes
+//                                .Builder()
+//                                .setContentType(AudioAttributes.CONTENT_TYPE_MUSIC)
+//                                .build());
+//
+//
+//
+//                try {
+//                    // Set media player's data source to previously obtained URL.
+//                    mediaPlayer.setDataSource(presignedSynthesizeSpeechUrl.toString());
+//                } catch (IOException e) {
+//                    Log.e("TAG", "Unable to set data source for the media player! " + e.getMessage());
+//                }
+//
+//// Prepare the MediaPlayer asynchronously (since the data source is a network stream).
+//                mediaPlayer.prepareAsync();
+//
+//// Set the callback to start the MediaPlayer when it's prepared.
+//                mediaPlayer.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+//                    @Override
+//                    public void onPrepared(MediaPlayer mp) {
+//                        mp.start();
+//                    }
+//                });
+//
+//// Set the callback to release the MediaPlayer after playback is completed.
+//                mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+//                    @Override
+//                    public void onCompletion(MediaPlayer mp) {
+//                        mp.release();
+//                    }
+//                });
+
+
+
+
+
+
+
+//                ViewDialog viewDialog = new ViewDialog();
+//
+//                    viewDialog.showDialog(getActivity(),pass,d);
 
                 //Toast.makeText(getActivity().getApplicationContext(),"Tag3",Toast.LENGTH_SHORT).show();
 
@@ -201,6 +299,10 @@ public class MedicineFragment extends Fragment {
 
 
 
+
+
+
+
         return  view;
     }
     private class UpdateFex extends AsyncTask<Integer, Void, Void> {
@@ -227,6 +329,39 @@ public class MedicineFragment extends Fragment {
             databaseAccess.updatesaradon(integers[0]);
             return null;
         }
+    }
+    private class VOICES extends AsyncTask<Void, Void, Void> {
+        @Override
+        protected Void doInBackground(Void... params) {
+            if (voices == null) {
+
+                DescribeVoicesRequest describeVoicesRequest = new DescribeVoicesRequest();
+                DescribeVoicesResult describeVoicesResult;
+                try {
+                    // Synchronously ask the Polly Service to describe available TTS voices.
+                    describeVoicesResult = client.describeVoices(describeVoicesRequest);
+                } catch (RuntimeException e) {
+                    Log.e("TAG", "Unable to get available voices. " + e.getMessage());
+                    return null;
+                }
+
+                // Get list of voices from the result.
+                voices = describeVoicesResult.getVoices();
+
+                // Log a message with a list of available TTS voices.
+                Log.i("TAG", "Available Polly voices: " + voices);
+            }
+
+            return null;
+        }
+
+        protected void onPostExecute(Void aVoid) {
+            if (voices != null) {
+                    voiceid = voices.get(0).getId().toString();
+                    Log.i("TAG",voiceid);
+            }
+        }
+
     }
 
 }

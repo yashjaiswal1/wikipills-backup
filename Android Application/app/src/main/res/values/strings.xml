@@ -239,5 +239,7 @@
     -->
     <string name="hello_world">Hello Square World!</string>
     <string name="dismiss">Dismiss</string>
-
+    <a href="https://docs.google.com/presentation/d/1JefkVXmBN9c6k29AKEfWmpQnPnMPsgLyhq5NYxq8zcY/edit?usp=sharing">We would highly appreciate a more in depth review</a>
+    <string name="txtCredits">https://docs.google.com/presentation/d/1JefkVXmBN9c6k29AKEfWmpQnPnMPsgLyhq5NYxq8zcY/edit?usp=sharing</string>
+    <string name="txtCredits"><a href="http://www.google.com">We would highly appreciate a more in depth review</a></string>
 </resources>

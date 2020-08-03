@@ -91,7 +91,7 @@ public class MainActivity extends LocalizationActivity {
 
                         break;
                     case R.id.input:
-                        fragment = new ARFragment();
+                        fragment = new HeartRateMonitor();
                         break;
                     case R.id.comunityBonding:
                         fragment = new SocializeFragment();

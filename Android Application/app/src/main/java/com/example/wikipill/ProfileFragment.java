@@ -1,10 +1,12 @@
 package com.example.wikipill;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.core.content.res.ResourcesCompat;
 import androidx.fragment.app.Fragment;
 
@@ -34,6 +36,11 @@ import com.github.mikephil.charting.data.PieEntry;
 import com.github.mikephil.charting.formatter.ValueFormatter;
 import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
 import com.github.mikephil.charting.utils.ColorTemplate;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -45,6 +52,8 @@ public class ProfileFragment extends Fragment {
     LineChart lineChart;
     PieChart pieChart;
     Typeface dys;
+    FirebaseDatabase database;
+    DatabaseReference reference;
 
     LinearLayout personalinfo, experience, review;
     TextView personalinfobtn, experiencebtn, reviewbtn,pr1,pr2,pr3,pr4,pr5,pr6,pr7,pr8,pr9,pr10,pr11,pr12,pr13,pr14,pr15,pr16,pr17,pr18,pr19,pr21,pr20;
@@ -152,7 +161,20 @@ public class ProfileFragment extends Fragment {
 
 
 
+        this.database = FirebaseDatabase.getInstance();
+        this.reference = this.database.getReference("Notifications");
+        this.reference.addValueEventListener(new ValueEventListener() {
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if (dataSnapshot.getValue().toString().equals("1")) {
+                    final Dialog dialog = new Dialog(getActivity());
+                    dialog.setContentView(R.layout.language_dialog);
+                    dialog.setCancelable(true);
+                }
+            }
 
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+            }
+        });
 
 
         return view;
