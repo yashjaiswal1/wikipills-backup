@@ -36,9 +36,9 @@ Pass: relative123   -->
 <!-- [Web-App](https://wiki-pill.web.app/index.html "Log-In")   -->
 
 [Multi-spot Geofencing](https://wiki-pill.web.app/child/index.html "Geofence")  
+[Electronic Health Record](https://wiki-pill.web.app/patients.html "Health Profile")
 [Analytics generated from crowdsourced data](https://wiki-pill.web.app/dashboard.html "Analytics")  
 [Epidemic Vizualization](https://wiki-pill.web.app/public.html "Heatmap")  
-[Electronic Health Record](https://wiki-pill.web.app/patients.html "Health Profile")
 
 ## AWS DynamoDB
 
