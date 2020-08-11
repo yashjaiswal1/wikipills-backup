@@ -1,71 +1,80 @@
-# Wikipills
----
-An integrated software platform for monitoring and enhancing the **Healthcare** of **Kids, Senior Citizens** and **Specially-abled**  using  **Geofencing, Augmented Reality (AR)**, **Real-Time Systems** and **Voice Assistants**. 
+<p align="center">
+    <img alt="WikiPills logo" width="128" height="128" src="./public/android-chrome-256x256.png">
+</p>
 
-Made for **Smart India Hackathon 2020** under **Amazon Web Services** (Problem statement: [AN319](http://awssih2020.com/))
+# WikiPills
 
----
+An integrated software platform for monitoring and enhancing the **Healthcare** of **Kids, Senior Citizens** and the **Specially-abled**.
+
+This project was made for **Smart India Hackathon 2020** under **Amazon Web Services** (Problem statement: [AN319](http://awssih2020.com/)).
+
+Our team **H4CK3RS** was declared winners and ended up scoring the highest points amongst all finalists under the organization Amazon Web Services (AWS).
+
 ## Web-Dashboard
----
-Open the [repository](https://github.com/yashjaiswal1/AN319_H4CK3RS_SIH2020)
 
-1. Navigate to the **public** directory 
-2. Open the file    
+The Web Dashboard is used for monitoring the concerned individual. It has 4 main components:
+
+<!-- Open the [repository](https://github.com/yashjaiswal1/AN319_H4CK3RS_SIH2020)
+
+1. Navigate to the **public** directory
+2. Open the file
 >index.html
-3. Find the login credentials below.  
+3. Find the login credentials below.
 4. Log-In with the desired user.
 
 ### Log-In using the respective credentials on Admin Dashboard
 ---
-Doctor Login:  
-ID: doctor  
-Pass: doctor123  
+Doctor Login:
+ID: doctor
+Pass: doctor123
 
-Relative/Guardian Login:  
-ID: relative  
-Pass: relative123  
+Relative/Guardian Login:
+ID: relative
+Pass: relative123   -->
 
-#### Demo Links:
-[Web-App](https://wiki-pill.web.app/index.html "Log-In")  
-[Geofence](https://wiki-pill.web.app/child/index.html "Geofence")  
-[Analytics](https://wiki-pill.web.app/dashboard.html "Analytics")  
-[HeatMaps](https://wiki-pill.web.app/public.html "Heatmap")  
-[Health Profile](https://wiki-pill.web.app/patients.html "Health Profile")
+<!-- #### Demo Links: -->
+<!-- [Web-App](https://wiki-pill.web.app/index.html "Log-In")   -->
 
----
+[Multi-spot Geofencing](https://wiki-pill.web.app/child/index.html "Geofence")  
+[Analytics generated from crowdsourced data](https://wiki-pill.web.app/dashboard.html "Analytics")  
+[Epidemic Vizualization](https://wiki-pill.web.app/public.html "Heatmap")  
+[Electronic Health Record](https://wiki-pill.web.app/patients.html "Health Profile")
+
 ## AWS DynamoDB
----
-The following credentials have to be updated with your own DynamoDB credentials:  
+
+The following credentials have to be updated with your own DynamoDB credentials:
 
 **aws_access_key_id**  
 **aws_secret_access_key**  
 **aws_session_token**
 
 ---
+
 ## Mobile-Application
----
+
 1. Open the [repository](https://github.com/yashjaiswal1/AN319_H4CK3RS_SIH2020)
 2. Navigate to the `Andriod Application/` directory.
 3. Download and Install the `WikiPills.apk` file.
 
-**Note:** Make sure to give the necessary permissions for the smooth working of the app.
+**Note:** Make sure to give Camera permissions for the smooth working of the app.
 
 ### Pulse Oximeter
----
+
 1. Launch the app.
 2. Open the Heart Rate Monitor in the Mobile-app
 3. Wait for the camera flash to switch on.
 4. Place your finger on the camera lens and wait for result.
 
 ### Multi-lingual and Dyslexic Interfaces
----
-The app flaunts Multi-lingual and Dyslexic interfaces. To use the interface of your preference follow the following steps:
+
+The app supports Multi-lingual and Dyslexic interfaces. To use the interface of your preference follow the following steps:
+
 1. Open the app.
 2. On the top find the Language section. Click on it.
-3. Select interface of your choice. 
+3. Select interface of your choice.
 
 ### Fall Detection
----
+
 The app is endorsed with a fall detection algorithm.  
 To test it follow these steps:
 
@@ -75,8 +84,8 @@ To test it follow these steps:
 4. Any sudden movments or jerks to the phone will be registered and the fall detection routine is executed.
 
 ---
+
 ## Augmented Reality Module
----
 
 1. Download the file `AR.unitypackage` from the [repository](https://github.com/yashjaiswal1/AN319_H4CK3RS_SIH2020)
 2. Run the file on the unity studio.
@@ -85,15 +94,17 @@ To test it follow these steps:
 **Note:** Make sure to use `Unity version 2019.1.12f1`. Other versions may not support the build.
 
 ---
-## Voice Bot
+
+## Aditi Voice Bot
+
+Phone Number: **+1 334-421-5817**
+
+Aditi is a voice assistant but unlike conventional voice assistants, it is **hosted on an actual phone number** (imagine Alexa but on a phone call). This increases the whole accessibility and scalability factor of this module by a huge margin.
+
+**Note:** Make sure your phone has international calling balance to use the Voice bot.
+
 ---
-Phone Number: **+1 334-421-5817** 
 
-A voice assistant deployed on a phone number that will provide assistance to stakeholders with limited resources to access our digital platforms and improve accessibilty.
-
-**Note:** Make sure your phone has international calling balance to use the Voice bot.  
-
----
 ## Alexa Skill
----
+
 A specially developed skill for alexa enabled devices that provides the second vocal interface. Again it is aimed at improving accessibility and ease of use.
