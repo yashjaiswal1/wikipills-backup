@@ -1,12 +1,5 @@
 <!DOCTYPE html>
 <html>
-<!--
-[0] resources
-  - animation: http://velocityjs.org/
-  - css flex
-  - basic flow
--->
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -52,16 +45,13 @@
 
     <script>
       AWS.config.update({
-        region: "us-east-1",
-        // endpoint: "https://test-c2078.web.app/",
-        // accessKeyId default can be used while using the downloadable version of DynamoDB.
-        // For security reasons, do not store AWS Credentials in your files. Use Amazon Cognito instead.
-        accessKeyId: "ASIAVX5X47AEADAPPXP3",
-        // secretAccessKey default can be used while using the downloadable version of DynamoDB.
-        // For security reasons, do not store AWS Credentials in your files. Use Amazon Cognito instead.
-        secretAccessKey: "ukwKptdwuA9ja2B+AtOKz8hA5iHR/BLWmbrmsWsx",
-        sessionToken:
-          "FwoGZXIvYXdzENP//////////wEaDJ6jUm7bfab2t/LaaiLJAY/+virZqbeGX3KLuQwzXNFqcSx7EAZoYYAFy1Gl30GgCEpZh1i3QuqCNhWezGGyg3VeuH4tP4P9/6+H3IObwDsstrMpNJMkOGoej5V2OK2Aj/fdvGYpikzjbEstPSG1e67p4LsmcFyTg49K6jz5XHQ8xugElKoGOROL6CIdAvHuh991xd/kJQr2lpcb7XdQcTFr0vBugkPHpxkkTy52mZcrVT40X2wHHuUd4/qv3LV1kZyDXpqIbrVyej6ZTbfSNqjMFw5ugOJq8yikv5/5BTIt1VFpnymD+4P3Vo0I/ggEPYQGlE1ljHZ61XbcViOI71lmFXhnqInbdyWPPWtD"
+        // Replace the fields with your AWS account's credentials.
+        // For security reasons, do not store AWS Credentials in your files. 
+        // Use .env files to store credentials and make sure to put .env in the .gitignore file.
+        region: "<enter_region_here>",
+        accessKeyId: "<enter_access_key_id_here>",
+        secretAccessKey: "<enter_secret_access_key_here>",
+        sessionToken: "<enter_session_token_here>"
       });
 
       var docClient = new AWS.DynamoDB.DocumentClient();
