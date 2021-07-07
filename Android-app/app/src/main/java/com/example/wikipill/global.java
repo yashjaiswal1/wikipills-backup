@@ -13,6 +13,7 @@ public class global extends Application {
     int medlog;
     int language = 1;
     int notification;
+    int variable;
 
     public int getNotification() {
         return notification;
@@ -96,4 +97,13 @@ public class global extends Application {
     public void setNewMedTime(String newMedTime) {
         this.newMedTime = newMedTime;
     }
+    
+    public int getVariable() {
+        return var;
+    }
+
+    public void setVariable(int variable) {
+        this.var = variable;
+    }
+    
 }
