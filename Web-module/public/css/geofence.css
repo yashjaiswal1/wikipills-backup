@@ -1,0 +1,19 @@
+/* Always set the map height explicitly to define the size of the div element that contains the map. */
+#map {
+    height: 95%;
+    width: 74%;
+    float: left;
+    border: 15px;
+}
+/* Optional: Makes the sample page fill the window. */
+html,body {
+    height: 100%;
+    margin: 10px 0px 10px 10px;
+    padding: 0;
+}
+#toast-container {
+    top: auto !important;
+    right: auto !important;
+    bottom: 10%;
+    left:7%;  
+}

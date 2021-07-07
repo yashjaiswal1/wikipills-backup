@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -17,20 +16,18 @@
   <link href="vendor/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet" />
   <!-- CSS Files -->
   <link type="text/css" href="css/argon.min.css?v=1.0.0" rel="stylesheet" />
-  <!-- PWA -->
-  <link rel="manifest" href="/manifest.json">
   <!-- Icons-->
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="manifest" href="/site.webmanifest">
-<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-<meta name="msapplication-TileColor" content="#2b5797">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#2b5797">
 
-<link rel="icon" href="favicon.ico" type="image/x-icon" />  
-<meta name="apple-mobile-web-app-capable" content="yes">  
-<meta name="apple-mobile-web-app-status-bar-style" content="black"> 
-<meta name="apple-mobile-web-app-title" content="WikiPills">
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />  
+  <meta name="apple-mobile-web-app-capable" content="yes">  
+  <meta name="apple-mobile-web-app-status-bar-style" content="black"> 
+  <meta name="apple-mobile-web-app-title" content="WikiPills">
   <!-- Google reCaptcha -->
   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
   
@@ -55,43 +52,31 @@
 
 <body class="bg-default" onload="delBanner()">
   <script>
-        function notifyMe() {
-  // Let's check if the browser supports notifications
-  if (!("Notification" in window)) {
-    alert("This browser does not support desktop notification");
-  }
-
-  // Let's check whether notification permissions have already been granted
-  else if (Notification.permission === "granted") {
-    // If it's okay let's create a notification
-    var notification = new Notification("Hi there!",{body: "this is a body"});
-  }
-
-  // Otherwise, we need to ask the user for permission
-  else if (Notification.permission !== "denied") {
-    Notification.requestPermission().then(function (permission) {
-      // If the user accepts, let's create a notification
-      if (permission === "granted") {
-        var notification = new Notification("Hi there!");
+    function notifyMe() {
+      // Let's check if the browser supports notifications
+      if (!("Notification" in window)) {
+        alert("This browser does not support desktop notification");
       }
-    });
-  }
 
-  // At last, if the user has denied notifications, and you 
-  // want to be respectful there is no need to bother them any more.
-}
-    </script>
-  <script>
-    function delBanner(){
-      var item = document.getElementById("ofBar");
-      console.log(item);
-      item.parentNode.removeChild(item);
+      // Let's check whether notification permissions have already been granted
+      else if (Notification.permission === "granted") {
+        // If it's okay let's create a notification
+        var notification = new Notification("Hi there!",{body: "this is a body"});
+      }
+
+      // Otherwise, we need to ask the user for permission
+      else if (Notification.permission !== "denied") {
+        Notification.requestPermission().then(function (permission) {
+          // If the user accepts, let's create a notification
+          if (permission === "granted") {
+            var notification = new Notification("Hi there!");
+          }
+        });
+      }
     }
-    
-    
   </script>
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NKDMSK6" height="0" width="0"
-      style="display:none;visibility:hidden"></iframe></noscript>
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NKDMSK6" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
   <div class="main-content">
     <!-- Navbar -->
     <nav class="navbar navbar-top navbar-horizontal navbar-expand-md navbar-dark">
@@ -127,7 +112,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link nav-link-icon" href="#"> <!-- Make a separate doctors page for Public users without sidenav -->
+              <a class="nav-link nav-link-icon" href="#">
                 <i class="ni ni-archive-2"></i>
                 <span class="nav-link-inner--text">Doctors</span>
               </a>
@@ -178,91 +163,11 @@
               <div class="text-center text-muted mb-4">
                 <small>Sign-In with Authorised credentials</small>
               </div>
-              <!--<form role="form">
-                <div class="form-group mb-3">
-                  <div class="input-group input-group-alternative">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="ni ni-email-83"></i></span>
-                    </div>
-                    <form>
-                      <input class="form-control" placeholder="Username" type="text" id="id" pattern="[A-Za-z1-9]{6,}" title="Username should only contain alphabets and numbers and should be 6 characters long" required/>                      
-                    </form>
-                    </div>
-                </div>
-                <div class="form-group">
-                  <div class="input-group input-group-alternative">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
-                    </div>
-                    <form>
-                      <input class="form-control" placeholder="Password" type="password" id="pass" pattern="[A-Za-z1-9]{6,}"/ required>
-                    </form>
-                  </div>
-                </div>
-                <div class="custom-control custom-control-alternative custom-checkbox">
-                  <input class="custom-control-input" id=" customCheckLogin" type="checkbox" />
-                  <label class="custom-control-label" for=" customCheckLogin">
-                    <span class="text-muted">Remember me</span>
-                  </label>
-                </div>
-                
-                <div class="text-center">
-                  <a href="#" id="link"><button type="button" class="btn btn-primary my-4" onclick="login()">
-                      Sign in
-                    </button></a>
-                    <script>
-                      tries = 3;
-                      function login(){  
-                        if(document.getElementById("id").value == 'mainadmin' && document.getElementById("pass").value == 'admin123' && tries > 0){
-                          document.getElementById("link").href = "./dashboard.html";
-                        }
-                        else if(tries <= 0){
-                          alert("You have been locked out of the dashboard. Kindly log back in after 24 hours.")
-                        }
-                        else if(document.getElementById("id").value == 'childadmin' && document.getElementById("pass").value == 'admin456'){
-                          document.getElementById("link").href = "./child/dashboard_child.html";
-                        }
-                        else{
-                          tries = tries - 1;
-                          alert("Enter correct ID or Password.\nTries left = "+ tries + "\n\n(Displaying id and password only for demo purposes)\nMain Admin\nID: admin\nPassword: admin123\n\nRegional Admin\nID: childadmin\nPassword: admin456");
-                        }
-                      }
-                      </script>
-                </div>
-              </form>-->
               <form>
                 <input class="form-control" placeholder="Username" type="text" id="id" pattern="[A-Za-z1-9]{6,}" title="Username should only contain alphabets and numbers and should be atleast 6 characters long" required/>                      
                 <br><input class="form-control" placeholder="Password" type="password" id="pass" pattern="[A-Za-z1-9]{6,}" required/>      
-                <!-- <br><div class="g-recaptcha" data-sitekey="6LeBubYUAAAAAE4vq1EfGN7tcnJh_AwuYsS-8CvN" data-callback="recaptchaCallback" ></div> -->
-                <!-- <div class="text-center"><button type='submit' class="btn btn-primary my-4" onclick="return login()" id="submitBtn" disabled>Sign in</button></div> -->
                 <div class="text-center"><button type='submit' class="btn btn-primary my-4" onclick="return login()" id="submitBtn">Sign in</button></div>
               </form>
-              <!-- <script>
-                function recaptchaCallback() {
-                  $('#submitBtn').removeAttr('disabled');
-                };
-              </script> -->
-              <script>
-                  tries = 3;                  
-                  function login(){  
-                    if(document.getElementById("id").value == 'doctor' && document.getElementById("pass").value == 'doctor123' && tries > 0){
-                      //document.getElementById("link").href = "./dashboard.html";
-                      window.location.href = "./dashboard.html";
-                      return false;
-                    }
-                    else if(document.getElementById("id").value == 'relative' && document.getElementById("pass").value == 'relative123' && tries >= 0){
-                      window.location.href = './child/dashboard_child.html';
-                      return false;
-                    }
-                    else if(tries <= 0){
-                      alert("You have been locked out of the dashboard. Kindly log back in after 24 hours.")
-                    }
-                    else{
-                      tries = tries - 1;
-                      alert("Enter correct ID or Password.\nTries left = "+ tries + "\n\n(Displaying id and password only for demo purposes)\nMain Admin\nID: mainadmin\nPassword: admin123\n\nRegional Admin\nID: childadmin\nPassword: admin456");
-                    }
-                  }
-              </script>
             </div>
           </div>
         </div>
@@ -277,22 +182,6 @@
               <a href="https://aws.amazon.com/" class="font-weight-bold ml-1" target="_blank">Amazon Web Services</a>
             </div>
           </div>
-          <!--<div class="col-xl-6">
-            <ul class="nav nav-footer justify-content-center justify-content-xl-end">
-              <li class="nav-item">
-                <a href="#" class="nav-link" target="_blank">Office
-                  Locator</a>
-              </li>
-              <li class="nav-item">
-                <a href="#" class="nav-link" target="_blank">Contact
-                  Us</a>
-              </li>
-              <li class="nav-item">
-                <a href="#" class="nav-link" target="_blank">Feedback</a>
-                https://forms.gle/KM4rprbUhiwdvmzK8
-              </li>
-            </ul>
-          </div>-->
         </div>
       </div>
     </footer>
@@ -300,36 +189,19 @@
  <!-- Firebase -->
  <!-- The core Firebase JS SDK is always required and must be listed first -->
 <script src="/__/firebase/7.9.1/firebase-app.js"></script>
-
 <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
 <script src="/__/firebase/7.9.1/firebase-database.js"></script>
-
 <!-- Initialize Firebase -->
 <script src="/__/firebase/init.js"></script>
-<script src="./index.js"></script>
+<script src="./js/index.js"></script>
 
+<!-- Core   -->
+<script src="vendor/jquery/dist/jquery.min.js"></script>
+<script src="vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 
-
-
-
-<!-- OLD -->
-  <!-- The core Firebase JS SDK is always required and must be listed first
-  <script src="/__/firebase/7.6.2/firebase-app.js"></script>
-
-  TODO: Add SDKs for Firebase products that you want to use
-     https://firebase.google.com/docs/web/setup#reserved-urls
-  <script src="/__/firebase/7.6.2/firebase-database.js"></script>
-
-  Initialize Firebase 
-  <script src="/__/firebase/init.js"></script>
-  <script src="./index.js"></script>
-  Core   -->
-  <script src="vendor/jquery/dist/jquery.min.js"></script>
-  <script src="vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-  <!--   Argon JS   -->
-  <script src="js/argon.min.js?v=1.0.0"></script>
-  <script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
+<!--   Argon JS   -->
+<script src="js/argon.min.js?v=1.0.0"></script>
+<script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
 </body>
-
 </html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>WikiPills | Geofence</title>
+    <meta name="viewport" content="initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <link href="./geofence.css" rel="stylesheet">
+    <!--Import Google Icon Font-->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <!-- Compiled and minified Materialize CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- AWS configs -->
+    <script
+    SameSite="None"
+    Secure
+    src="https://sdk.amazonaws.com/js/aws-sdk-2.7.16.min.js"
+    ></script>
+    <script>
+      AWS.config.update({
+        // accessKeyId and secretAccessKey default can be used while using the downloadable version of DynamoDB.
+        // For security reasons, do not store AWS Credentials in your files. Use Amazon Cognito instead.
+        region: "<enter_region_here>",
+        accessKeyId: "<enter_access_key_id_here>",
+        secretAccessKey: "<enter_secret_access_key_here>",
+        sessionToken: "<enter_session_token_here>"
+      });
+      </script>
+     <!-- Icons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+    <link rel="manifest" href="../site.webmanifest">
+    <link rel="mask-icon" href="../safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />  
+    <meta name="msapplication-TileColor" content="#2b5797">
+    <meta name="theme-color" content="#7C62E4"/>
+    <meta name="apple-mobile-web-app-capable" content="yes">  
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"> 
+    <meta name="apple-mobile-web-app-title" content="WikiPills">
+  </head>
+
+  <body>
+    <!-- geofencing map div-->
+    <div class="hoverable" id="map"></div>
+
+    <!-- Control panel body -->
+    <div class="row">
+      <div class="col s3">
+        <div class="card hoverable">
+          <div class="card-content">
+            <span class="card-title"><b>Control Panel</b></span>
+              <ul style="float: left;">
+                <li>- See History Log</li>
+                <li>- Set Schedule</li>
+                <li>- Share live location</li>
+              </ul>
+              <button class="btn-floating btn-large waves-effect waves-light red hoverable"
+                      onclick="changeMarkerPosition(marker, poly, track)" style="float: right;">
+                <i class="material-icons">location_on</i>
+              </button>
+          </div>
+          <div class="card-tabs">
+            <ul class="tabs">
+              <li class="tab"><a href="#test4">History</a></li>
+              <li class="tab"><a class="active" href="#test5">Schedule</a></li>
+              <li class="tab"><a href="#test6">Share</a></li>
+            </ul>
+          </div>
+        <div class="card-content grey lighten-4">
+          <div id="test4"><table>
+            <tbody>
+              <tr id="tr1"></tr>
+              <tr id="tr2"></tr>
+              <tr id="tr3"></tr>
+              <tr id="tr4"></tr>
+              <tr id="tr5"></tr>
+            </tbody>
+          </table></div>
+          <div id="test5">
+             <input type="text" class="timepicker" placeholder="Start Time">
+             <input type="text" class="timepicker" placeholder="End Time">
+          </div>
+          <div id="test6">Test 3</div>
+        </div>
+      </div>
+    </div>
+    <script>
+      $(document).ready(function(){
+        $('.tabs').tabs();
+      });
+      $(document).ready(function(){
+    $('.timepicker').timepicker();
+  });
+    </script>
+
+
+    <!-- Google Maps API with libraries including geometry, drawing, and visualization -->
+    <!-- Enter your unique Google Maps API key here -->
+    <script
+    src="https://maps.googleapis.com/maps/api/js?key=<ENTER_API_KEY_HERE>&libraries=geometry,drawing,visualization&callback=initMap"
+    ></script>
+    <!-- Referencing this file to facilitate heatmap visualization over Google Maps  -->
+    <script src="./js/gmaps-heatmap.js"></script>
+    
+    <!-- Compiled and minified JavaScript -->
+    <script SameSite="None" Secure src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!-- Firebase -->
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="/__/firebase/7.9.1/firebase-app.js"></script>
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+    //   https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="/__/firebase/7.9.1/firebase-database.js"></script>
+    <!-- Initialize Firebase -->
+    <script src="/__/firebase/init.js"></script>
+    <script src="./js/geofence.js"></script>
+  </body>
+</html>

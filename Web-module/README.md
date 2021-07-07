@@ -1,5 +1,5 @@
 <p align="center">
-    <img alt="WikiPills logo" width="128" height="128" src="./public/android-chrome-256x256.png">
+    <img alt="WikiPills logo" width="128" height="128" src="./public/img/icons/android-chrome-256x256.png">
 </p>
 
 
@@ -57,7 +57,7 @@ Follow the given steps if you wish to customise/replace the project's DynamoDB a
 
 Installation steps for `AWS CLI` and `Firebase CLI` are given [here](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html) and [here](https://firebase.google.com/docs/cli) respectively. You'll also need an AWS account (AWS Educate will work too!) to configure and setup DynamoDB.
 
-### Configure AWS CLI
+### Configure AWS CLI for DynamoDB
 
 - Check if AWS CLI v2.0.x is installed. If you see anything >=2.0.0 then you're good to go. <br>
   ```bash
@@ -81,6 +81,10 @@ Installation steps for `AWS CLI` and `Firebase CLI` are given [here](https://doc
   secretAccessKey: "<enter_secret_access_key_here>",
   sessionToken: "<enter_session_token_here>"
   ```
+  NOTE: You may also have to add this to your HTML pages to set up AWS SDK for Javascript if you haven't already.
+  ```html
+  <script SameSite="None" Secure src="https://sdk.amazonaws.com/js/aws-sdk-2.7.16.min.js"></script>
+  ``` 
 
 ### Configure Firebase CLI
 

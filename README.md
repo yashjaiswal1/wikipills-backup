@@ -1,5 +1,5 @@
 <p align="center">
-    <img alt="WikiPills logo" width="128" height="128" src="./Web-module/public/android-chrome-256x256.png">
+    <img alt="WikiPills logo" width="128" height="128" src="./Web-module/public/img/icons/android-chrome-256x256.png">
 </p>
 
 # **WikiPills**
@@ -22,7 +22,7 @@ WikiPills uses novel geofencing techniques to monitor patients and maintains the
 - **Web:** HTML/CSS, Javascript, Bootstrap Studio, heatmaps.js, Google Maps API, chart.js, Firebase (web-hosting) <br>
 - **Mobile Application:** Android Studio, Material Design libraries <br>
 - **Database:** AWS DynamoDB, Firebase (real-time db) <br>
-- **Aditi Voicebot:** Flask (for routing tasks and handling API calls), ngrok, Twilio <br>
+- **Aditi Voicebot:** Python, Flask (for routing tasks and handling API calls), ngrok, Twilio <br>
 - **AR module:** Vuforia via Unity<br>
 - **Alexa Skill:** Alexa Developer Console
 
